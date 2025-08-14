@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de HTML Mejorada</title>
+</head>
+<body>
+    
+    <!-- Encabezado principal -->
+    <h1 id="inicio">Guía Completa de HTML</h1>
+    <p><strong>HTML</strong> significa <em>HyperText Markup Language</em> y es el lenguaje estándar para <mark>crear páginas web</mark>.</p>
+    <hr>
+
+    <!-- Sección de introducción -->
+    <h2>-¿Qué es HTML?</h2>
+    <p>
+        HTML se utiliza para <b>estructurar el contenido</b> en la web.  
+        Permite insertar <i>textos</i>, <u>imágenes</u>, <a href="#enlaces">enlaces</a>, listas, tablas, videos y mucho más.
+    </p>
+    <small>Dato histórico: HTML fue creado por Tim Berners-Lee en 1991.</small>
+    <br><br>
+
+    <!-- Lista con sublistas -->
+    <h3>Elementos básicos de HTML</h3>
+    <ul>
+        <li><strong>Textos</strong>
+            <ul>
+                <li>Encabezados: <code>&lt;h1&gt; a &lt;h6&gt;</code></li>
+                <li>Párrafos: <code>&lt;p&gt;</code></li>
+                <li>Saltos de línea: <code>&lt;br&gt;</code></li>
+            </ul>
+        </li>
+        <li><strong>Multimedia</strong>
+            <ol>
+                <li>Imágenes (<code>&lt;img&gt;</code>)</li>
+                <li>Videos (<code>&lt;video&gt;</code>)</li>
+                <li>Audio (<code>&lt;audio&gt;</code>)</li>
+            </ol>
+        </li>
+        <li><strong>Hipervínculos</strong> con <code>&lt;a&gt;</code></li>
+    </ul>
+    <hr>
+
+    <!-- Enlaces -->
+    <h3 id="enlaces">Ejemplos de enlaces</h3>
+    <p>
+        Enlace externo: 
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" title="Abrir en nueva pestaña">
+            Documentación de HTML en MDN
+        </a>
+    </p>
+    <p>
+        Enlace interno: 
+        <a href="#imagenes" title="Ir a la sección de imágenes">Ver ejemplos de imágenes</a>
+    </p>
+    <p>
+        Enlace para descargar un archivo: 
+        <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download="ejemplo.pdf">
+            Descargar PDF de ejemplo
+        </a>
+    </p>
+    <hr>
+
+    <!-- Imágenes -->
+    <h3 id="imagenes">Imágenes en HTML</h3>
+    <p>
+        Las imágenes se insertan con <code>&lt;img&gt;</code> usando atributos como:  
+        <ul>
+            <li><b>src</b>: la URL o ruta del archivo.</li>
+            <li><b>alt</b>: texto alternativo para accesibilidad.</li>
+            <li><b>width</b> y <b>height</b>: dimensiones de la imagen.</li>
+            <li><b>title</b>: texto emergente al pasar el ratón.</li>
+        </ul>
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" 
+         alt="Logo HTML5" width="150" height="150" title="Logo oficial HTML5">
+    <img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" 
+         alt="Logo HTML5 Alternativo" width="150" height="150" title="Logo alternativo HTML5">
+    <br>
+    <small>Ejemplo con dos imágenes insertadas una junto a otra.</small>
+    <hr>
+
+    <!-- Ejemplo de estructura básica -->
+    <h2>Estructura básica de un documento HTML</h2>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p&gt;Este es mi primer párrafo en HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <p><mark>Recuerda:</mark> HTML es la base de cualquier sitio web, pero para estilos necesitas CSS y para interactividad JavaScript.</p>
+
+    <!-- Enlace para volver al inicio -->
+    <p><a href="#inicio">Volver al inicio</a></p>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de HTML</title>
+</head>
+<body>
+    <h1 id="inicio">Guía Completa de HTML</h1>
+    <P><strong>HTML</strong> significa <em>HyperText Markup Language</em> y es el lenguaje estándar para <mark>crear páginas web</mark>.</P>
+    <hr>
+
+    <!-- Sección de introducción -->
+    <h2>-¿Que es HTML?</h2>
+    <P>HTML se utiliza para <strong>estructurar el contenido</strong> en la web. Permite insertar <em>textos</em>, <u>imágenes, <a href="#enlaces">enlaces,</a></u> listas, tablas, videos y mucho más.</P>
+    <p>
+    <small>Dato histórico: HTML fue creado por Tim Berners-Lee en 1991.</small>
+    <br><br>
+    <h3>Elementos Básicos de HTML</h3>
+
+    <!-- Lista con sublistas -->
+    <ul>
+        <li><strong>Textos</strong>
+            <ul>
+                <li>Encabezados:<code>&lt;h1&gt; a &lt;h6&gt;</code></li>
+                <li>Párrafos:<code>&lt;p&gt;</code></li>
+                <li>Saltos de línea:<code>&lt;br&gt;</code></li>
+            </ul>
+        </li>
+        <li><strong>Multimedia</strong>
+            <ol>
+                <li>Imágenes(<code>&lt;img&gt;</code>)</li>
+                <li>Videos(<code>&lt;video&gt;</code>)</li>
+                <li>Audio(<code>&lt;audio&gt;</code>)</li>
+            </ol>
+        </li>
+        <li><strong>Hipervinculos</strong> con &lt;a&gt;</li>
+    </ul>
+    <hr>
+
+    <!--Emlaces-->
+    <h3 id="enlaces">Ejemplos de enlaces</h3>
+    <p>
+        Enlace externo:
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">
+            Documentación de HTML en MDN
+        </a>
+    </p>
+    <p>
+        Enlace interno:
+        <a href="#imagenes">Ver ejemplos de imágenes</a>
+    </p>
+    <p>
+        Enlace para descargar un archivo:
+        <a href="https://elhacker.info/manuales/Lenguajes%20de%20Programacion/Dise%C3%B1o%20web/Co%CC%81mo_ser_front_end_sin_fallar_en_el_intento_Tus_primeros_pasos.pdf" target="_blank">
+            Descargar PDF de ejemplo
+        </a>
+    </p>
+    <hr>
+
+    <!--Imágenes-->
+    <h3 id="imagenes">Imágenes en HTML</h3>
+    </p>
+    <P>Las imágenes se insertan con <img> usando atributos como:</P>
+    <ul>
+        <li><strong>src</strong>: la URL o ruta del archivo.</li>
+        <li><strong>alt</strong>: texto alternativo para accesibilidad.</li>
+        <li><strong>eidth</strong> y <strong>height</strong>: dimensiones de la imagen.</li>
+        <li><strong>title</strong>: texto emergente al pasar el ratón.</li>
+    </ul>
+    <a href="">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png" alt="Logo    de HTML" width="15%">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png" alt="Logo    de HTML" width="15%">
+    </a>
+    <br>
+    <small>Ejemplo con dos imágenes insertadas una junto a otra.</small>
+    <hr>
+
+    <h3>Estructura básica de un documento HTML</h3>
+    <pre>
+&lt;DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&lt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p&gt;Este es mi primer párrafo en HTML.&lt;/p&gt;
+&lt;body&gt;
+&lt;html&gt;
+    </pre>
+
+    <p><mark>Recuerda:</mark> HTML es la base de cualquier sitio web, pero para estilos necesitas CSS y para interactividad JavaScript.</p>
+    
+    <!-- Enlace para volver al inicio -->
+    <a href="#inicio"><u>Volver al inicio</u></a>
+
+
+</body>
+</html>

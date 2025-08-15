@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Multimedia en HTML</title>
+</head>
+<body>
+
+    <!-- Encabezado principal de la página -->
+    <h1 style="color:red;">Ejemplo de Multimedia en HTML</h1>
+    <p>En esta página veremos cómo usar <b>video</b> y <b>audio</b> en HTML5.</p>
+
+    <hr> <!-- Línea horizontal para separar secciones -->
+
+    <!-- VIDEO -->
+    <!-- La etiqueta <video> permite insertar un video en la página -->
+    <!-- Atributos:
+         - controls: muestra los controles (play, pausa, volumen, etc.)
+         - width y height: definen el tamaño del video
+         - autoplay: inicia automáticamente (requiere muted para que funcione en la mayoría de navegadores)
+         - muted: silencia el video al inicio
+         - loop: reproduce el video en bucle
+    -->
+    <h2>Video de presentación</h2>
+    <video controls width="640" height="360" autoplay muted loop>
+        <source src="https://www.blogger.com/video.g?token=AD6v5dxSLrJdEUa00PJ2IMCb2TycUspbSXPIPxbT1x6sHdJegR-qCCCIJw2I_fGD2ZPFbDl4B0ahl6mpp3be0NQV98efQ0W9-0h-EymiClzs5BUKxaS_Qk29VO2yIlVlJ_Tm5BEHCPic" type="video/mp4">
+        Tu navegador no soporta la etiqueta <code>video</code>.
+    </video>
+
+    <hr>
+
+    <!-- AUDIO -->
+    <!-- La etiqueta <audio> permite insertar un audio en la página -->
+    <!-- Atributos:
+         - controls: muestra los controles de reproducción
+         - autoplay: inicia automáticamente
+         - loop: reproduce en bucle
+         - muted: inicia silenciado
+    -->
+    <h2>Audio de ejemplo</h2>
+    <audio controls autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta <code>audio</code>.
+    </audio>
+
+    <hr>
+
+    <!-- Comentario sobre compatibilidad -->
+    <!-- Nota: Algunos formatos de video/audio pueden no funcionar en todos los navegadores.
+         Es recomendable usar MP4 para video y MP3 para audio para mayor compatibilidad.
+    -->
+
+    <!-- Enlace de referencia -->
+    <p>Para más información sobre etiquetas multimedia en HTML, visita:
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/video" target="_blank">Documentación de MDN</a>
+    </p>
+
+    <h1>insertar un iframe</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+</body>
+</html>

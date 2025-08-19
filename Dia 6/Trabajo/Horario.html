@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Horario de Clase</title>
+</head>
+<body>
+  <h1 id="titulo">HORARIO DE CLASE</h1>
+  <table>
+    <tr>
+      <th></th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+    </tr>
+    <tr>
+      <td>8:00 – 8:55</td>
+      <td class="matematicas">Matemáticas</td>
+      <td class="fisicaquimica">Física y Química</td>
+      <td class="ingles">Inglés</td>
+      <td class="matematicas">Matemáticas</td>
+      <td class="lengua">Lengua</td>
+    </tr>
+    <tr>
+      <td>8:55 – 9:50</td>
+      <td class="ingles">Inglés</td>
+      <td class="matematicas">Matemáticas</td>
+      <td class="lengua">Lengua</td>
+      <td class="biologia">Biología</td>
+      <td class="informatica">Informática</td>
+    </tr>
+    <tr>
+      <td>9:50 – 10:45</td>
+      <td class="filosofia">Filosofía</td>
+      <td class="efi">EFI</td>
+      <td class="informatica">Informática</td>
+      <td class="efi">EFI</td>
+      <td class="ingles">Inglés</td>
+    </tr>
+    <tr>
+      <td class="hora">10:45 – 11:15</td>
+      <td class="r">R</td>
+      <td class="e">E</td>
+      <td class="cp">CP</td>
+      <td class="e">E</td>
+      <td class="o">O</td>
+    </tr>
+    <tr>
+      <td>11:15 – 12:10</td>
+      <td class="atu">ATU</td>
+      <td class="tecnologia">Tecnología</td>
+      <td class="fisicaquimica">Física y Química</td>
+      <td class="filosofia">Filosofía</td>
+      <td class="fisicaquimica">Física y Química</td>
+    </tr>
+    <tr>
+      <td>12:10 – 13:05</td>
+      <td class="tecnologia">Tecnología</td>
+      <td class="tutoria">Tutoría</td>
+      <td class="tecnologia">Tecnología</td>
+      <td class="lengua">Lengua</td>
+      <td class="matematicas">Matemáticas</td>
+    </tr>
+    <tr>
+      <td>13:05 – 14:00</td>
+      <td class="informatica">Informática</td>
+      <td class="biologia">Biología</td>
+      <td class="atu">ATU</td>
+      <td class="ingles">Inglés</td>
+      <td class="efi">EFI</td>
+    </tr>
+  </table>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 30px;
+
+    /* Estilos que antes tenía .container */
+    max-width: 700px;
+    margin: auto;
+    border: 3px solid #9caf82;
+    background: white;
+    box-shadow: 4px 6px 8px rgba(0,0,0,0.15);
+    padding: 15px 20px 30px 20px;
+  }
+  #titulo {
+      text-align: center;
+      font-family: 'Georgia', serif;
+      font-weight: lighter;
+      font-size: 48px;
+      color: #FFA500;
+      text-shadow: 4px 4px 0px rgba(15, 14, 14, 0.5);
+      letter-spacing: 2px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  th, td {
+    border: 2px solid #f7f2f2;
+    text-align: center;
+    font-weight: normal;
+    font-size: 0.95rem;
+    padding: 8px 5px;
+    word-wrap: break-word;
+  }
+  tr:first-child th {
+    background-color: #406ba0;
+    color: white;
+    font-weight: bold;
+  }
+  /* Color de la primera columna con horas */
+  td:first-child {
+    background-color: #406ba0;
+    color: white;
+    font-weight: bold;
+    width: 12%;
+  }
+  /* Colores para las materias */
+  td.matematicas { background-color: #9cad72; color: #193600; }
+  td.fisicaquimica { background-color: #fff246; color: #4d4b00; }
+  td.ingles { background-color: #173756; color: white; }
+  td.lengua { background-color: #e60000; color: white; font-weight: bold; }
+  td.biologia { background-color: #007a36; color: white; }
+  td.informatica { background-color: #202830; color: white; }
+  td.filosofia { background-color: #d87a2c; color: white; }
+  td.r, td.e, td.cp, td.o, td.hora {
+    background-color: #f7941dcc;
+    color: white;
+    font-weight: bold;
+  }
+  td.atu { background-color: #00aaff; color: #002b4d; font-weight: bold; }
+  td.tecnologia { background-color: #0288d1; color: white; font-weight: bold; }
+  td.tutoria { background-color: #d82828; color: white; }
+  td.efi{ background-color: #e4e6e1;}
+</style>
+</body>
+</html>
+
+
+

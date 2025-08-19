@@ -1,76 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
+
 <body>
-    <h1>Login</h1>
+    <h1>Login</h1> <!-- Título visible en la página -->
 
-    <form action="">
-        <img src="Imagen/Perfil.png" alt="" ><br><br>
-        <input type="email" placeholder="Correo"><br><br>
-        <input type="password" placeholder="Contraseña"><br><br>
-        <input class="chaeck" type="checkbox" name="" id="">
-        <label class="texto1" for="">Remenber me</label>
-        <label class="texto2" for="">Forgot password?</label>
-        <br><br> 
-        <button class="button">LOGIN</button>
+    <form action=""> <!-- Inicio del formulario (action vacío por ahora) -->
+
+        <!-- Imagen del perfil -->
+        <img src="Imagen/Perfil.png" alt="Avatar"><br>
+
+        <!-- Campo de entrada para correo -->
+        <input type="email" placeholder="👤Correo" required><br>
+
+        <!-- Campo de entrada para contraseña -->
+        <input type="password" placeholder="🔒Contraseña" required><br>
+
+        <!-- Sección alineada con flexbox -->
+        <section class="alineacion">
+            <!-- Checkbox con su etiqueta -->
+            <label class="texto1">
+                <input class="check" type="checkbox" id="remember">
+                Recuérdame
+            </label>
+
+            <!-- Texto de recuperación de contraseña -->
+            <label class="texto2">¿Olvidaste tu contraseña?</label>
+        </section>
+
+        <br>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="button">LOGIN</button>
     </form>
-
-    <style>
-        form{
-            border-radius: 5%;
-            background-color: rgb(41, 107, 182);
-            margin: auto;
-            width: 50%;
-            
-         
-        }
-        form input{
-            display: block; 
-            margin: 10px auto; /* Espacio automático en los márgenes izquierdo y derecho */
-            padding: 10px; 
-            width: 80%; /* Puedes ajustar el tamaño según prefieras */
-        }
-        img{
-            max-width: 100%; /* Asegura que la imagen no sobrepase el contenedor */
-            height: auto; /* Mantiene la proporción */
-            border-color: white;
-            border-radius: 100%;
-            
-        }
-        h1{
-            text-align: left;
-            color: rgb(18, 18, 19);
-            font-size: 50px;
-        }
-        .button{
-            background-color: rgb(14, 27, 204);
-            color: white;
-            margin:auto; /* Espaciado entre elementos */
-            padding: 10px;
-            width: 50%; /* Ancho fijo para los input y botón */
-            border-radius:10%;
-            
-
-        }
-        .texto1{
-            color: white;
-            text-align: center;
-
-        }
-        .texto2{
-            color: white;
-            text-align: center;
-        }
-        .check{
-            
-        }
-            
-
-    </style>
-
 </body>
+<style>
+    /* Estilos generales del cuerpo */
+    body {
+        font-family: Arial, sans-serif; /* Fuente del texto */
+        background-color: white; /* Fondo blanco */
+    }
+
+    /* Título principal */
+    h1 {
+        text-align: center; /* Centrado de texto */
+        color: rgb(18, 18, 19); /* Color de texto */
+        font-size: 40px; /* Tamaño de texto */
+    }
+
+    /* Contenedor del formulario */
+    form {
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: rgb(41, 107, 182); /* Fondo azul */
+        margin: auto; /* Centrar horizontalmente */
+        width: 50%; /* Ancho al 50% de la pantalla */
+        padding: 20px; /* Espaciado interno */
+        text-align: center; /* Centra los elementos internos */
+    }
+
+    /* Estilos de los inputs de correo y contraseña */
+    form input[type="email"],
+    form input[type="password"] {
+        display: block; /* Se muestran en bloques, uno debajo del otro */
+        margin: 10px auto; /* Centrado con margen */
+        padding: 10px; /* Espacio interno */
+        width: 80%; /* Ocupan el 80% del ancho del formulario */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    /* Imagen del avatar */
+    form img {
+        max-width: 100px; /* Máximo ancho 100px */
+        height: auto; /* Altura proporcional */
+        border: 2px solid white; /* Borde blanco */
+        border-radius: 50%; /* Imagen redonda */
+        margin-bottom: 15px; /* Separación inferior */
+    }
+
+    /* Botón de LOGIN */
+    .button {
+        background-color: rgb(14, 27, 204); /* Fondo azul oscuro */
+        color: white; /* Texto blanco */
+        margin: 15px auto; /* Centrado con margen */
+        padding: 10px; /* Espaciado interno */
+        width: 50%; /* Ancho del botón */
+        border-radius: 8px; /* Bordes redondeados */
+        border: none; /* Sin borde */
+        cursor: pointer; /* Cursor de mano */
+    }
+
+    /* Efecto hover en el botón */
+    .button:hover {
+        background-color: rgb(10, 20, 150); /* Azul más oscuro al pasar el mouse */
+    }
+
+    /* Texto blanco en etiquetas */
+    .texto1,
+    .texto2 {
+        color: white; /*Color de fuente*/
+        font-size: 12px; /*Tamaño de fuente*/
+    }
+
+    /* Alineación de "Recuérdame" y "¿Olvidaste tu contraseña?" */
+    .alineacion {
+        width: 80%; /* Igual que los inputs */
+        margin: 0 auto; /* Centrado */
+        display: flex; /* Flexbox para alinear en fila */
+        justify-content: space-between; /* Espaciados a los lados */
+        align-items: center; /* Alineación vertical centrada */
+    }
+
+    /* Ajuste de espacio entre el checkbox y el texto */
+    .check {
+        transform: scale(0.8); /* lo hace 20% más pequeño */
+        margin-right: 5px;
+        /*margin-top: 10px; /* Ajusta si quieres mover todo más abajo */
+        /* Agrega un margen (espacio externo) en el lado derecho del checkbox */
+        /* En este caso son 5 píxeles, lo que separa el cuadro del texto "Recuérdame" */
+    }
+</style>
+
 </html>

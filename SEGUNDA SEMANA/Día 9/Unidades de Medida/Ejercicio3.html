@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Igual a la Imagen</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Header</div>
+    <div class="navegacion">Navigation</div>
+    <div class="aside">Aside</div>
+    <div class="content">Content</div>
+    <div class="section">Section</div>
+    <div class="footer">Footer</div>
+  </div>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #b3e5fc; /* fondo azul claro */
+      padding: 20px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside content"
+        "aside section"
+        "footer footer";
+      grid-template-columns: 1fr 2fr;   /* Aside más estrecho */
+      grid-template-rows: auto auto 1fr 1fr auto;
+      gap: 15px;
+    }
+
+    .header {
+      grid-area: header;
+      background: #00bfa5;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navegacion {
+      grid-area: nav;
+      background: #43a047;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .aside {
+      grid-area: aside;
+      background: #66bb6a;
+      color: white;
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .content {
+      grid-area: content;
+      background: #039be5;
+      color: white;
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .section {
+      grid-area: section;
+      background: #01579b;
+      color: white;
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .footer {
+      grid-area: footer;
+      background: #00bfa5;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>

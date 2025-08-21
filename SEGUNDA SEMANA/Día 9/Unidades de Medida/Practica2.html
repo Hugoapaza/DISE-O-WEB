@@ -1,30 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Unidades Relativas</title>
   </head>
   <body>
     <div class="contenedor">
-        <div class="bloque">
-            <h2>Unidades Relativas</h2>
-            <p>Este bloque usa <code>vw</code>, <code>vh</code>, <code>em</code>, y <code>rem</code> 
-               para construir un diseño flexible y adaptable al tamaño de la pantalla.</p>
-            <form action="">
-                <button class="boton">Aceptar</button>
-            </form>
-        </div>
+      <div class="bloque">
+        <h2>Unidades Relativas</h2>
+        <p>
+          Este bloque usa <code>'vw'</code>, <code>'vh'</code>, <code>'em'</code>, y
+          <code>'rem'</code> para construir un diseño flexible y adaptable al
+          tamaño de la pantalla.
+        </p>
+        <form action="#">
+          <button type="button" class="boton">Aceptar</button>
+        </form>
+      </div>
     </div>
   </body>
-  <STYle>
-    *{
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .contenedor{
 
+    body {
+      background: #f5f6f7; /* Fondo gris claro */
     }
-  </STYle>
+
+    /* Contenedor blanco con sombra */
+    .contenedor {
+      width: 85%; /* ancho relativo */
+      min-height: calc(100vh - 40px); /* ocupa todo el alto menos 20px */
+      margin: 0 auto 20px auto; /* sin margen arriba, 20px abajo */
+      background: #fff; /* fondo blanco */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* sombra */
+      padding: 2rem; /* espacio interior arriba y a los lados */
+      display: block;
+    }
+    /* limita ancho de texto */
+    /*.bloque {
+      max-width: 100ch; 
+    }*/
+
+    .bloque h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .bloque p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    code {
+      background: #eef1f4;
+      padding: 0.2em 0.5em;
+      border-radius: 0.3em;
+      font-size: 0.95em;
+    }
+
+    .boton {
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 0.8em 1.5em;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .boton:hover {
+      filter: brightness(1.1);
+    }
+  </style>
 </html>

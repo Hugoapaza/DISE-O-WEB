@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades de Medida y Contenedores</title>
+    <style>
+        /* RESET BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* UNIDADES ABSOLUTAS (fijas) */
+        .absolutas {
+            width: 500px;       /* píxeles - unidad absoluta más común */
+            height: 300px;
+            border: 1cm solid red; /* centímetros */
+            margin: 10mm auto;  /* milímetros */
+            padding: 0.5in;     /* pulgadas */
+            font-size: 12pt;    /* puntos (1/72 de pulgada) */
+        }
+
+        /* UNIDADES RELATIVAS (flexibles) */
+        .relativas {
+            width: 80vw;        /* 80% del ancho del viewport */
+            height: 50vh;       /* 50% del alto del viewport */
+            margin: 2rem auto;  /* relativo al font-size root (16px por defecto) */
+            padding: 1em;       /* relativo al font-size del elemento */
+            border: 0.5rem solid blue;
+            font-size: 1.5em;   /* 1.5 veces el tamaño de fuente del padre */
+        }
+
+        /* CONTENEDOR FLEX */
+        .contenedor-flex {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;          /* espacio entre elementos hijos */
+            background-color: #f0f0f0;
+            padding: 2%;
+            margin: 20px 0;
+        }
+
+        /* CONTENEDOR GRID */
+        .contenedor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+            gap: 15px;
+            padding: 2%;
+            background-color: #e0e0e0;
+        }
+
+        /* EJEMPLO DE CAJAS/CONTENEDORES */
+        .caja {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        /* UNIDADES PARA TIPOGRAFÍA */
+        .texto-relativo {
+            font-size: 1.2rem;  /* relativo al root */
+            line-height: 1.6;   /* sin unidades - múltiplo del font-size */
+            margin-bottom: 1.5em;
+        }
+
+        /* MEDIA QUERIES CON UNIDADES RELATIVAS */
+        @media (max-width: 768px) {
+            .relativas {
+                width: 95vw;    /* se adapta al viewport en móviles */
+                font-size: 1em;
+            }
+            
+            .contenedor-grid {
+                grid-template-columns: 1fr; /* 1 columna en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Unidades de Medida CSS y Contenedores</h1>
+    
+    <!-- Contenedor con unidades absolutas -->
+    <div class="absolutas">
+        <h2>Unidades Absolutas</h2>
+        <p>Este contenedor usa unidades fijas como px, cm, mm, in, pt.</p>
+        <p>No cambian con el tamaño de pantalla o fuente.</p>
+    </div>
+    
+    <!-- Contenedor con unidades relativas -->
+    <div class="relativas">
+        <h2>Unidades Relativas</h2>
+        <p class="texto-relativo">
+            Este contenedor usa unidades flexibles como %, vw, vh, em, rem.
+            Se adaptan al contexto (viewport, tamaño de fuente, etc).
+        </p>
+    </div>
+    
+    <!-- Contenedor Flex -->
+    <div class="contenedor-flex">
+        <div class="caja">Elemento Flex 1</div>
+        <div class="caja">Elemento Flex 2</div>
+        <div class="caja">Elemento Flex 3</div>
+    </div>
+    
+    <!-- Contenedor Grid -->
+    <div class="contenedor-grid">
+        <div class="caja">Celda Grid 1</div>
+        <div class="caja">Celda Grid 2</div>
+        <div class="caja">Celda Grid 3</div>
+        <div class="caja">Celda Grid 4</div>
+        <div class="caja">Celda Grid 5</div>
+        <div class="caja">Celda Grid 6</div>
+    </div>
+</body>
+</html>

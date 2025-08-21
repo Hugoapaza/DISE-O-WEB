@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades Relativas</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="bloque">
+            <h2>Unidades Relativas</h2>
+            <p>Este bloque usa <code>vw</code>, <code>vh</code>, <code>em</code>, y <code>rem</code> 
+               para construir un diseño flexible y adaptable al tamaño de la pantalla.</p>
+            <form action="">
+                <button class="boton">Aceptar</button>
+            </form>
+        </div>
+    </div>
+</body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Contenedor general */
+        .contenedor {
+            background-color: #f5f6f7;  /* gris claro de fondo */
+            min-height: 90vh;         /* toda la altura de la pantalla */
+            display: flex;
+            justify-content: center;   /* centrar horizontal */
+            align-items: center;       /* centrar vertical */
+        }
+
+        /* Bloque blanco centrado */
+        .bloque {            
+            background-color: #fff;
+            width: 80%;       /* ancho relativo a la ventana */
+            max-width: 800px;  /* ancho máximo */
+            padding: 2rem;     /* espacio interno */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* sombra ligera */
+        }
+
+        .bloque h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bloque p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .boton {
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 0.8em 1.5em;  /* usa em */
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background-color: #219150;
+        }
+    </style>
+</html>

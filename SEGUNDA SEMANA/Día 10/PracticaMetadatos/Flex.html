@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../Imagen/icono de navegador.png"
+      type="image/x-icon"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="parent">
+        <!-- HEADER -->
+        <div class="header">
+          <h2>Site Name</h2>
+          <header>&lt;HEADER&gt; SECTION</header>
+          <div class="paginas">
+              <div>page 2 |</div>
+              <div>page 3 |</div>
+              <div>page 4 |</div>
+              <div>page 5 |</div>
+              <div>page 6 |</div>
+          </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="content">
+          <!-- ASIDE -->
+          <div class="aside">
+            <aside>&lt;ASIDE&gt; SECTION</aside>
+            <ul>
+              <li>links</li>
+              <li>links</li>
+              <li>links</li>
+              <li>links</li>
+              <li>links</li>
+              <li>links</li>
+            </ul>
+          </div>
+
+          <!-- MAIN -->
+          <div class="main">
+            <main>&lt;MAIN&gt; SECTION</main>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+          <footer>&lt;FOOTER&gt; SECTION</footer>
+          <nav>
+            <a href="#">contact us</a>
+            <a href="#">affiliates</a>
+            <a href="#">help</a>
+            <a href="#">follow us</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #add8e6; /* azul de fondo general */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 50%;
+      margin: 20px auto;
+      border: 1px solid #080e0a;
+      background-color: #7cb342; /* verde borde */
+    }
+
+    .parent {
+      display: flex;
+      flex-direction: column; /* Apila header, contenido y footer */
+      gap: 5px;
+    }
+
+    .header {
+      background-color: #f35e08;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .header div{
+        background-color: #f3f6f7;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .content {
+      display: flex; /* aside y main en fila */
+      gap: 5px;
+      flex: 1;
+    }
+
+    .aside {
+      background-color: #008b8b;
+      padding: 5%;
+      color: white;
+      flex: 1;
+    }
+
+    .aside ul {
+      margin-top: 10%;
+      padding-left: 20%;
+    }
+
+    .main {
+      background-color: #009966;
+      padding: 15%;
+      text-align: center;
+      color: white;
+      flex: 3;
+    }
+
+    .footer {
+      background-color: #f35e08;
+      padding: 5%;
+      text-align: center;
+      color: white;
+    }
+
+    nav {
+      margin-top: 5%;
+    }
+
+    nav a {
+      background: #ffe4c4;
+      padding: 1% 1%;
+      margin: 0 3%;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #000;
+    }
+  </style>
+</html>

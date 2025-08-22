@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../Imagen/icono de navegador.png"
+      type="image/x-icon"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="parent">
+        <div class="header">
+            <h2>Site Name</h2>
+            <header>SECTION</header>
+            <tr>
+                <th>Navigation links</th>
+                <td>page 2</td>
+                <td>page 3</td>
+                <td>page 4</td>
+                <td>page 5</td>
+                <td>page 6</td>
+            </tr>
+        </div>
+        <div class="footer">
+            <footer>SECTION</footer></div>
+        <div class="aside">
+            <aside>SECTION</aside>
+            <ul>
+                <li>Links</li>
+                <li>Links</li>
+                <li>Links</li>
+                <li>Links</li>
+                <li>Links</li>
+                <li>Links</li>
+            </ul>
+        </div>
+        <div class="main"><main>SECTION</main></div>
+      </div>
+    </div>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container {
+      padding: 80px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .parent {
+      background-color: #3db451;
+      padding: 30px;
+      margin: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(9, 1fr);
+      gap: 2px;
+    }
+
+    .header {
+      background-color: #f35e08;
+      grid-column: span 5 / span 5;
+      grid-row: span 2 / span 2;
+    }
+
+    .aside {
+      background-color: #c59b12;
+      grid-column: span 2 / span 2;
+      grid-row: span 5 / span 80;
+      grid-column-start: 1;
+      grid-row-start: 3;
+    }
+
+    .main {
+      background-color: #057017c4;
+      grid-column: span 3 / span 3;
+      grid-row: span 5 / span 80;
+      grid-column-start: 3;
+      grid-row-start: 3;
+    }
+    .footer {
+      background-color: #f35e08;
+      grid-column: span 5 / span 5;
+      grid-row: span 4 / span 40;
+      grid-column-start: 1;
+      grid-row-start: 8;
+    }
+  </style>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitio Web Semántico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <header>
+        <h1>Site Name</h1>
+        <nav class="nav-header">
+          <a href="#">page 2</a>
+          <a href="#">page 3</a>
+          <a href="#">page 4</a>
+          <a href="#">page 5</a>
+          <a href="#">page 6</a>
+        </nav>
+      </header>
+
+      <div class="content">
+        <!-- ASIDE -->
+        <aside>
+          <h2>&lt;ASIDE&gt; SECTION</h2>
+          <ul>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+          </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main>
+          <h2>&lt;MAIN&gt; SECTION</h2>
+        </main>
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <h2>&lt;FOOTER&gt; SECTION</h2>
+        <nav class="nav-footer">
+          <a href="#">contact us</a>
+          <a href="#">affiliates</a>
+          <a href="#">help</a>
+          <a href="#">follow us</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: lightblue;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background: #8bc34a; /* borde verde claro */
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    /* HEADER */
+    header {
+      background: #f4511e;
+      padding: 10px;
+      text-align: left;
+      color: white;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #ffe0b2;
+      padding: 5px;
+    }
+
+    .nav-header a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .content {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    /* ASIDE */
+    aside {
+      width: 25%;
+      background: #009688;
+      color: white;
+      padding: 15px;
+    }
+
+    aside h2 {
+      margin-bottom: 10px;
+    }
+
+    aside ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    aside a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      background: #4caf50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 10px;
+      background: #f4511e;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    .nav-footer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #ffe0b2;
+      margin-top: 10px;
+      padding: 5px;
+    }
+
+    .nav-footer a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</html>

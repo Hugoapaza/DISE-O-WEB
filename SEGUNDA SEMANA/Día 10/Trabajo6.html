@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interfaz Semántica (réplica)</title>
+<style>
+  :root{
+    --sky:#bfe9ff;          /* fondo página */
+    --outer:#8bc34a;        /* marco verde */
+    --outer-border:#5b8f35; /* borde del marco */
+    --header:#ee5a2b;       /* header/footer naranja */
+    --aside:#0a9a93;        /* aside turquesa */
+    --main:#2ea96e;         /* main verde */
+    --cream:#f7d7c4;        /* cajas de navegación beige */
+    --ink:#1a1a1a;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--sky);
+    font:16px/1.25 "Segoe UI", Arial, sans-serif;
+    color:var(--ink);
+  }
+
+  /* Marco principal (ventana del navegador) */
+  .frame{
+    width: 980px;
+    margin: 38px auto;
+    border: 4px solid var(--outer-border);
+    background: var(--outer);
+    border-radius: 6px;
+    padding: 22px 20px 22px;
+    position:relative;
+  }
+
+  /* Barra del navegador */
+  .browser{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin: 0 6px 14px;
+  }
+  .btns{
+    display:flex; gap:10px;
+  }
+  .tri{
+    width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;
+  }
+  .tri.prev{border-right:12px solid #222;}
+  .tri.next{border-left:12px solid #222;}
+
+  .urlbar{
+    flex:1;
+    background:#7a7a7a;
+    border-radius:4px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    padding:0 14px;
+    color:#fff;
+    font-weight:600;
+    letter-spacing:.2px;
+  }
+
+  /* Header */
+  header{
+    background:var(--header);
+    color:#fff;
+    padding:16px 18px 20px;
+    border-radius:4px;
+  }
+  header .title{
+    font-size:28px;
+    margin:0 0 6px;
+  }
+  .section-tag{
+    text-align:center;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .nav-caption{
+    text-align:center;
+    margin:2px 0 6px;
+    font-size:14px;
+    color:#fff;
+    opacity:.95;
+  }
+
+  /* Nav en header y footer (caja beige) */
+  .tabs{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    background:var(--cream);
+    border:1px solid #000;
+    border-radius:4px;
+    padding:8px 10px;
+    width: 620px;
+    margin: 0 auto;
+    white-space:nowrap;
+  }
+  .tab{
+    padding:4px 22px;
+    text-decoration:none;
+    color:#000;
+    font-weight:600;
+  }
+  .divider{
+    padding:0 10px;
+    font-weight:700;
+  }
+
+  /* Zona de contenido */
+  .content{
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    gap:0;
+    margin-top:12px;
+    border:2px solid transparent; /* mantiene separación visual */
+  }
+  aside{
+    background:var(--aside);
+    color:#fff;
+    padding:18px 18px 24px;
+    border-right:4px solid var(--outer);
+    min-height:420px;
+  }
+  aside h3{
+    margin:0 0 12px;
+    font-size:18px;
+  }
+  aside ul{
+    list-style:square;
+    margin:10px 0 0 18px;
+    padding:0;
+  }
+  aside li{ margin:10px 0; }
+
+  main{
+    background:var(--main);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:420px;
+    padding:20px;
+    text-align:center;
+    border-left:4px solid var(--outer);
+  }
+  main h2{
+    margin:0;
+    font-size:20px;
+    letter-spacing:.3px;
+  }
+
+  /* Footer */
+  footer{
+    background:var(--header);
+    color:#fff;
+    padding:16px 18px 22px;
+    border-radius:4px;
+    margin-top:14px;
+  }
+  footer h3{
+    margin:0 0 8px;
+    font-size:18px;
+    font-weight:700;
+  }
+  footer .tabs{ width:520px; }
+</style>
+</head>
+<body>
+
+  <div class="frame">
+    <!-- Barra del navegador -->
+    <div class="browser">
+      <div class="btns">
+        <span class="tri prev"></span>
+        <span class="tri next"></span>
+      </div>
+      <div class="urlbar">https://www.sample.com</div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <h1 class="title">Site Name</h1>
+      <p class="section-tag">&lt;HEADER&gt; SECTION</p>
+      <p class="nav-caption">navigation links</p>
+      <nav class="tabs" aria-label="Navegación principal">
+        <a class="tab" href="#">page 2</a><span class="divider">|</span>
+        <a class="tab" href="#">page 3</a><span class="divider">|</span>
+        <a class="tab" href="#">page 4</a><span class="divider">|</span>
+        <a class="tab" href="#">page 5</a><span class="divider">|</span>
+        <a class="tab" href="#">page 6</a>
+      </nav>
+    </header>
+
+    <!-- CONTENIDO -->
+    <section class="content">
+      <aside>
+        <h3>&lt;ASIDE&gt; SECTION</h3>
+        <ul>
+          <li>links</li>
+          <li>links</li>
+          <li>links</li>
+          <li>links</li>
+          <li>links</li>
+          <li>links</li>
+        </ul>
+      </aside>
+
+      <main>
+        <h2>&lt;MAIN&gt; SECTION</h2>
+      </main>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>&lt;FOOTER&gt; SECTION</h3>
+      <p class="nav-caption">navigation links</p>
+      <nav class="tabs" aria-label="Navegación secundaria">
+        <a class="tab" href="#">contact us</a><span class="divider">|</span>
+        <a class="tab" href="#">affiliates</a><span class="divider">|</span>
+        <a class="tab" href="#">help</a><span class="divider">|</span>
+        <a class="tab" href="#">follow us</a>
+      </nav>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+

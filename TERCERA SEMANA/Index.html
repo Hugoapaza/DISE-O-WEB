@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interfaz Semántica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Sidebar</h2>
+        <p>Contenido del sidebar</p>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main">
+        <!-- Menú superior -->
+        <nav class="tabs">
+          <a href="#">PAGE 1</a>
+          <span class="divider">|</span>
+          <a href="#">PAGE 2</a>
+          <span class="divider">|</span>
+          <a href="#">PAGE 3</a>
+          <span class="divider">|</span>
+          <a href="#">PAGE 4</a>
+        </nav>
+
+        <!-- Contenido -->
+        <section class="content">
+          <h1>Main Content</h1>
+          <p>
+            Aquí va el contenido principal de la página. Es un texto de ejemplo
+            para mostrar cómo se distribuye en el layout.
+          </p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+          <a href="#">ABOUT US</a>
+          <span class="divider">|</span>
+          <a href="#">PRIVACY POLICY</a>
+          <span class="divider">|</span>
+          <a href="#">CONTACT US</a>
+        </footer>
+      </main>
+    </div>
+    <style>
+      /* 🔹 Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+      }
+
+      /* 🔹 Layout principal */
+      .frame {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: #222;
+        color: #fff;
+        width: 220px;
+        padding: 20px;
+      }
+
+      /* Main */
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        padding: 20px;
+      }
+
+      /* 🔹 Menú superior */
+      .tabs {
+        margin-bottom: 20px;
+      }
+
+      .tabs a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+      }
+
+      /* Barras separadoras del menú */
+      .tabs .divider {
+        color: #000 !important; /* negras */
+        margin: 0 10px;
+        vertical-align: middle; /* alineadas con el texto */
+      }
+
+      /* 🔹 Contenido */
+      .content {
+        flex: 1;
+        padding: 20px 0;
+      }
+
+      /* 🔹 Footer */
+      footer {
+        margin-top: 20px;
+        background: #333;
+        padding: 15px;
+        text-align: center;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      /* Barras separadoras del footer */
+      footer .divider {
+        color: #fff !important; /* blancas */
+        margin: 0 10px;
+        vertical-align: middle;
+      }
+
+      /* 🔹 Responsive */
+      @media (max-width: 768px) {
+        .frame {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          text-align: center;
+        }
+
+        .main {
+          padding: 15px;
+        }
+
+        .tabs {
+          text-align: center;
+        }
+
+        footer {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </body>
+</html>

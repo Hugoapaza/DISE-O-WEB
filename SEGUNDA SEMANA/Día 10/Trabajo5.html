@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estructura Semántica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <header>
+        <!-- Botones a la izquierda -->
+        <div class="header-left">
+          <button>Botón 1</button>
+          <button>Botón 2</button>
+        </div>
+
+        <!-- Buscador en el centro -->
+        <div class="header-center">
+          <input type="text" placeholder="Buscar..." />
+          <button class="btn-buscar">🔍</button>
+        </div>
+
+        <!-- Menú a la derecha -->
+        <nav class="header-right">
+          <a href="#">page 2</a>
+          <a href="#">page 3</a>
+          <a href="#">page 4</a>
+          <a href="#">page 5</a>
+          <a href="#">page 6</a>
+        </nav>
+      </header>
+
+      <!-- CONTENIDO -->
+      <div class="content">
+        <!-- ASIDE -->
+        <aside>
+          <h2>&lt;ASIDE&gt; SECTION</h2>
+          <ul>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">links</a></li>
+          </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main>
+          <h2>&lt;MAIN&gt; SECTION</h2>
+        </main>
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <h2>&lt;FOOTER&gt; SECTION</h2>
+        <nav class="footer-nav">
+          <a href="#">contact us</a>
+          <a href="#">affiliates</a>
+          <a href="#">help</a>
+          <a href="#">follow us</a>
+        </nav>
+      </footer>
+    </div>
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: lightblue;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 90%;
+        margin: 20px auto;
+        background: #8bc34a;
+        border: 2px solid #333;
+        padding: 10px;
+      }
+
+      /* HEADER */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f4511e;
+        padding: 10px;
+        gap: 10px;
+      }
+
+      /* Botones izquierda */
+      .header-left button {
+        background: #fff3e0;
+        border: 1px solid #333;
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .header-left button:hover {
+        background: #ffe0b2;
+      }
+
+      /* Buscador centro */
+      .header-center {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .header-center input {
+        width: 60%;
+        padding: 6px;
+        border: 1px solid #333;
+        border-radius: 4px;
+      }
+
+      .btn-buscar {
+        padding: 6px 10px;
+        border: none;
+        background: #fff3e0;
+        border: 1px solid #333;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .btn-buscar:hover {
+        background: #ffe0b2;
+      }
+
+      /* Menú derecha */
+      .header-right {
+        display: flex;
+        gap: 10px;
+      }
+
+      .header-right a {
+        text-decoration: none;
+        color: white;
+        background: #333;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+
+      .header-right a:hover {
+        background: #222;
+      }
+
+      /* CONTENIDO */
+      .content {
+        display: flex;
+        margin-top: 10px;
+        gap: 10px;
+      }
+
+      /* ASIDE */
+      aside {
+        width: 25%;
+        background: #009688;
+        color: white;
+        padding: 15px;
+      }
+
+      aside h2 {
+        margin-bottom: 10px;
+      }
+
+      aside ul {
+        list-style: square;
+        padding-left: 20px;
+      }
+
+      aside a {
+        color: white;
+        text-decoration: none;
+      }
+
+      aside a:hover {
+        text-decoration: underline;
+      }
+
+      /* MAIN */
+      main {
+        flex: 1;
+        background: #4caf50;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      /* FOOTER */
+      footer {
+        margin-top: 10px;
+        background: #f4511e;
+        padding: 15px;
+        text-align: center;
+        color: white;
+      }
+
+      .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background: #ffe0b2;
+        margin-top: 10px;
+        padding: 5px;
+      }
+
+      .footer-nav a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      .footer-nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          flex-direction: column;
+        }
+        aside {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .header-center {
+          order: 2;
+          margin: 10px 0;
+        }
+        .header-left,
+        .header-right {
+          justify-content: center;
+        }
+      }
+    </style>
+  </body>
+</html>

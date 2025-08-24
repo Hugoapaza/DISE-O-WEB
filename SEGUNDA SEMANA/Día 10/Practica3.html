@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF- támbien8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Name</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB; /* Color de fondo azul claro */
+        }
+
+        .browser-bar {
+            background-color: #90EE90; /* Verde claro */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .browser-bar::before {
+            content: "🔲🔲🔲";
+            font-size: 12px;
+        }
+
+        .browser-bar input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            background-color: #D3D3D3; /* Gris */
+        }
+
+        .header {
+            background-color: #FF6347; /* Naranja */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            background-color: #FFA07A; /* Naranja claro */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 120px); /* Altura total menos encabezado y navegación */
+        }
+
+        .aside {
+            background-color: #20B2AA; /* Verde azulado */
+            width: 200px;
+            padding: 20px;
+        }
+
+        .aside a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .main {
+            background-color: #32CD32; /* Verde lima */
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            background-color: #FF6347; /* Naranja */
+            padding: 15px;
+            text-align: center;
+        }
+
+        .footer-links {
+            background-color: #FFA07A; /* Naranja claro */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-bar">
+        <span>https://www.sample.com</span>
+    </div>
+
+    <div class="header">
+        <div class="site-name">Site Name</div>
+        <div>&lt;HEADER&gt; SECTION</div>
+    </div>
+
+    <div class="nav-links">
+        <span>navigation links</span>
+        <a href="#">page 2</a>
+        <a href="#">page 3</a>
+        <a href="#">page 4</a>
+        <a href="#">page 5</a>
+        <a href="#">page 6</a>
+    </div>
+
+    <div class="container">
+        <aside class="aside">
+            &lt;ASIDE&gt; SECTION
+            <a href="#">links</a>
+            <a href="#">links</a>
+            <a href="#">links</a>
+            <a href="#">links</a>
+            <a href="#">links</a>
+            <a href="#">links</a>
+        </aside>
+
+        <main class="main">
+            &lt;MAIN&gt; SECTION
+        </main>
+    </div>
+
+    <div class="footer-links">
+        <span>navigation links</span>
+        <a href="#">contact us</a>
+        <a href="#">affiliates</a>
+        <a href="#">help</a>
+        <a href="#">follow us</a>
+    </div>
+
+    <div class="footer">
+        &lt;FOOTER&gt; SECTION
+    </div>
+</body>
+</html>

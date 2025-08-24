@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="frame">
+      <!-- Contenedor “marco” verde que imita la ventana de la maqueta -->
+
+      <!-- Barra del navegador (flechas + barra gris) -->
+      <div class="browser">
+        <span class="tri prev"></span>
+        <!-- Triángulo “atrás” -->
+        <span class="tri next"></span>
+        <!-- Triángulo “adelante” -->
+        <div class="urlbar">https://www.sample.com</div>
+        <!-- Caja gris tipo barra de direcciones -->
+      </div>
+
+      <!-- HEADER naranja -->
+      <header>
+        <h1 class="title">Site Name</h1>
+        <!-- Título del sitio -->
+        <p class="section-tag">&lt;HEADER&gt; SECTION</p>
+        <!-- Rótulo central como en la imagen -->
+        <p class="nav-caption">navigation links</p>
+        <!-- Subtítulo “navigation links” -->
+
+        <!-- Caja beige de pestañas/enlaces del header -->
+        <nav class="tabs" aria-label="Navegación principal">
+          <a class="tab" href="#">page 2</a><span class="divider">|</span>
+          <a class="tab" href="#">page 3</a><span class="divider">|</span>
+          <a class="tab" href="#">page 4</a><span class="divider">|</span>
+          <a class="tab" href="#">page 5</a><span class="divider">|</span>
+          <a class="tab" href="#">page 6</a>
+        </nav>
+      </header>
+
+      <!-- CONTENEDOR DE CONTENIDO: Grid de 2 columnas en desktop -->
+      <section class="content">
+        <!-- ASIDE a la izquierda en desktop (primera columna) y arriba en mobile -->
+        <aside>
+          <h3>&lt;ASIDE&gt; SECTION</h3>
+          <!-- Título del bloque lateral -->
+          <ul>
+            <!-- Lista de enlaces “dummy” -->
+            <li>links</li>
+            <li>links</li>
+            <li>links</li>
+            <li>links</li>
+            <li>links</li>
+            <li>links</li>
+          </ul>
+        </aside>
+
+        <!-- MAIN a la derecha en desktop (segunda columna) y debajo en mobile -->
+        <main>
+          <h2>&lt;MAIN&gt; SECTION</h2>
+          <!-- Rótulo central del área principal -->
+        </main>
+      </section>
+
+      <!-- FOOTER naranja con su lista de enlaces -->
+      <footer>
+        <h3>&lt;FOOTER&gt; SECTION</h3>
+        <!-- Título del pie -->
+        <p class="nav-caption">navigation links</p>
+        <!-- Subtítulo como en la maqueta -->
+
+        <!-- Caja beige de enlaces del footer -->
+        <nav class="tabs" aria-label="Navegación secundaria">
+          <a class="tab" href="#">contact us</a><span class="divider">|</span>
+          <a class="tab" href="#">affiliates</a><span class="divider">|</span>
+          <a class="tab" href="#">help</a><span class="divider">|</span>
+          <a class="tab" href="#">follow us</a>
+        </nav>
+      </footer>
+    </div>
+    <style>
+      :root {
+        --sky: #bfe9ff; /* Color del fondo general (cielo) */
+        --outer: #8bc34a; /* Verde del “marco” (contenedor grande) */
+        --outer-border: #5b8f35; /* Borde más oscuro del marco */
+        --header: #ee5a2b; /* Naranja del header y footer */
+        --aside: #0a9a93; /* Turquesa del aside */
+        --main: #2ea96e; /* Verde del main */
+        --cream: #f7d7c4; /* Beige de las “pestañas” de navegación */
+        --ink: #1a1a1a; /* Color de texto principal */
+      }
+
+      * {
+        box-sizing: border-box;
+      } /* Incluye padding/border en el cálculo total de ancho/alto */
+
+      body {
+        margin: 0; /* Elimina márgenes por defecto del body */
+        background: var(--sky); /* Fondo celeste como la maqueta */
+        font: 16px/1.25 "Segoe UI", Arial, sans-serif; /* Tipografía base y altura de línea */
+        color: var(--ink); /* Color de texto */
+      }
+
+      .frame {
+        max-width: 980px; /* Limita el ancho para reproducir la maqueta */
+        margin: 20px auto; /* Centra horizontalmente y da margen superior/inferior */
+        border: 4px solid var(--outer-border); /* Borde exterior del marco */
+        background: var(--outer); /* Relleno verde del marco */
+        border-radius: 6px; /* Esquinas suavemente redondeadas */
+        padding: 20px; /* Espaciado interno del marco */
+      }
+
+      /* ---- Barra “del navegador” (línea gris con flechas) ---- */
+      .browser {
+        display: flex; /* Coloca flechas y barra en línea */
+        align-items: center; /* Centra verticalmente los elementos */
+        gap: 14px; /* Separación entre flechas y barra */
+        margin-bottom: 14px; /* Espacio debajo de la barra */
+      }
+
+      .tri {
+        /* Base para los triángulos (flechas) */
+        width: 0;
+        height: 0; /* Triángulos con bordes (técnica CSS) */
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+      }
+      .tri.prev {
+        border-right: 12px solid #222;
+      } /* Flecha “volver” (triángulo hacia la izquierda) */
+      .tri.next {
+        border-left: 12px solid #222;
+      } /* Flecha “avanzar” (triángulo hacia la derecha) */
+
+      .urlbar {
+        flex: 1; /* Ocupar el espacio restante */
+        background: #7a7a7a; /* Gris de la barra */
+        border-radius: 4px; /* Bordes redondeados */
+        height: 28px; /* Alto fijo tipo omnibox */
+        display: flex; /* Para centrar el texto verticalmente */
+        align-items: center;
+        padding: 0 14px; /* Espaciado interno horizontal */
+        color: #fff; /* Texto blanco */
+        font-weight: 600; /* Seminegrita para simular URL */
+      }
+
+      /* ---- HEADER ---- */
+      header {
+        background: var(--header); /* Naranja */
+        color: #fff; /* Texto blanco */
+        padding: 16px 18px 20px; /* Espaciado interno (más abajo para airearse) */
+        border-radius: 4px; /* Bordes suaves */
+      }
+      header .title {
+        margin: 0 0 6px; /* Sin margen arriba, un poco abajo */
+        font-size: 28px; /* Tamaño grande del título “Site Name” */
+      }
+      .section-tag {
+        text-align: center; /* Centra el rótulo <HEADER> SECTION */
+        font-weight: 800; /* Resalta el rótulo */
+        margin: 0 0 10px; /* Espacio inferior */
+      }
+      .nav-caption {
+        text-align: center; /* Texto “navigation links” centrado */
+        margin: 2px 0 6px; /* Márgenes sutiles */
+        font-size: 14px; /* Un poco más pequeño */
+      }
+
+      /* ---- Menús tipo “pestañas” (header y footer) ---- */
+      .tabs {
+        display: flex; /* Ítems en línea */
+        justify-content: center; /* Centrado horizontal */
+        flex-wrap: wrap; /* Permite pasar a la siguiente línea si no entra */
+        background: var(--cream); /* Beige de la caja */
+        border: 1px solid #000; /* Borde negro como la maqueta */
+        border-radius: 4px; /* Esquinas suaves */
+        padding: 8px 10px; /* Espaciado interno */
+        width: fit-content; /* Se ajusta al contenido */
+        margin: 0 auto; /* Centrada dentro del header/footer */
+      }
+      .tab {
+        padding: 6px 18px; /* “Pastilla” de cada enlace */
+        text-decoration: none; /* Sin subrayado */
+        color: #000; /* Texto negro */
+        font-weight: 600; /* Seminegrita */
+      }
+
+      .tabs a,
+      .tabs .divider,
+      footer a,
+      footer .divider {
+        line-height: 1.5; /* mismo alto para todo */
+        vertical-align: middle;
+      }
+
+      .divider {
+        color: #000;
+        padding: 0 6px; /* Espacio para el separador “|” */
+        font-weight: 700; /* Un poco más grueso */
+      }
+
+      /* ---- CONTENIDO (ASIDE + MAIN) ---- */
+      .content {
+        display: grid; /* Usamos CSS Grid */
+        grid-template-columns: 280px 1fr; /* Col 1 fija (aside izquierda), col 2 flexible (main derecha) */
+        margin-top: 14px; /* Separación respecto al header */
+        gap: 0; /* Sin separación entre columnas para imitar maqueta */
+      }
+      aside {
+        background: var(--aside); /* Turquesa */
+        color: #fff; /* Texto blanco */
+        padding: 18px; /* Espaciado interno */
+      }
+      aside h3 {
+        margin: 0 0 12px;
+      } /* Título del aside con margen inferior */
+      aside ul {
+        list-style: square; /* Viñetas cuadradas (como en la imagen) */
+        margin: 0 0 0 18px; /* Sangría a la izquierda */
+        padding: 0; /* Sin padding extra */
+      }
+      aside li {
+        margin: 10px 0;
+      } /* Separación entre líneas de enlace */
+
+      main {
+        background: var(--main); /* Verde del cuerpo principal */
+        color: #fff; /* Texto blanco */
+        display: flex; /* Centrado perfecto del texto */
+        align-items: center;
+        justify-content: center;
+        min-height: 320px; /* Alto mínimo para dar volumen */
+        padding: 20px; /* Respira el contenido */
+        text-align: center; /* Texto centrado */
+      }
+
+      /* ---- FOOTER ---- */
+      footer {
+        background: var(--header); /* Naranja (mismo que header) */
+        color: #fff; /* Texto blanco */
+        padding: 16px; /* Espaciado interno */
+        border-radius: 4px; /* Esquinas suaves */
+        margin-top: 14px; /* Separación respecto a la zona de contenido */
+      }
+      footer h3 {
+        margin: 0 0 8px; /* Un poco de espacio debajo del título */
+      }
+
+      /* ---- RESPONSIVE (<= 768px) ---- */
+      @media (max-width: 768px) {
+        .content {
+          grid-template-columns: 1fr; /* Pasa a 1 columna: primero aside, luego main (por orden del DOM) */
+        }
+        aside {
+          order: 1; /* OPCIONAL en Grid: “order” no afecta Grid; es redundante aquí */
+        }
+        main {
+          order: 2; /* OPCIONAL en Grid: igual que arriba; puedes borrar ambas líneas */
+        }
+        .tabs {
+          flex-direction: column; /* Menú pasa a columna */
+          align-items: center; /* Centrado horizontal de los ítems */
+          width: 100%; /* Ocupa todo el ancho disponible */
+        }
+        .divider {
+          display: none;
+        } /* Ocultamos “|” en móvil para mayor legibilidad */
+        .tab {
+          display: block; /* Cada enlace en su línea */
+          width: 100%; /* Que llenen el ancho */
+          text-align: center; /* Texto centrado */
+          border-top: 1px solid #000; /* Separador entre enlaces en vertical */
+        }
+        .tab:first-child {
+          border-top: none;
+        } /* Al primero no le ponemos separador arriba */
+      }
+    </style>
+  </body>
+</html>

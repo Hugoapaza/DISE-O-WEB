@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interfaz Semántica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fondo azul claro -->
+    <div class="frame">
+      <!-- Barra superior tipo navegador -->
+      <div class="chrome">
+        <div class="chrome-left">
+          <span class="tri tri-back" aria-hidden="true"></span>
+          <span class="tri tri-fwd" aria-hidden="true"></span>
+        </div>
+        <div class="address-bar" aria-label="Barra de direcciones">
+          https://www.sample.com
+        </div>
+      </div>
+
+      <!-- Lienzo verde del sitio -->
+      <div class="page">
+        <!-- HEADER -->
+        <header class="site-header">
+          <div class="header-row">
+            <h1 class="brand">Site Name</h1>
+
+            <div class="head-links">
+              <div class="nav-label">navigation links</div>
+              <nav class="nav-pills">
+                <a href="#">page 2</a>
+                <a href="#">page 3</a>
+                <a href="#">page 4</a>
+                <a href="#">page 5</a>
+                <a href="#">page 6</a>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENIDO -->
+        <section class="content">
+          <aside class="site-aside">
+            <h2>&lt;ASIDE&gt; SECTION</h2>
+            <ul class="links-list">
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+            </ul>
+          </aside>
+
+          <main class="site-main">
+            <h2>&lt;MAIN&gt; SECTION</h2>
+          </main>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+          <h2>&lt;FOOTER&gt; SECTION</h2>
+          <div class="nav-label">navigation links</div>
+          <nav class="nav-pills nav-footer">
+            <a href="#">contact us</a>
+            <a href="#">affiliates</a>
+            <a href="#">help</a>
+            <a href="#">follow us</a>
+          </nav>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <style>
+    /* ======== Paleta y base ======== */
+    :root {
+      --sky: #bfeaff; /* fondo exterior azul */
+      --page: #8bc34a; /* verde del lienzo */
+      --page-border: #4f7f2e; /* borde del lienzo */
+      --header: #ee5a27; /* naranja header/footer */
+      --main: #2eb77a; /* verde main */
+      --aside: #0b968f; /* teal aside */
+      --chip: #f8d8c2; /* beige de las bandas */
+      --chip-text: #222;
+      --text-on-color: #fff;
+      --divider: #2e8b57; /* líneas y divisores */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: var(--sky);
+      color: #1a1a1a;
+      line-height: 1.35;
+    }
+
+    /* ======== Marco general ======== */
+    .frame {
+      max-width: 1050px;
+      margin: 32px auto;
+      background: var(--page);
+      border: 6px solid var(--page-border);
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    /* ======== Barra tipo navegador ======== */
+    .chrome {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px;
+      background: var(--page);
+    }
+    .chrome-left {
+      display: flex;
+      gap: 10px;
+    }
+    .tri {
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      display: inline-block;
+    }
+    .tri-back {
+      border-right: 14px solid #111;
+    }
+    .tri-fwd {
+      border-left: 14px solid #111;
+    }
+
+    .address-bar {
+      flex: 1;
+      background: #7b7b7b;
+      color: #fff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    /* ======== Lienzo interno ======== */
+    .page {
+      border-top: 3px solid var(--divider);
+      border-bottom: 3px solid var(--divider);
+    }
+
+    /* ======== Header ======== */
+    .site-header {
+      background: var(--header);
+      color: var(--text-on-color);
+      padding: 18px 22px 12px;
+      border-bottom: 4px solid var(--divider);
+    }
+    .header-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: end;
+      gap: 16px;
+    }
+    .brand {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .head-links {
+      text-align: center;
+    }
+    .nav-label {
+      font-size: 12px;
+      color: #ffe9dc;
+      margin-bottom: 8px;
+    }
+    .nav-pills {
+      display: inline-flex;
+      align-items: center;
+      gap: 0; /* separadores con | */
+      background: var(--chip);
+      color: var(--chip-text);
+      padding: 10px 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25) inset;
+    }
+    .nav-pills a {
+      display: inline-block;
+      padding: 6px 16px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+      position: relative;
+    }
+    .nav-pills a:not(:last-child)::after {
+      content: "|";
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.9;
+    }
+
+    /* ======== Cuerpo (aside + main) ======== */
+    .content {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 430px;
+    }
+    .site-aside {
+      background: var(--aside);
+      color: #eaffff;
+      padding: 18px 18px 22px;
+      border-right: 4px solid var(--divider);
+    }
+    .site-aside h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .links-list {
+      list-style: square;
+      padding-left: 18px;
+    }
+    .links-list li {
+      margin: 10px 0;
+    }
+    .links-list a {
+      color: #eaffff;
+      text-decoration: none;
+    }
+
+    .site-main {
+      background: var(--main);
+      color: #ffffff;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    /* ======== Footer ======== */
+    .site-footer {
+      background: var(--header);
+      color: var(--text-on-color);
+      text-align: left;
+      padding: 14px 22px 18px;
+      border-top: 4px solid var(--divider);
+    }
+    .site-footer h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .nav-footer {
+      margin-top: 6px;
+      /* mismo estilo que arriba, ya aplicado por .nav-pills */
+    }
+
+    /* ======== Pequeña respuesta para móviles ======== */
+    @media (max-width: 760px) {
+      .header-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .content {
+        grid-template-columns: 1fr;
+      }
+      .site-aside {
+        border-right: 0;
+        border-bottom: 4px solid var(--divider);
+      }
+    }
+  </style>
+</html>

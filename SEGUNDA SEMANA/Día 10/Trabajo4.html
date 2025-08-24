@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interfaz Semántica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <!-- Barra navegador -->
+      <div class="chrome">
+        <div class="chrome-left">
+          <span class="tri tri-back"></span>
+          <span class="tri tri-fwd"></span>
+        </div>
+        <div class="address-bar">https://www.sample.com</div>
+      </div>
+
+      <!-- Página -->
+      <div class="page">
+        <!-- HEADER -->
+        <header class="site-header">
+          <div class="header-top">&lt;HEADER&gt; SECTION</div>
+          <div class="header-row">
+            <h1 class="brand">Site Name</h1>
+
+            <div class="head-links">
+              <div class="nav-label">navigation links</div>
+              <nav class="nav-box">
+                <a href="#">page 2</a>
+                <a href="#">page 3</a>
+                <a href="#">page 4</a>
+                <a href="#">page 5</a>
+                <a href="#">page 6</a>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+          <aside class="site-aside">
+            <h2>&lt;ASIDE&gt; SECTION</h2>
+            <ul>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+              <li><a href="#">links</a></li>
+            </ul>
+          </aside>
+
+          <main class="site-main">
+            <h2>&lt;MAIN&gt; SECTION</h2>
+          </main>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+          <div class="footer-top">&lt;FOOTER&gt; SECTION</div>
+          <div class="nav-label">navigation links</div>
+          <nav class="nav-box">
+            <a href="#">contact us</a>
+            <a href="#">affiliates</a>
+            <a href="#">help</a>
+            <a href="#">follow us</a>
+          </nav>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <style>
+    /* Colores base */
+    :root {
+      --sky: #b3e5fc;
+      --page: #8bc34a;
+      --header: #f4511e;
+      --aside: #009688;
+      --main: #4caf50;
+      --chip: #ffe0b2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--sky);
+    }
+
+    /* Marco */
+    .frame {
+      width: 900px;
+      margin: 20px auto;
+      background: var(--page);
+      border: 1px solid #333;
+    }
+
+    /* Barra navegador */
+    .chrome {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      background: var(--page);
+    }
+    .tri {
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+    .tri-back {
+      border-right: 12px solid black;
+      margin-right: 5px;
+    }
+    .tri-fwd {
+      border-left: 12px solid black;
+    }
+    .address-bar {
+      flex: 1;
+      background: #666;
+      color: white;
+      margin-left: 15px;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--header);
+      padding: 10px;
+      color: white;
+    }
+    .header-top {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 22px;
+    }
+    .head-links {
+      text-align: right;
+    }
+    .nav-label {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .nav-box {
+      background: var(--chip);
+      padding: 5px 10px;
+      display: inline-block;
+    }
+    .nav-box a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .nav-box a:not(:last-child)::after {
+      content: "|";
+      margin-left: 8px;
+    }
+
+    /* Contenido */
+    .content {
+      display: flex;
+    }
+    .site-aside {
+      width: 25%;
+      background: var(--aside);
+      padding: 15px;
+      color: white;
+    }
+    .site-aside h2 {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .site-aside ul {
+      list-style-type: square;
+      margin-left: 15px;
+    }
+    .site-aside a {
+      color: white;
+      text-decoration: none;
+    }
+    .site-main {
+      flex: 1;
+      background: var(--main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--header);
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+    .footer-top {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .site-footer .nav-label {
+      margin-bottom: 5px;
+    }
+    .site-footer .nav-box {
+      background: var(--chip);
+      display: inline-block;
+      padding: 5px 10px;
+    }
+    .site-footer .nav-box a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .site-footer .nav-box a:not(:last-child)::after {
+      content: "|";
+      margin-left: 8px;
+    }
+  </style>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Negocio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .card {
+      background: white;
+      max-width: 310px;
+      margin: 60px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Título */
+    .card h1 {
+      text-align: left;
+      font-size: 25px;
+      color: #0612b8;
+      font-weight: bold;
+      margin: 0 0 10px;
+    }
+
+    /* Subtítulo */
+    .card p {
+      text-align: left;
+      color: #6c757d;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    /* Lista de servicios */
+    ul {
+      list-style-position: outside;
+      padding-left: 20px;
+      margin: 0 0 15px;
+    }
+    ul li {
+      margin: 0;
+      padding: 5px 6px;
+      border-bottom: 1px solid #ddd;
+    }
+    ul li:nth-child(1) {
+      background: #f2f2f2;
+    }
+        ul li:nth-child(3) {
+      background: #f2f2f2; 
+    }
+    ul li.important {
+      font-weight: bold;
+    }
+    ul li.instalacion {
+      color: green;
+      font-weight: bold;
+    }
+    ul li.instalacion::marker {
+      color: green; /* viñeta verde */
+    }
+
+    /* Botón */
+    .btn {
+      display: inline-block;
+      background: darkblue;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: navy;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>⭐ Mi Negocio ⭐</h1>
+    <p>Ofrecemos los mejores servicios para ti:</p>
+    <ul>
+      <li class="important">Diseño Web</li>
+      <li>Soporte Técnico</li>
+      <li>Clases de Computación</li>
+      <li class="instalacion">Instalación de Software</li>
+    </ul>
+    <a href="#" class="btn">Contáctanos →</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Negocio</title>
+  <style>
+    /* === HERENCIA === 
+       Los elementos dentro de body heredan tipografía y color base
+    */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+
+    /* === CASCADA === 
+       Este estilo se aplicará a todos los div, pero puede ser sobrescrito más abajo.
+    */
+    div {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    /* Estilo general de la tarjeta */
+    .card {
+      text-align: left;
+      background: white;
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* === ESPECIFICIDAD === 
+       Las reglas con clases (.card h1) tienen más peso que las reglas generales (h1).
+    */
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      color: black;
+    }
+    .card h1 {
+      color: #1a1aff; /* este prevalece por especificidad */
+      font-weight: bold;
+    }
+
+    /* Lista de servicios */
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+    ul li {
+      margin: 8px 0;
+      background: #f2f2f2;
+      padding: 5px;
+      border-radius: 3px;
+    }
+
+    /* Aplicando especificidad por clase e inline */
+    .important {
+      font-weight: bold;
+    }
+    /*.soporte {
+      color: red;
+    }*/
+    /*.clases {
+      font-style: italic;
+    }*/
+    .instalacion {
+      color: green;
+    }
+
+    /* Botón */
+    .btn {
+      display: inline-block;
+      background: darkblue;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-left: 0;
+      
+    }
+    .btn:hover {
+      background: navy;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>⭐ Mi Negocio ⭐</h1>
+    <p>Ofrecemos los mejores servicios para ti:</p>
+    <ul>
+      <li class="important">Diseño Web</li>
+      <li class="soporte">Soporte Técnico</li>
+      <li class="clases">Clases de Computación</li>
+      <li class="instalacion">Instalación de Software</li>
+    </ul>
+    <a href="#" class="btn">Contáctanos →</a>
+  </div>
+</body>
+</html>

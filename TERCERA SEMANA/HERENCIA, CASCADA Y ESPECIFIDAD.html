@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Avanzado - Selectores</title>
+  <style>
+    /* ==============================
+       1. HERENCIA, CASCADA Y ESPECIFICIDAD
+       ============================== */
+    body {
+      font-family: Arial, sans-serif; /* Heredado por defecto */
+      color: darkblue; /* Heredado a los textos */
+    }
+
+    div {
+      color: green; /* Especificidad baja (elemento = 1) */
+    }
+
+    .clase {
+      color: blue; /* Especificidad media (clase = 10) */
+    }
+
+    #nombre{
+      color: red; /* Especificidad alta (id = 100) */
+    }
+
+    /* !important gana sobre todo */
+    .forzar {
+      color: rgb(123, 255, 0) ;
+    }
+
+h1 {
+      color: rgb(255, 0, 0) !important;
+    }
+
+     .forzar {
+      color: rgb(255, 6, 6) !important;
+    }
+
+    /* ==============================
+       2. PSEUDOCLASES
+       ============================== */
+
+    /* Enlaces */
+    a:link { color: blue; }     /* No visitado */
+    a:visited { color: rgb(255, 2, 2); }/* Visitado */
+    a:hover { color: rgb(0, 119, 255);
+     }     /* Cuando paso el mouse */
+    a:active { color: green; }  /* Cuando hago clic */
+
+    /* Formularios */
+    input:focus {
+      border: 2px solid rgb(255, 102, 0); /* Cuando recibe el cursor */
+    }
+
+    input:disabled {
+      background: #eee; /* Campo deshabilitado */
+    }
+
+    /* Estructurales */
+    ul li:first-child {
+      color: rgb(72, 255, 0); /* Primer elemento */
+    }
+
+    ul li:last-child {
+      color: blue; /* Último elemento */
+    }
+
+    ul li:nth-child(odd) {
+      background: #f2f2f2; /* Elementos impares */
+    }
+
+    ul li:nth-child(4) {
+      font-weight: bold; /* Tercer elemento */
+      
+    }
+
+    /* ==============================
+       3. PSEUDOELEMENTOS
+       ============================== */
+
+    p::first-line {
+      font-weight: bold; /* Primera línea del párrafo */
+    }
+
+    p::first-letter {
+      font-size: 2em; /* Primera letra */
+      color: rgb(98, 0, 255);
+    }
+
+    .caja::before {
+      content: "👉 "; /* Inserta antes */
+      color: rgb(111, 0, 255);
+    }
+
+    .caja::after {
+      content: " ✔ hola"; /* Inserta después */
+      color: rgb(251, 255, 2);
+    }
+    h1{
+        color: seagreen ! ;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Avanzado - Selectores</h1>
+
+  <!-- ==============================
+       1. HERENCIA, CASCADA Y ESPECIFICIDAD
+       ============================== -->
+  <section>
+    <h2>Herencia, Cascada y Especificidad</h2>
+    <p>Este texto hereda el color <b>darkblue</b> del body.</p>
+    <div>Texto dentro de un DIV (color green).</div>
+    <div class="clase">Texto con clase (color blue).</div>
+    <div id="id">Texto con ID (color red).</div>
+    <div class="forzar">Texto con !important (color purple).</div>
+  </section>
+
+  <!-- ==============================
+       2. PSEUDOCLASES
+       ============================== -->
+  <section>
+    <h2 style="color: rgb(255, 0, 0)!important;" class="forzar">Pseudoclases</h2>
+    <p><a href="#">Enlace de prueb0a</a></p>
+    <p><a href="#">enlace</a></p>
+
+    <form>
+      <input type="text" placeholder="Escribe algo...">
+      <input type="text" placeholder="Campo deshabilitado" disabled>
+    </form>
+
+    <ul>
+      <li >Elemento 1 (primer hijo)</li>
+      <li>Elemento 2</li>
+      <li>Elemento 3 (bold)</li>
+      <li>Elemento 4</li>
+      <li>Elemento 5 (último hijo)</li>
+    </ul>
+  </section>
+
+  <!-- ==============================
+       3. PSEUDOELEMENTOS
+       ============================== -->
+  <section>
+    <h2>Pseudoelementos</h2>
+    <p>Este es un párrafo para probar ::first-line y ::first-letter. 
+       La primera línea y la primera letra tendrán estilos distintos.</p>
+
+    <div class="caja">Texto dentro de una caja con ::before y ::after.</div>
+  </section>
+
+  <a href="https://www.peru.travel">visita❤️</a>
+</body>
+</html>

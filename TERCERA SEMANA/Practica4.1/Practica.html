@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <table
+        class="table"
+        role="table"
+        aria-label="Tabla de ejemplo con colores contextuales"
+      >
+        <thead>
+          <tr>
+            <th>Titulo 1</th>
+            <th>Titulo 2</th>
+            <th>Titulo 3</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Filas coloreadas por fila -->
+          <tr class="table-danger">
+            <td data-label="Titulo 1">
+              Elemento 1,1 <span class="muted">(table-danger)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 1,2</td>
+            <td data-label="Titulo 3">Elemento 1,3</td>
+          </tr>
+
+          <tr class="table-warning">
+            <td data-label="Titulo 1">
+              Elemento 2,1 <span class="muted">(table-warning)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 2,2</td>
+            <td data-label="Titulo 3">Elemento 2,3</td>
+          </tr>
+
+          <tr class="table-info">
+            <td data-label="Titulo 1">
+              Elemento 3,1 <span class="muted">(table-info)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 3,2</td>
+            <td data-label="Titulo 3">Elemento 3,3</td>
+          </tr>
+
+          <tr class="table-success">
+            <td data-label="Titulo 1">
+              Elemento 4,1 <span class="muted">(table-success)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 4,2</td>
+            <td data-label="Titulo 3">Elemento 4,3</td>
+          </tr>
+
+          <tr class="table-primary">
+            <td data-label="Titulo 1">
+              Elemento 5,1 <span class="muted">(table-primary)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 5,2</td>
+            <td data-label="Titulo 3">Elemento 5,3</td>
+          </tr>
+
+          <tr class="table-secondary">
+            <td data-label="Titulo 1">
+              Elemento 6,1 <span class="muted">(table-secondary)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 6,2</td>
+            <td data-label="Titulo 3">Elemento 6,3</td>
+          </tr>
+
+          <tr class="table-dark">
+            <td data-label="Titulo 1">
+              Elemento 7,1 <span class="muted">(table-dark)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 7,2</td>
+            <td data-label="Titulo 3">Elemento 7,3</td>
+          </tr>
+
+          <tr class="table-light">
+            <td data-label="Titulo 1">
+              Elemento 8,1 <span class="muted">(table-light)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 8,2</td>
+            <td data-label="Titulo 3">Elemento 8,3</td>
+          </tr>
+
+          <tr class="table-active">
+            <td data-label="Titulo 1">
+              Elemento 9,1 <span class="muted">(table-active)</span>
+            </td>
+            <td data-label="Titulo 2">Elemento 9,2</td>
+            <td data-label="Titulo 3">Elemento 9,3</td>
+          </tr>
+
+          <!-- Última fila: cada celda tiene un color distinto (como en la imagen) -->
+          <tr>
+            <td data-label="Titulo 1" class="table-danger">Elemento 10,1</td>
+            <td data-label="Titulo 2" class="table-warning">Elemento 10,2</td>
+            <td data-label="Titulo 3" class="table-info">Elemento 10,3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fafafa;
+        margin: 0;
+      }
+      .contenedor {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 18px;
+        border: 1px solid black;
+        border-radius: 3px;
+        box-shadow: 1px rgb(0, 0, 0, 0.3);
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      .table thead th {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #efefef;
+        font-size: 16px;
+        font-weight: 600px;
+      }
+      .table td {
+        padding: 16px 14px;
+        border-bottom: 1px solid #fdfcfc;
+        vertical-align: middle;
+        word-break: break-word;
+        font-size: 14px;
+      }
+      .muted {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: #0a0a0a;
+        opacity: 0.95;
+      }
+
+      /* Clases aplicables a TR (toda la fila) */
+      .table tr.table-danger td {
+        background: #f09494;
+      }
+      .table tr.table-warning td {
+        background: #e4dd85;
+      }
+      .table tr.table-info td {
+        background: #7cb6d1;
+      }
+      .table tr.table-success td {
+        background: #8cc780;
+      }
+      .table tr.table-primary td {
+        background: #7fa6e0;
+      }
+      .table tr.table-secondary td {
+        background: #979393;
+      }
+      .table tr.table-dark td {
+        background: #3b3a3a;
+        color: #faf9f9;
+        border-top: 2px solid black;
+      }
+      .table tr.table-light td {
+        background: #fff;
+      }
+      .table tr.table-active td {
+        background: #adaaaa;
+      }
+
+      /* También permitimos aplicar las mismas clases directamente a TD (útil para la última fila) */
+      .table td.table-danger {
+        background: var(--danger);
+      }
+      .table td.table-warning {
+        background: var(--warning);
+      }
+      .table td.table-info {
+        background: var(--info);
+      }
+      .table td.table-success {
+        background: var(--success);
+      }
+      .table td.table-primary {
+        background: var(--primary);
+      }
+      .table td.table-secondary {
+        background: var(--secondary);
+      }
+      .table td.table-dark {
+        background: #333333;
+        color: #fff;
+      }
+      .table td.table-light {
+        background: var(--light);
+      }
+      .table td.table-active {
+        background: var(--active);
+      }
+
+      /* Ajustes visuales finales */
+      .table tr:last-child td {
+        border-bottom: none;
+      }
+    </style>
+  </body>
+</html>

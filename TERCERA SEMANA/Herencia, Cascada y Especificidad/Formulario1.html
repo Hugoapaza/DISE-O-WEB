@@ -11,7 +11,7 @@
       color: #333;
     }
 
-    .card {
+    .principal {
       background: white;
       max-width: 310px;
       margin: 60px auto;
@@ -21,7 +21,7 @@
     }
 
     /* Título */
-    .card h1 {
+    .principal h1 {
       text-align: left;
       font-size: 25px;
       color: #0612b8;
@@ -30,7 +30,7 @@
     }
 
     /* Subtítulo */
-    .card p {
+    .principal p {
       text-align: left;
       color: #6c757d;
       margin-bottom: 12px;
@@ -63,7 +63,7 @@
       font-weight: bold;
     }
     ul li.instalacion::marker {
-      color: green; /* viñeta verde */
+      color: green; 
     }
 
     /* Botón */
@@ -78,18 +78,30 @@
       transition: background 0.3s;
     }
     .btn:hover {
-      background: navy;
+      background: rgb(101, 101, 224);
+    }
+
+    li:hover{
+      background-color: aquamarine;
+    }
+
+    .important:hover{
+      background-color: antiquewhite;
+    }
+
+    .computacion:hover{
+      background-color: antiquewhite;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="principal">
     <h1>⭐ Mi Negocio ⭐</h1>
     <p>Ofrecemos los mejores servicios para ti:</p>
     <ul>
       <li class="important">Diseño Web</li>
       <li>Soporte Técnico</li>
-      <li>Clases de Computación</li>
+      <li class="computacion">Clases de Computación</li>
       <li class="instalacion">Instalación de Software</li>
     </ul>
     <a href="#" class="btn">Contáctanos →</a>

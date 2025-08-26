@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabla de colores - Ejercicio</title>
+
+  <style>
+    /* Paleta (inspirada en los colores contextuales de Bootstrap) */
+    :root{
+      --danger: #f8d7da;
+      --warning: #fff3cd;
+      --info:    #d1ecf1;
+      --success: #d4edda;
+      --primary: #cfe2ff;
+      --secondary:#e2e3e5;
+      --dark:    #6c757d; /* color texto oscuro para rows oscuros */
+      --dark-bg: #b7b7b7; /* fondo "dark" en la imagen es gris */
+      --light:   #ffffff;
+      --active:  #e9ecef;
+      --border:  #e6e6e6;
+      --text:    #222;
+      --muted:   #555;
+    }
+
+    /* Reset + tipografías */
+    *{box-sizing: border-box}
+    body{
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:#fafafa;
+      color:var(--text);
+      margin:18px;
+    }
+
+    /* Contenedor centrado que imita el marco de la imagen */
+    .container{
+      max-width:1100px;
+      margin: 0 auto;
+      background:#fff;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:4px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+
+    h2{
+      margin:6px 0 14px 0;
+      font-size:16px;
+      font-weight:600;
+      color:#222;
+    }
+
+    /* Tabla base */
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      table-layout: fixed; /* ayuda a que celdas mantengan ancho */
+    }
+    .table thead th{
+      text-align: left;
+      padding:12px 14px;
+      border-bottom:2px solid var(--border);
+      font-weight:600;
+      font-size:14px;
+    }
+    .table td{
+      padding:16px 14px;
+      border-bottom:1px solid #efefef;
+      vertical-align: middle;
+      word-break: break-word;
+      font-size:14px;
+    }
+
+    /* estilo para el texto secundario que aparece en la imagen "(table-danger)" */
+    .muted{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.95;
+    }
+
+    /* Clases aplicables a TR (toda la fila) */
+    .table tr.table-danger    td{ background: var(--danger); }
+    .table tr.table-warning   td{ background: var(--warning); }
+    .table tr.table-info      td{ background: var(--info); }
+    .table tr.table-success   td{ background: var(--success); }
+    .table tr.table-primary   td{ background: var(--primary); }
+    .table tr.table-secondary td{ background: var(--secondary); }
+    .table tr.table-dark      td{ background: var(--dark-bg); color: #fff; border-top: 2px solid black;}
+    .table tr.table-light     td{ background: var(--light); }
+    .table tr.table-active    td{ background: var(--active); }
+
+    /* También permitimos aplicar las mismas clases directamente a TD (útil para la última fila) */
+    .table td.table-danger   { background: var(--danger); }
+    .table td.table-warning  { background: var(--warning); }
+    .table td.table-info     { background: var(--info); }
+    .table td.table-success  { background: var(--success); }
+    .table td.table-primary  { background: var(--primary); }
+    .table td.table-secondary{ background: var(--secondary); }
+    .table td.table-dark     { background: var(--dark-bg); color:#fff; }
+    .table td.table-light    { background: var(--light); }
+    .table td.table-active   { background: var(--active); }
+
+    /* Ajustes visuales finales */
+    .table tr:last-child td{ border-bottom: none; }
+
+    /* Responsive: en pantallas pequeñas convertimos la tabla en "block" mostrando la etiqueta del encabezado antes de cada celda */
+    @media (max-width: 700px){
+      .table thead{ display:none; }
+      .table, .table tbody, .table tr, .table td { display:block; width:100%; }
+      .table tr { margin-bottom: 10px; border-radius:6px; overflow:hidden; }
+      .table td{ 
+        padding:10px 12px; 
+        border-bottom:1px solid #f1f1f1;
+        position: relative;
+      }
+      /* usamos el atributo data-label para mostrar "Titulo X" antes del contenido de cada TD */
+      .table td::before{
+        content: attr(data-label);
+        display:block;
+        font-weight:700;
+        margin-bottom:6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Tabla de clases contextuales (ejercicio)</h2>
+
+    <table class="table" role="table" aria-label="Tabla de ejemplo con colores contextuales">
+      <thead>
+        <tr>
+          <th>Titulo 1</th>
+          <th>Titulo 2</th>
+          <th>Titulo 3</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Filas coloreadas por fila -->
+        <tr class="table-danger">
+          <td data-label="Titulo 1">Elemento 1,1 <span class="muted">(table-danger)</span></td>
+          <td data-label="Titulo 2">Elemento 1,2</td>
+          <td data-label="Titulo 3">Elemento 1,3</td>
+        </tr>
+
+        <tr class="table-warning">
+          <td data-label="Titulo 1">Elemento 2,1 <span class="muted">(table-warning)</span></td>
+          <td data-label="Titulo 2">Elemento 2,2</td>
+          <td data-label="Titulo 3">Elemento 2,3</td>
+        </tr>
+
+        <tr class="table-info">
+          <td data-label="Titulo 1">Elemento 3,1 <span class="muted">(table-info)</span></td>
+          <td data-label="Titulo 2">Elemento 3,2</td>
+          <td data-label="Titulo 3">Elemento 3,3</td>
+        </tr>
+
+        <tr class="table-success">
+          <td data-label="Titulo 1">Elemento 4,1 <span class="muted">(table-success)</span></td>
+          <td data-label="Titulo 2">Elemento 4,2</td>
+          <td data-label="Titulo 3">Elemento 4,3</td>
+        </tr>
+
+        <tr class="table-primary">
+          <td data-label="Titulo 1">Elemento 5,1 <span class="muted">(table-primary)</span></td>
+          <td data-label="Titulo 2">Elemento 5,2</td>
+          <td data-label="Titulo 3">Elemento 5,3</td>
+        </tr>
+
+        <tr class="table-secondary">
+          <td data-label="Titulo 1">Elemento 6,1 <span class="muted">(table-secondary)</span></td>
+          <td data-label="Titulo 2">Elemento 6,2</td>
+          <td data-label="Titulo 3">Elemento 6,3</td>
+        </tr>
+
+        <tr class="table-dark">
+          <td data-label="Titulo 1">Elemento 7,1 <span class="muted">(table-dark)</span></td>
+          <td data-label="Titulo 2">Elemento 7,2</td>
+          <td data-label="Titulo 3">Elemento 7,3</td>
+        </tr>
+
+        <tr class="table-light">
+          <td data-label="Titulo 1">Elemento 8,1 <span class="muted">(table-light)</span></td>
+          <td data-label="Titulo 2">Elemento 8,2</td>
+          <td data-label="Titulo 3">Elemento 8,3</td>
+        </tr>
+
+        <tr class="table-active">
+          <td data-label="Titulo 1">Elemento 9,1 <span class="muted">(table-active)</span></td>
+          <td data-label="Titulo 2">Elemento 9,2</td>
+          <td data-label="Titulo 3">Elemento 9,3</td>
+        </tr>
+
+        <!-- Última fila: cada celda tiene un color distinto (como en la imagen) -->
+        <tr>
+          <td data-label="Titulo 1" class="table-danger">Elemento 10,1</td>
+          <td data-label="Titulo 2" class="table-warning">Elemento 10,2</td>
+          <td data-label="Titulo 3" class="table-info">Elemento 10,3</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

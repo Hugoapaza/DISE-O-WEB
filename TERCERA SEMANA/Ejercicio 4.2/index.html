@@ -1,107 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <img
-        src="../imagenes logo/png-clipart-logo-community-text-logo-Photoroom.png"
-        alt=""
-      />
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Servicio</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Iniciar seción</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="bienvenido">
-      <h2>BIENVENIDO</h2>
-    </div>
-    <div class="box">
-      <img
-        src="https://us.123rf.com/450wm/designworld24x7/designworld24x72408/designworld24x7240800021/233046408-cat-head-wearing-sunglass-silhouette-vector-art-illustration-template.jpg?ver=6"
-        alt=""/>
-      <h1>VICTOR HUGO</h1>
-      <h2>DESARROLLADOR WEB</h2>
-    </div>
-    <div class="icon">
-      <a href="">
-        <img
-          src="https://images.icon-icons.com/2857/PNG/512/logo_whatsapp_icon_181639.png"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="contenido">
-      <p></p>
-    </div>
-  </body>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    header {
-      background-color: #b33f3f;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-    }
-    nav ul{
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        font-size: 20px;
-    }
-    nav ul li a{
-        text-decoration: none;
-        color: #fff;
-    }
-    header img{
-        width: 10%;
-    }
-    .bienvenida{
-        padding-top: 100px;
-        text-align: center;
-        background-image: url("https://media.istockphoto.com/id/157429716/es/foto/olas-fondo-abstracto.jpg?s=612x612&w=0&k=20&c=D2MygIWnwf91xZUyHdFjVSLRk4jmClXuGD33RUP9lgs=");
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .bienvenido h2{
-        background: #1278a7;
-        padding: 20%;
-        border-radius: 5px;
-        color: #1c12a7;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .box{
-        position: relative;
-        border: 5px solid rgb(red, green, blue);
-        width: 500px;
-        height: 600px;
-        border-radius: 5px;
-    }
-    .box img{
-        position: absolute;
-        bottom: 50%;
-        left: 50%;
-        
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <link rel="shortcut icon" href="../imagenes logo/png-clipart-logo-community-text-logo-Photoroom.png" type="image/x-icon">
+  <title>Página Personal</title> 
+
+  <style> 
+    * { /* Selector universal: afecta a todos los elementos. */
+      margin: 0; /* Elimina márgenes por defecto para tener control total del espaciado. */
+      padding: 0; /* Elimina rellenos por defecto. */
+      box-sizing: border-box; /* Incluye padding y borde dentro del ancho/alto declarados; facilita el cálculo de tamaños. */
     }
 
+    /* HEADER */
+    header { /* Barra superior fija con logo y menú. */
+      background-color: #29a6e3; /* Color de fondo (azul). */
+      color: #fff; /* Color de texto dentro del header. */
+      padding: 10px 40px; /* Espaciado interno: arriba/abajo 10px, laterales 40px. */
+      display: flex; /* Convierte el contenedor en flexbox para alinear elementos en fila. */
+      align-items: center; /* Centra verticalmente el logo y el menú dentro del header. */
+      justify-content: space-around; /* Distribuye espacio: coloca logo y menú separados de forma uniforme. */
+      position: fixed; /* Fija el header en la parte superior al hacer scroll. */
+      top: 0; /* Ancla el header al borde superior de la ventana. */
+      width: 100%; /* Hace que el header abarque todo el ancho de la ventana. */
+      flex-wrap: wrap; /* permite que baje el menú si no cabe */
+    }
+    header img { /* Estilo del logo dentro del header. */
+      width: 100px; /* Ancho del logo; la altura se ajusta proporcionalmente. */
+    }
+    nav ul { /* Lista del menú de navegación. */
+      list-style: none; /* Quita las viñetas de la lista. */
+      display: flex; /* Muestra los <li> en línea (uno al lado del otro). */
+      gap: 20px; /* Espacio horizontal entre cada elemento del menú. */
+      font-size: 16px; /* Tamaño base del texto del menú. */
+      align-items: center; /* Centra verticalmente los elementos dentro del contenedor flex. */
+    }
+    nav ul li a { /* Estilo de cada enlace del menú. */
+      text-decoration: none; /* Quita el subrayado de los enlaces. */
+      color: #fff; /* Texto del menú en blanco para contraste con el fondo azul. */
+      font-weight: bold; /* Resalta el texto haciéndolo más grueso. */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Familia tipográfica moderna y legible. */
+      font-size: 20px; /* Aumenta ligeramente el tamaño de los enlaces. */
+    }
+    .login { /* Enlace con apariencia de botón para la acción “Iniciar sesión”. */
+      background: orange; /* Fondo naranja tipo botón. */
+      color: white; /* Texto en blanco para buen contraste. */
+      padding: 8px 15px; /* Relleno interno del botón. */
+      border-radius: 5px; /* Esquinas redondeadas. */
+      text-decoration: none; /* Sin subrayado. */
+      font-weight: bold; /* Texto destacado. */
+    }
+
+    /* SECCIÓN BIENVENIDO */
+    .bienvenido { /* Banda con imagen de fondo y el texto “BIENVENIDO”. */
+      margin-top: 90px; /* Empuja el contenido hacia abajo para no quedar oculto detrás del header fijo. */
+      height: 250px; /* Altura visible de la banda. */
+      background-image: url("https://static.vecteezy.com/system/resources/thumbnails/008/020/629/small/banner-web-template-abstract-blue-and-golden-curved-lines-overlapping-layer-design-on-dark-blue-background-luxury-style-vector.jpg"); /* Imagen de fondo. */
+      background-size: cover; /* La imagen cubre todo el ancho/alto, recortándose si hace falta. */
+      background-position: center; /* Centra el encuadre de la imagen. */
+      display: flex; /* Flex para centrar el texto internamente. */
+      align-items: center; /* Centrado vertical del contenido. */
+      justify-content: center; /* Centrado horizontal del contenido. */
+    }
+    .bienvenido h2 { /* Chip con la palabra “BIENVENIDO”. */
+      background: #29a6e3; /* Fondo azul para resaltar el texto sobre la foto. */
+      padding: 15px 30px; /* Relleno interior del chip. */
+      border-radius: 10px; /* Esquinas redondeadas del chip. */
+      color: white; /* Texto en blanco. */
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Tipografía del título. */
+    }
+
+    /* PERFIL (BOX) */
+    .box { /* Tarjeta central con foto, nombre y rol. */
+      width: 300px; /* Ancho fijo de la tarjeta. */
+      height: 400px; /* Alto fijo; suficiente para imagen + textos. */
+      margin: 60px auto; /* 60px arriba/abajo y centrado horizontal (auto a los lados). */
+      border: 3px solid #29a6e3; /* Borde azul. */
+      border-radius: 15px; /* Esquinas redondeadas. */
+      padding: 20px; /* Espaciado interno. */
+      text-align: center; /* Centra los textos dentro de la tarjeta. */
+      box-shadow: 0 0 10px #29a6e3; /* Resplandor/sombra azul alrededor. */
+      background: #fff; /* Fondo blanco para contraste y legibilidad. */
+    }
+    .box img { /* Avatar dentro de la tarjeta. */
+      width: 120px; /* Tamaño del avatar. */
+      height: 120px; /* Alto igual al ancho para hacer un círculo perfecto. */
+      border-radius: 50%; /* Convierte el cuadro en círculo. */
+      border: 3px solid #29a6e3; /* Aro/borde azul alrededor del avatar. */
+      margin-top: -60px; /* Sube la imagen para que “asome” sobre el borde superior. */
+      background: #fff; /* Fondo blanco por si la imagen tiene transparencia. */
+    }
+    .box h1 { /* Nombre principal. */
+      margin: 20px 0 10px; /* Separaciones superior e inferior. */
+      color: #29a6e3; /* Color azul a juego con el branding. */
+      font-size: 22px; /* Tamaño del nombre. */
+    }
+    .box h2 { /* Rol profesional. */
+      font-size: 16px; /* Un tamaño menor para jerarquía visual. */
+      color: black; /* Negro para buena lectura. */
+    }
+
+    /* WHATSAPP FLOTANTE */
+    .icon { /* Contenedor del botón flotante de WhatsApp. */
+      position: fixed; /* Se mantiene en pantalla aunque se haga scroll. */
+      bottom: 20px; /* Separación respecto al borde inferior. */
+      right: 20px; /* Separación respecto al borde derecho. */
+    }
+    .icon img { /* Imagen del ícono. */
+      width: 60px; /* Tamaño visible del botón. */
+    }
+
+    /* CONTENIDO */
+    .contenido { /* Bloque de texto explicativo. */
+      margin: 40px; /* Margen alrededor para dar respiración. */
+      font-size: 14px; /* Tamaño de fuente del párrafo. */
+      text-align: justify; /* Alineación justificada (bordes rectos a ambos lados). */
+      line-height: 1.6; /* Altura de línea para mejorar la legibilidad. */
+    }
+
+    /* BOTÓN HAMBURGUESA - oculto en PC */
+.menu-btn {
+  display: none;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  header {
+    padding: 5px 15px;   /* header más pequeño */
+    height: 50px;        /* minimizado */
+  }
+
+  header img {
+    width: 60px; /* logo más pequeño pero sigue alineado a la izquierda */
+  }
+
+  nav ul {
+    background: #29a6e3;
+    position: absolute;
+    top: 50px;  /* debajo del header minimizado */
+    right: 0;
+    width: 100%;
+    padding: 15px 0;
+    display: none;
+  }
+
+  nav ul li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Mostrar botón ☰ en móviles */
+  .menu-btn {
+    display: block;
+    cursor: pointer;
+    font-size: 28px;
+    color: #fefdfd;
+  }
+}
+
+
   </style>
+</head>
+<body> <!-- Cuerpo del documento: todo lo que se ve en la página. -->
+  <header> <!-- Barra superior fija con logo y navegación. -->
+    <img
+      src="../imagenes logo/logo de herader.png"
+      alt="logo"
+    />
+      <!-- Botón hamburguesa (solo se muestra en móviles) -->
+      <span class="menu-btn">☰</span>
+  
+    <nav> <!-- Contenedor semántico para la navegación principal. -->
+      <ul> <!-- Lista de enlaces del menú. Usar <ul> es una práctica estándar para menús. -->
+        <li><a href="#">Inicio</a></li> <!-- Enlace de navegación; # es un destino vacío (placeholder). -->
+        <li><a href="#">Nosotros</a></li> <!-- Secciones del sitio: cambiar # por rutas reales cuando existan. -->
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a class="login" href="#">Iniciar sesión</a></li> <!-- Enlace con clase "login" para estilo de botón. -->
+      </ul>
+    </nav>
+  </header>
+
+  <div class="bienvenido"> <!-- Sección hero con imagen de fondo y un título centrado. -->
+    <h2>BIENVENIDO</h2> <!-- Título dentro del chip estilizado. -->
+  </div>
+
+  <div class="box"> <!-- Tarjeta de perfil centrada. -->
+    <img
+      src="https://us.123rf.com/450wm/designworld24x7/designworld24x72408/designworld24x7240800021/233046408-cat-head-wearing-sunglass-silhouette-vector-art-illustration-template.jpg?ver=6" 
+      alt="Avatar" 
+    />
+    <h1>VICTOR HUGO</h1> <!-- Nombre destacado. -->
+    <h2>DESARROLLADOR WEB</h2> <!-- Rol o profesión. -->
+  </div>
+
+  <div class="icon"> <!-- Botón flotante de WhatsApp en la esquina inferior derecha. -->
+    <a href="#"> <!-- Enlace clicable. Cambia # por el enlace a tu WhatsApp/wa.me. -->
+      <img
+        src="https://images.icon-icons.com/2857/PNG/512/logo_whatsapp_icon_181639.png" 
+        alt="WhatsApp" 
+      />
+    </a>
+  </div>
+
+  <div class="contenido"> <!-- Sección de texto principal. -->
+    <p>
+      Cuando hablamos de las partes de una página web, normalmente nos referimos a su
+      estructura. O lo que es lo mismo, a todos los elementos o funcionalidades que la
+      componen como, por ejemplo, las secciones o menús, que hacen que se pueda navegar
+      por ella y sea funcional. <br /><br /> <!-- Saltos de línea para separar párrafos sin crear nuevos <p>. -->
+      Aunque menos habitual, también es posible referirnos a las partes de una página web
+      para hablar de su contenido, es decir, las diferentes páginas que se albergan dentro
+      de un sitio web, por ejemplo, la página de contacto, la de servicios o la propia home
+      o página principal. <br /><br />
+      Lo que sí está claro es que existen cientos, por no decir miles, de tipos de páginas
+      web. Por tanto, te podrás imaginar que las partes de una página web no son las mismas
+      en un ecommerce que en una página web corporativa o un blog de repostería, aunque sí
+      es cierto que comparten una estructura y muchos elementos en común.
+    </p>
+  </div>
+</body>
 </html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS: posiciones (static, relative, absolute, fixed, sticky, z-index)</title>
+  <style>
+    :root{
+      --bg:#0f172a;       /* slate-900 */
+      --card:#111827;     /* gray-900 */
+      --muted:#94a3b8;    /* slate-400 */
+      --accent:#22d3ee;   /* cyan-400 */
+      --accent-2:#a78bfa; /* violet-400 */
+      --ok:#34d399;       /* emerald-400 */
+      --warn:#fbbf24;     /* amber-400 */
+      --danger:#f87171;   /* rose-400 */
+      --white:#e5e7eb;    /* gray-200 */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+      color:var(--white); background:linear-gradient(180deg, #0b1226, var(--bg));
+    }
+
+    /* Cabecera fija (fixed) */
+    .site-header{
+      position:fixed; /* se queda pegado a la ventana */
+      top:0; left:0; right:0;
+      background:rgba(17,24,39,.9);
+      border-bottom:1px solid #23314d;
+      backdrop-filter: blur(6px);
+      z-index:1000; /* por encima del resto */
+    }
+    .site-header .inner{
+      max-width:1100px; margin:0 auto; padding:14px 20px; display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    .badge{padding:.25rem .6rem; border:1px solid #2b3b5e; border-radius:999px; color:var(--muted); font-size:.85rem}
+
+    /* Espaciado para que el contenido no quede oculto bajo la cabecera fija */
+    .header-spacer{height:58px}
+
+    main{max-width:1100px; margin:0 auto; padding:24px; display:grid; gap:28px}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,.25);
+    }
+    .card h2{margin:0 0 10px}
+    .desc{color:var(--muted); font-size:.95rem; margin-bottom:14px}
+
+    .demo{
+      border:1px dashed rgba(255,255,255,.2); border-radius:14px; padding:16px; position:relative; min-height:160px; overflow:auto;
+      background:linear-gradient(180deg, rgba(34,211,238,0.06), rgba(167,139,250,0.06));
+    }
+
+    .box{ padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.25); display:inline-block; font-weight:600}
+    .box.a{ background:rgba(34,211,238,.15); color:#67e8f9; }
+    .box.b{ background:rgba(167,139,250,.15); color:#c4b5fd; }
+    .box.c{ background:rgba(52,211,153,.18); color:#a7f3d0; }
+
+    /* --- 1) static (valor por defecto) --- */
+    .static-wrapper .box{ position:static; /* (implícito) no admite top/right/bottom/left */ }
+
+    /* --- 2) relative: conserva su espacio en el flujo, pero se puede "mover" visualmente --- */
+    .relative-wrapper .box.rel{
+      position:relative;
+      top:0px; 
+      left:0px;
+      right:0px;
+      bottom:0px; /* desplaza la caja sin afectar al resto */
+      box-shadow:0 8px 18px rgba(0,0,0,.25);
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    /* --- 3) absolute: sale del flujo y se posiciona respecto a su contenedor posicionable más cercano --- */
+    .absolute-wrapper{ position:relative; /* contenedor posicionable para hijos absolute */ min-height:300px }
+    .absolute-wrapper .box.abs1{ position:absolute; top:0px; left:0px; ; }
+    .absolute-wrapper .box.abs2{ position:absolute; right:16px; bottom:14px }
+    .absolute-wrapper .guide{ position:absolute; inset:40px; border:2px dotted rgba(255,255,255,.25); border-radius:12px; pointer-events:none }
+
+    /* --- 4) fixed: relativo a la ventana del navegador (viewport) --- */
+    .fixed-note{
+      position:fixed; right:20px; bottom:20px; z-index:900; /* por debajo de la cabecera fija */
+      background:rgba(251,191,36,.15); color:#fde68a; border:1px solid rgba(251,191,36,.35); padding:10px 12px; border-radius:12px;
+    }
+
+    /* --- 5) sticky: se comporta como relativa hasta que alcanza un umbral y luego se "pega" --- */
+    .sticky-section{ height:420px; overflow:auto; border-radius:12px; }
+    .sticky-header{ position:sticky; top:0; background:rgba(17,24,39,.9); border-bottom:1px solid #22314f; padding:8px 12px; z-index:5 }
+    .item{ padding:10px 12px; border-bottom:1px dashed rgba(255,255,255,.15) }
+
+    /* --- 6) z-index y apilamiento --- */
+    .z-demo{ position:relative; height:240px }
+    .z-demo .layer{ position:absolute; width:160px; height:120px; display:flex; align-items:center; justify-content:center; border-radius:12px; border:1px solid rgba(255,255,255,.25); font-weight:700 }
+    .z1{ left:24px; top:64px; background:rgba(248,113,113,1); color:#fecaca; z-index:2 }
+    .z2{ left:84px; top:34px; background:rgba(34,211,238,1); color:#a5f3fc; z-index:1 }
+    .z3{ left:144px; top:94px; background:rgba(167,139,250,1); color:#ddd6fe; z-index:3 }
+
+    /* Utilidades visuales */
+    .code{ font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; background:rgba(255,255,255,.06); padding:.15rem .4rem; border-radius:6px }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start }
+    .spacer{ height:600px }
+    .small{ font-size:.9rem }
+    .muted{ color:var(--muted) }
+    .btn{
+      display:inline-block; padding:.45rem .8rem; border-radius:10px; border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.05); color:var(--white); cursor:pointer; text-decoration:none
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera fija: ejemplo práctico de position: fixed -->
+  <header class="site-header">
+    <div class="inner">
+      <div style="display:flex; align-items:center; gap:10px">
+        <strong>Posiciones en CSS</strong>
+        <span class="badge">static</span>
+        <span class="badge">relative</span>
+        <span class="badge">absolute</span>
+        <span class="badge">fixed</span>
+        <span class="badge">sticky</span>
+        <span class="badge">z-index</span>
+      </div>
+      <a class="btn" href="#z-index">Ir a z-index ⤵</a>
+    </div>
+  </header>
+  <div class="header-spacer" aria-hidden="true"></div>
+
+  <main>
+    <!-- 1) STATIC -->
+    <section class="card" id="static">
+      <h2>1) <span class="code">position: static</span></h2>
+      <p class="desc">Valor por defecto. El elemento sigue el flujo normal y <strong>ignora</strong> <span class="code">top/right/bottom/left</span>.</p>
+      <div class="demo static-wrapper">
+        <div class="box a">Caja A (static)</div>
+        <div class="box b">Caja B (static)</div>
+        <div class="box c">Caja C (static)</div>
+      </div>
+      <p class="small muted">Tip: No necesitas declarar <span class="code">static</span> a menos que quieras resetear otra posición.</p>
+    </section>
+
+    <!-- 2) RELATIVE -->
+    <section class="card" id="relative">
+      <h2>2) <span class="code">position: relative</span></h2>
+      <p class="desc">El elemento mantiene su espacio en el flujo, pero puedes desplazarlo visualmente con <span class="code">top/left/... </span>. Sirve también como <em>contenedor posicionable</em> para hijos <span class="code">absolute</span>.</p>
+      <div class="demo relative-wrapper row">
+        <div class="box a">Caja A (sin mover)</div>
+        <div class="box b rel">Caja B (relative + top:8px; left:12px)</div>
+        <div class="box c">Caja C (sin mover)</div>
+      </div>
+    </section>
+
+    <!-- 3) ABSOLUTE -->
+    <section class="card" id="absolute">
+      <h2>3) <span class="code">position: absolute</span></h2>
+      <p class="desc">El elemento sale del flujo y se posiciona respecto al ancestro <strong>posicionable</strong> más cercano (no el documento). Si no hay, usa el viewport.</p>
+      <div class="demo absolute-wrapper">
+        <div class="guide" aria-hidden="true"></div>
+        <div class="box a abs1">abs1 → top:14px; left:16px</div>
+        <div class="box b abs2">abs2 → bottom:14px; right:16px</div>
+        <p class="muted small">Este contenedor lleva <span class="code">position: relative</span> para que los hijos absolute usen sus bordes como referencia.</p>
+      </div>
+    </section>
+
+    <!-- 4) FIXED -->
+    <section class="card" id="fixed">
+      <h2>4) <span class="code">position: fixed</span></h2>
+      <p class="desc">El elemento se fija al <em>viewport</em>. Útil para barras, botones flotantes o notificaciones. Arriba tenemos una cabecera fija.</p>
+      <div class="demo">
+        <p>Desplázate más abajo y verás una nota fija en la esquina inferior derecha. Esta caja de demo no crea el fixed; se usa el botón real en la página.</p>
+        <div class="spacer"></div>
+      </div>
+    </section>
+
+    <!-- 5) STICKY -->
+    <section class="card" id="sticky">
+      <h2>5) <span class="code">position: sticky</span></h2>
+      <p class="desc">Funciona como <span class="code">relative</span> hasta alcanzar el umbral (<span class="code">top</span>/<span class="code">bottom</span>), luego se "pega" dentro de su contenedor desplazable.</p>
+      <div class="demo sticky-section">
+        <div class="sticky-header">Encabezado sticky (top: 0)</div>
+        <div class="item">Elemento 1</div>
+        <div class="item">Elemento 2</div>
+        <div class="item">Elemento 3</div>
+        <div class="item">Elemento 4</div>
+        <div class="item">Elemento 5</div>
+        <div class="item">Elemento 6</div>
+        <div class="item">Elemento 7</div>
+        <div class="item">Elemento 8</div>
+        <div class="item">Elemento 9</div>
+        <div class="item">Elemento 10</div>
+      </div>
+      <p class="small muted">Recuerda: el contenedor necesita espacio de scroll para que <span class="code">sticky</span> se active.</p>
+    </section>
+
+    <!-- 6) Z-INDEX -->
+    <section class="card" id="z-index">
+      <h2>6) Apilamiento con <span class="code">z-index</span></h2>
+      <p class="desc">Cuando elementos se superponen, <span class="code">z-index</span> decide cuál va arriba (solo en elementos posicionados: relative/absolute/fixed/sticky).</p>
+      <div class="demo z-demo">
+        <div class="layer z1">z-index: 1</div>
+        <div class="layer z2">z-index: 2</div>
+        <div class="layer z3">z-index: 3</div>
+      </div>
+      <p class="small muted">También influyen los <em>contextos de apilamiento</em> (por ejemplo, transform, opacity &lt; 1, position + z-index, etc.).</p>
+    </section>
+
+    <!-- Extra: centrado absoluto dentro de contenedor relativo -->
+    <section class="card" id="centro">
+      <h2>Extra: centrar con <span class="code">absolute</span> + transform</h2>
+      <p class="desc">Patrón común: contenedor relativo y caja absoluta centrada.</p>
+      <div class="demo" style="position:relative; height:240px">
+        <div class="box" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:rgba(59,130,246,.18); color:#bfdbfe">Centrado perfecto</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Nota fija real -->
+  <div class="fixed-note" title="Soy fixed al viewport">💡 Nota: soy <strong>position: fixed</strong></div>
+
+  <!-- Explicación breve (HTML comments) -->
+  <!--
+    RESUMEN RÁPIDO:
+    - static: por defecto, sigue el flujo. Ignora top/right/bottom/left y z-index no aplica.
+    - relative: se puede mover visualmente con offsets y sirve de referencia para hijos absolute. Mantiene su hueco.
+    - absolute: se saca del flujo y se ubica por offsets respecto a su contenedor posicionable más cercano.
+    - fixed: se posiciona relativo al viewport. No se mueve al hacer scroll.
+    - sticky: híbrido entre relative y fixed; "se pega" cuando alcanza top/bottom dentro de su contenedor con scroll.
+    - z-index: controla el apilamiento cuando hay solape (solo en elementos posicionados o con contexto de apilamiento).
+  -->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+  </head>
+  <body>
+    <h1>POSITION:</h1>
+    <div class="contenedor">
+      <div class="caja izquierda-arriba">
+        <h2>
+          ⏱️<br />
+          Hora
+        </h2>
+      </div>
+      <div class="caja izquierda-abajo">
+        <h2>
+          😎<br />
+          xd
+        </h2>
+      </div>
+      <div class="caja derecha-arriba">
+        <h2 class="music">
+          🎶<br />
+          Music
+        </h2>
+      </div>
+      <div class="caja derecha-abajo">
+        <h2>
+          👤<br />
+          Usuario
+        </h2>
+      </div>
+    </div>
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+    .contenedor {
+      width: 500px;
+      height: 400px;
+      margin: 0 auto;
+      background: #da0c0c;
+      margin-top: 50px;
+      position: relative;
+      box-sizing: content-box;
+      text-align: center;
+    }
+    .caja {
+      width: 100px;
+      height: 80px;
+      padding: 20px;
+      background-color: aqua;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .izquierda-arriba {
+      top: -30px;
+      left: -50px;
+      border-radius: 8px;
+      background-color: #0cda39;
+    }
+
+    .izquierda-abajo {
+      bottom: -30px;
+      left: -40px;
+      width: 200px;
+      border-radius: 100%;
+    }
+    .derecha-arriba {
+      top: -20px;
+      right: -30px;
+      width: 60px;
+      height: 40px;
+      border-radius: 8px;
+    }
+    .derecha-abajo {
+      bottom: -20px;
+      right: -20px;
+      height: 50%;
+      border-radius: 100%;
+      background: #3c0cda;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</html>

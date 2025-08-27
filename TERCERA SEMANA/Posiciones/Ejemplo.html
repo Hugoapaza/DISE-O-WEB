@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="caja derecha-arriba">
+        <h3>
+          😁 <br />
+          caja1
+        </h3>
+      </div>
+      <div class="caja derecha-abajo">
+        <h3>
+          🎶<br />
+          caja2
+        </h3>
+      </div>
+      <div class="caja izquierda-arriba">
+        <h3>
+          😎<br />
+          caja3
+        </h3>
+      </div>
+      <div class="caja izquierda-abajo">
+        <h3>
+          ⏱️<br />
+          caja4
+        </h3>
+      </div>
+    </div>
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+    .contenedor {
+      margin: 0 auto;
+      background: #de3535;
+      width: 400px;
+      height: 400px;
+      margin-top: 100px;
+      position: relative;
+      box-sizing: content-box;
+      text-align: center;
+    }
+    .caja {
+      width: 80px;
+      height: 80px;
+      background-color: aqua;
+      position: absolute;
+      /*overflow: auto;*/
+    }
+    .derecha-arriba {
+      top: -40px;
+      left: -40px;
+      border-radius: 50px;
+      border: 6px solid #11e906;
+    }
+    .derecha-abajo {
+      bottom: -40px;
+      left: -40px;
+      border-radius: 5px;
+    }
+
+    .izquierda-arriba {
+      top: -40px;
+      right: -70px;
+      width: 200px;
+      border-radius: 100%;
+    }
+    .izquierda-abajo {
+      bottom: -40px;
+      right: -40px;
+      background: #067be9;
+      color: aliceblue;
+      border-radius: 10px;
+    }
+  </style>
+</html>

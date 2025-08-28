@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Card — Programación y Desarrollo Web</title>
+
+  <!-- IMPORTAR FUENTES (para que Raleway / Poppins funcionen como en el ejemplo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Reset y body ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#071017; /* fondo oscuro similar */
+      font-family: "Raleway", "Poppins", system-ui, Arial, sans-serif;
+      padding:24px;
+      -webkit-font-smoothing:antialiased;
+      color:#fff;
+    }
+
+    /* ===== Card ===== */
+    .card{
+      position:relative;
+      width:320px;
+      border-radius:16px;
+      overflow:hidden; /* mantiene bordes redondeados */
+      background:linear-gradient(180deg,#0d2839 0%, #071018 100%);
+      box-shadow:0 20px 40px rgba(3,20,30,.6);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    /* ===== Sombra / brillo SVG grande (detrás todo) ===== */
+    .shadow-svg{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:100%;
+      z-index:1;
+      pointer-events:none;
+      opacity:.7;
+      mix-blend-mode:color-dodge; /* correcto y soportado */
+    }
+
+    /* ===== Zona media (fondo azul donde va la foto) ===== */
+    .media{
+      position:relative;
+      height:240px;
+      display:flex;
+      align-items:flex-start; /* para que la foto quede más arriba dentro de la zona */
+      justify-content:center;
+      z-index:4;
+      padding-top:18px;
+    
+    }
+
+    /* interior azul redondeado (solo efecto visual) - antes no tenía 'background' */
+    .media::before{
+      content:"";
+      position:absolute;
+      top:8px;
+      left:8px;
+      right:8px;
+      height:220px;
+      border-radius:14px;
+      z-index:2;
+      filter:blur(.6px);
+      opacity:.95;
+      /* AÑADIDO: fondo suave azul para que el recuadro azul exista visualmente */
+      background: linear-gradient(180deg, rgba(12,90,160,.22), rgba(6,30,50,0.02));
+      pointer-events:none;
+    }
+
+    /* ===== Badge (arriba-derecha) ===== */
+    .badge{
+      position:absolute;
+      top:12px;
+      right:12px;
+      z-index:8;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(29,118,216,0.95);
+      box-shadow:0 6px 18px rgba(29,118,216,.35);
+      font-weight:700;
+      font-size:12px;
+      color:#fff;
+      letter-spacing:.2px;
+    }
+    .badge .ico{width:20px;height:20px;flex:0 0 20px}
+    .badge .medal{width:16px;height:16px;flex:0 0 16px;filter:drop-shadow(0 0 3px #f6c33d)}
+
+    /* ===== Persona ===== */
+    .person-wrap{position:relative;z-index:6;display:flex;align-items:flex-end;justify-content:center;width:100%}
+    .person{
+      width:176px;               /* ajuste: tamaño coherente con el diseño */
+      max-width:46%;             /* mantiene la foto proporcional en pantallas pequeñas */
+      height:auto;
+      border-radius:10px;
+      display:block;
+      position:relative;
+      z-index:6;
+      transform:translateY(-6px); /* ligero lift para encajar con la iluminación */
+      box-shadow:0 12px 26px rgba(2,14,20,.6);
+      object-fit:cover;          /* evita distorsión si cambias la img */
+    }
+
+    /* ===== SVG de aros (debajo de la persona) ===== */
+    .rings-wrap{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:22px;
+      z-index:5;
+      pointer-events:none;
+      width:215px;
+      height:auto;
+      display:block;
+      /* CORRECCIÓN: 'plus-lighter' no es estándar; usamos 'screen' que da efecto de luz */
+      mix-blend-mode:screen;
+    }
+
+    /* ===== Contenido textual ===== */
+    .content{
+      position:relative;
+      z-index:7;
+      padding:18px 20px 24px;
+      text-align:left;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#0f4aa8;
+      color:#e8f6ff;
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:12px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.03);
+    }
+    .chip .dot{
+      width:12px;height:12px;border-radius:50%;background:#fff;display:inline-block
+    }
+
+    .title{
+      margin-top:12px;
+      font-size:20px;
+      font-weight:900;
+      line-height:1.05;
+      color:#ffffff;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+    /* fuerza el salto de linea parecido a la imagen */
+    .title br{display:inline}
+
+    .desc{
+      margin-top:12px;
+      color:#9fb0c2;
+      font-size:14px;
+      line-height:1.6;
+      max-height:68px;
+      overflow:hidden;
+      display:-webkit-box;
+
+      -webkit-box-orient:vertical;
+    }
+
+    /* sutil glowing circular overlay bottom-right */
+    .card:after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle at center, rgba(20,130,220,.08), rgba(20,130,220,0));
+      z-index:3;pointer-events:none
+    }
+
+    /* responsive */
+    @media (max-width:380px){
+      .card{width:92vw}
+      .person{width:150px}
+      .rings-wrap{width:180px;bottom:18px}
+      .title{font-size:18px}
+    }
+
+    /* pequeña clase accesible para texto oculto (solo lectura por lectores) */
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+    }
+  </style>
+</head>
+<body>
+
+  <article class="card" aria-label="Tarjeta de curso — Programación y Desarrollo Web">
+
+    <!-- ===== SVG grande de sombra/brillo que está DETRÁS de todo (recurso 1) ===== -->
+    <div class="shadow-svg" aria-hidden="true">
+      <!-- He limpiado clases innecesarias y añadí stops válidos en el gradiente -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="420" height="372" fill="none" viewBox="0 0 420 372" role="img" aria-hidden="true">
+        <g filter="url(#school-banner-blue-a)" style="mix-blend-mode: color-dodge">
+          <path fill="url(#school-banner-blue-b)" fill-opacity="0.8" d="M11.917 6.033 80.092 325.78s37.36 15.89 130.26 15.89c92.899 0 130.259-15.89 130.259-15.89L408.786 6.033H11.917Z"></path>
+          <defs>
+            <filter id="school-banner-blue-a" width="408.869" height="347.637" x="5.917" y="0.033" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="3"></feGaussianBlur>
+            </filter>
+            <!-- Corregido: ahora los stops están explícitos para evitar stops vacíos -->
+            <linearGradient id="school-banner-blue-b" x1="210.352" x2="210.352" y1="6.033" y2="339.963" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="rgba(53,169,253,0)"></stop>
+              <stop offset="1" stop-color="rgb(53,169,253)" stop-opacity="0.18"></stop>
+            </linearGradient>
+          </defs>
+        </g>
+      </svg>
+    </div>
+
+    <!-- ===== Media area: fondo azul, persona, aros y badge superior ===== -->
+    <div class="media" role="presentation">
+
+      <!-- Badge superior (icono + medalla). Si es informativo mantenerlo accesible; si es puramente decorativo usar aria-hidden="true" -->
+      <div class="badge" role="status" aria-label="Insignia CETPRO CREAR">
+        <svg class="ico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff" aria-hidden="true">
+          <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Zm7 1.5 5.5 5.5H13V3.5Z"/>
+        </svg>
+        <!-- Puedes dejar el emoji si quieres; para accesibilidad se podría usar texto alternativo -->
+        <span aria-hidden="true" style="font-size:12px;font-weight:800"></span>
+        <svg class="medal" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#f5b70a" aria-hidden="true">
+          <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z"/>
+        </svg>
+      </div>
+
+      <!-- Persona centered -->
+      <div class="person-wrap">
+        <!-- imagen: reemplaza por la tuya si quieres. añadí object-fit y alt descriptivo -->
+        <img src="https://edteam-media.s3.amazonaws.com/schools/medium/ef08ce8f-9dc2-44dc-ae07-eda69c74e74d.webp"
+             alt="Instructor de programación con brazos cruzados"
+             class="person" />
+      </div>
+
+      <!-- ===== SVG AROS (recurso 2) ===== -->
+      <div class="rings-wrap" aria-hidden="true">
+        <!-- Removí clases utilitarias innecesarias y reemplacé mix-blend por screen en CSS -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="215" height="190" fill="none" viewBox="0 0 420 372" aria-hidden="true">
+          <!-- Dentro del SVG se mantienen filtros y gradientes (dejé el contenido tal cual) -->
+          <g filter="url(#school-banner-blue-c)" opacity="0.7" style="mix-blend-mode: screen">
+            <path fill="rgb(0 149 255)" fill-rule="evenodd" d="M210.351 343.162c78.098 0 141.408-7.935 141.408-17.723 0-9.789-63.31-17.724-141.408-17.724-78.097 0-141.407 7.935-141.407 17.724 0 9.788 63.31 17.723 141.407 17.723Zm0-7.456c71.263 0 129.033-5.923 129.033-13.229 0-7.307-57.77-13.23-129.033-13.23-71.262 0-129.032 5.923-129.032 13.23 0 7.306 57.77 13.229 129.032 13.229Z" clip-rule="evenodd"></path>
+          </g>
+          <!-- resto del SVG (definiciones) -->
+          <defs>
+            <filter id="school-banner-blue-c" width="291.551" height="44.182" x="64.576" y="303.348" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="2.184"></feGaussianBlur>
+            </filter>
+            <!-- (otros filtros/gradientes se mantienen tal cual) -->
+          </defs>
+        </svg>
+      </div>
+
+    </div> <!-- .media -->
+
+    <!-- ===== Texto (contenido) ===== -->
+    <div class="content">
+      <span class="chip" aria-hidden="true"><span class="dot"></span>CETPRO CREAR</span>
+      <h2 class="title">PROGRAMACIÓN Y<br/>DESARROLLO WEB</h2>
+      <p class="desc">Aprende programación y desarrollo web desde cero con las tecnologías más modernas y efectivas.</p>
+    </div>
+
+  </article>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Programación y Desarrollo Web — Card</title>
+  <style>
+    /* Simple reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background:#061016;color:#fff;font-family:Inter, "Poppins", "Raleway", system-ui, Arial;
+      padding:24px;
+    }
+
+    /* Card */
+    .card{
+      width:340px;border-radius:18px;overflow:hidden;position:relative;
+      background:linear-gradient(180deg,#0b1722 0%, #061018 100%);
+      box-shadow:0 18px 40px rgba(2,12,20,.6);
+    }
+
+    /* Subtle rounded blue panel (where the instructor sits) */
+    .media{
+      position:relative;height:240px;display:flex;align-items:flex-start;justify-content:center;
+      padding-top:14px;
+      background:linear-gradient(180deg, rgba(15,64,110,0.14) 0%, rgba(5,18,30,0) 55%);
+    }
+    .media::before{
+      content:"";position:absolute;left:12px;right:12px;top:8px;height:220px;border-radius:14px;
+      background:linear-gradient(180deg,#0e3f66 0%, #072b40 100%);
+      z-index:1;filter:blur(.6px);opacity:.95;
+    }
+
+    /* Large background glow (subtle), placed behind everything */
+    .bg-glow{position:absolute;left:0;right:0;bottom:0;height:100%;z-index:0;pointer-events:none;
+      background:radial-gradient(closest-side, rgba(30,140,230,0.06), transparent 40%);
+      mix-blend-mode:screen;opacity:.75;
+    }
+
+    /* Badge top-right */
+    .badge{
+      position:absolute;top:12px;right:12px;z-index:9;
+      display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:14px;
+      background:#1c7adf;box-shadow:0 8px 20px rgba(28,122,223,.24);font-weight:700;font-size:12px;
+    }
+    .badge svg{width:18px;height:18px;flex:0 0 18px}
+
+    /* Instructor photo */
+    .person-wrap{position:relative;z-index:6;display:flex;justify-content:center;width:100%}
+    .person{
+      width:176px;border-radius:10px;display:block;position:relative;z-index:6;
+      transform:translateY(6px);box-shadow:0 12px 30px rgba(2,12,20,.6);
+      object-fit:cover;
+    }
+
+    /* Rings (svg) placed under person but above the blue panel */
+    .rings{
+      position:absolute;left:50%;transform:translateX(-50%);bottom:28px;z-index:5;width:220px;height:80px;
+      pointer-events:none;
+    }
+
+    /* Content */
+    .content{position:relative;z-index:7;padding:18px 20px 24px;text-align:left}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:#0f4aa8;padding:7px 10px;border-radius:999px;
+      color:#e8f6ff;font-weight:800;font-size:12px;letter-spacing:.2px}
+    .chip .dot{width:12px;height:12px;border-radius:50%;background:#fff;display:inline-block}
+
+    .title{margin-top:12px;font-size:20px;font-weight:900;line-height:1.06;color:#fff;text-transform:uppercase}
+    .title small{display:block;font-weight:700;color:rgba(255,255,255,.9)}
+
+    .desc{margin-top:12px;color:#98aebe;font-size:14px;line-height:1.6;max-height:72px;overflow:hidden;
+      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+
+    /* small responsive tweaks */
+    @media (max-width:380px){
+      .card{width:92vw}
+      .person{width:150px}
+      .rings{width:180px;bottom:22px}
+      .title{font-size:18px}
+    }
+  </style>
+</head>
+<body>
+  <article class="card" aria-label="Tarjeta de curso">
+
+    <!-- subtle blue glow background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- MEDIA: blue panel, instructor, rings and badge -->
+    <div class="media" role="presentation">
+
+      <!-- Badge -->
+      <div class="badge" aria-label="CETPRO CREAR">
+        <!-- simple icon -->
+        <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Zm7 1.5 5.5 5.5H13V3.5Z"/>
+        </svg>
+        <span>CETPRO CREAR</span>
+        <!-- tiny medal -->
+        <svg viewBox="0 0 24 24" fill="#f5b70a" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="9" r="3"></circle>
+          <path d="M8 14l-2 6 6-3 6 3-2-6" />
+        </svg>
+      </div>
+
+      <!-- Person centered -->
+      <div class="person-wrap">
+        <!-- Instructor image (placed in same folder) -->
+        <img class="person" src="" alt="Instructor — CETPRO CREAR" />
+      </div>
+
+      <!-- Rings SVG (clean, lightweight) -->
+      <svg class="rings" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="fblur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.0  0 0 0 0 0.55  0 0 0 0 1  0 0 0 0.9 0" in="b"/>
+          </filter>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#00b4ff" stop-opacity="0.95"/>
+            <stop offset="1" stop-color="#0077ff" stop-opacity="0.45"/>
+          </linearGradient>
+        </defs>
+
+        <!-- outer ring -->
+        <ellipse cx="110" cy="45" rx="85" ry="16" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" opacity="0.9" filter="url(#fblur)"/>
+        <!-- inner ring -->
+        <ellipse cx="110" cy="45" rx="55" ry="10" fill="none" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" opacity="0.95" filter="url(#fblur)"/>
+        <!-- central glow -->
+        <ellipse cx="110" cy="52" rx="40" ry="6" fill="url(#g1)" opacity="0.25" filter="url(#fblur)"/>
+      </svg>
+
+    </div> <!-- .media -->
+
+    <!-- Content area -->
+    <div class="content">
+      <div class="chip" aria-hidden="true"><span class="dot"></span>CETPRO CREAR</div>
+      <h2 class="title"><small>PROGRAMACIÓN Y</small>DESARROLLO WEB</h2>
+      <p class="desc">Aprende programación y desarrollo web desde cero con las tecnologías más modernas y efectivas.</p>
+    </div>
+
+  </article>
+</body>
+</html>

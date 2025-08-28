@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Card — Programación y Desarrollo Web</title>
+  <style>
+    /* ===== Reset y body ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#071017; /* fondo oscuro similar */
+      font-family: "Raleway", "Poppins", system-ui, Arial, sans-serif;
+      padding:24px;
+      -webkit-font-smoothing:antialiased;
+      color:#fff;
+    }
+
+    /* ===== Card ===== */
+    .card{
+      position:relative;
+      width:320px;
+      border-radius:16px;
+      overflow:visible;
+      background:linear-gradient(180deg,#0d2839 0%, #071018 100%);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    /* ===== Sombra / brillo SVG grande (detrás todo) ===== */
+/* ===== Sombra / brillo SVG grande ===== */
+.shadow-svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* ✅ centro exacto */
+  width: 100%;       /* que ocupe el ancho de la tarjeta */
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .7;
+  mix-blend-mode: screen; /* mejor brillo */
+}
+
+    /* ===== Zona media (fondo azul donde va la foto) ===== */
+    .media{
+      position:relative;
+      height:240px;
+      display:flex;
+      overflow: visible; /* ✅ evitar que la imagen se corte */
+      align-items:flex-start; /* para que la foto sobresalga hacia arriba */
+      justify-content:center;
+      z-index:4;
+      padding-top:-10px;
+      
+    }
+
+    /* interior azul redondeado (solo efecto visual) */
+    .media::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:8px;
+      right:8px;
+      height:220px;
+      border-radius:14px;
+      z-index:2;
+      filter:blur(.6px);
+      opacity:.9;
+    }
+
+    /* ===== Badge (arriba-derecha) ===== */
+    .badge{
+      position:absolute;
+      top:10px;
+      right:12px;
+      z-index:8;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:#1d76d8;
+      box-shadow:0 6px 18px rgba(29,118,216,.35);
+      font-weight:700;
+      font-size:12px;
+      color:#fff;
+      letter-spacing:.2px;
+    }
+    .badge .ico{width:20px;height:20px;flex:0 0 20px}
+    .badge .medal{width:16px;height:16px;flex:0 0 16px;filter:drop-shadow(0 0 3px #f6c33d)}
+
+    /* ===== Persona ===== */
+    .person-wrap{position:relative;z-index:5;display:flex;justify-content:center;width:100%}
+    .person{
+      width:226px;
+      top: -40px;
+      height:226px;
+      border-radius:10px;
+      display:block;
+      position:absolute;
+      z-index:5;
+      transform:translateY(4px);
+      
+    }
+
+    /* ===== SVG de aros (debajo de la persona) ===== */
+/* ===== SVG de aros ===== */
+.rings-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;                  /* más pegado a la base del azul */
+  transform: translateX(-50%);   /* ✅ centro horizontal */
+  z-index: 5;
+  pointer-events: none;
+  width: 75%;                    /* escala proporcional al ancho */
+  max-width: 220px;
+  height: auto;
+  opacity: 0.9;
+  mix-blend-mode: plus-lighter;
+}
+
+    /* ===== Contenido textual ===== */
+    .content{
+      position:relative;
+      z-index:7;
+      padding:18px 20px 24px;
+      text-align:left;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#0f4aa8;
+      color:#e8f6ff;
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:12px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.03);
+    }
+    .chip .dot{
+      width:12px;
+      height:12px;
+      background: #fff;
+      border-radius:50%;
+      display:inline-block;
+      
+    }
+
+    .title{
+      margin-top:12px;
+      font-size:20px;
+      font-weight:900;
+      line-height:1.05;
+      color:#ffffff;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+    /* fuerza el salto de linea parecido a la imagen */
+    .title br{display:inline}
+
+    .desc{
+      margin-top:12px;
+      color:#9fb0c2;
+      font-size:14px;
+      line-height:1.6;
+      max-height:68px;
+      overflow:hidden;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+    }
+
+    /* sutil glowing circular overlay bottom-right */
+    .card:after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle at center, rgba(20,130,220,.08), rgba(20,130,220,0));
+      z-index:3;pointer-events:none
+    }
+
+    /* responsive */
+    @media (max-width:380px){
+      .card{width:92vw}
+      .person{width:150px}
+      .rings-wrap{width:180px;bottom:18px}
+      .title{font-size:18px}
+    }
+  </style>
+</head>
+<body>
+
+  <article class="card" aria-label="Tarjeta de curso — Programación y Desarrollo Web">
+
+    <!-- ===== SVG grande de sombra/brillo que está DETRÁS de todo (recurso 1) ===== -->
+    <div class="shadow-svg" aria-hidden="true">
+      <!-- recorté aquí para mantener el markup exactamente igual al recurso que enviaste -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="420" height="372" fill="none" viewBox="0 0 420 372" class="w-full h-auto max-h-full absolute bottom-0 opacity-70 featured-card_shadow__42JjD mix-blend-plus-lighter">
+        <g filter="url(#school-banner-blue-a)" style="mix-blend-mode: color-dodge">
+          <path fill="url(#school-banner-blue-b)" fill-opacity="0.8" d="M11.917 6.033 80.092 325.78s37.36 15.89 130.26 15.89c92.899 0 130.259-15.89 130.259-15.89L408.786 6.033H11.917Z"></path>
+          <defs>
+            <filter id="school-banner-blue-a" width="408.869" height="347.637" x="5.917" y="0.033" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="3"></feGaussianBlur>
+            </filter>
+            <linearGradient id="school-banner-blue-b" x1="210.352" x2="210.352" y1="6.033" y2="339.963" gradientUnits="userSpaceOnUse">
+              <stop></stop>
+              <stop offset="1" stop-color="rgb(53 169 253)" stop-opacity="0.2"></stop>
+            </linearGradient>
+          </defs>
+        </g>
+      </svg>
+    </div>
+
+    <!-- ===== Media area: fondo azul, persona, aros y badge superior ===== -->
+    <div class="media" role="presentation">
+
+      <!-- Badge superior (icono + medalla) -->
+      <div class="badge" aria-hidden="false" aria-label="Insignia CETPRO CREAR">
+        <svg class="ico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+          <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Zm7 1.5 5.5 5.5H13V3.5Z"/>
+        </svg>
+        <span style="font-size:12px;font-weight:800"></span>
+        <svg class="medal" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#f5b70a">
+          <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z"/>
+        </svg>
+      </div>
+
+      <!-- Persona centered -->
+      <div class="person-wrap">
+        <!-- imagen: reemplaza por la tuya si quieres -->
+        <img src="https://edteam-media.s3.amazonaws.com/schools/medium/ef08ce8f-9dc2-44dc-ae07-eda69c74e74d.webp" alt="Instructor" class="person" />
+      </div>
+
+      <!-- ===== SVG AROS (recurso 2) ===== -->
+      <div class="rings-wrap" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="215" height="190" fill="none" viewBox="0 0 420 372" class="w-fit h-auto max-h-full max-w-full">
+          <g filter="url(#school-banner-blue-c)" opacity="0.7" style="mix-blend-mode: plus-lighter">
+            <path fill="rgb(0 149 255)" fill-rule="evenodd" d="M210.351 343.162c78.098 0 141.408-7.935 141.408-17.723 0-9.789-63.31-17.724-141.408-17.724-78.097 0-141.407 7.935-141.407 17.724 0 9.788 63.31 17.723 141.407 17.723Zm0-7.456c71.263 0 129.033-5.923 129.033-13.229 0-7.307-57.77-13.23-129.033-13.23-71.262 0-129.032 5.923-129.032 13.23 0 7.306 57.77 13.229 129.032 13.229Z" clip-rule="evenodd"></path>
+          </g>
+          <g filter="url(#school-banner-blue-d)" opacity="0.2" style="mix-blend-mode: color-dodge">
+            <ellipse cx="210.352" cy="314.888" fill="rgb(0 149 255)" rx="125.531" ry="15.26"></ellipse>
+          </g>
+          <g filter="url(#school-banner-blue-e)" style="mix-blend-mode: color-dodge">
+            <ellipse cx="210.352" cy="331.079" fill="url(#school-banner-blue-f)" rx="185.259" ry="22.11"></ellipse>
+          </g>
+          <g filter="url(#school-banner-blue-g)" style="mix-blend-mode: color-dodge">
+            <ellipse cx="210.352" cy="331.079" fill="url(#school-banner-blue-h)" rx="185.259" ry="22.11"></ellipse>
+          </g>
+          <g fill="rgb(0 149 255)" style="mix-blend-mode: plus-lighter">
+            <g filter="url(#school-banner-blue-i)">
+              <path d="M376.005 239.948c5.218 1.173 10.397 2.49 15.496 4.136 2.543.857 5.073 1.739 7.537 2.819 2.465 1.054 4.902 2.226 7.169 3.728.58.342 1.12.777 1.66 1.185.567.395 1.054.87 1.555 1.344a10.99 10.99 0 0 1 2.49 3.372l.369 1.027c.132.343.119.725.185 1.08.066.369.079.725.039 1.093 0 .369-.079.725-.171 1.094-.343 1.435-1.12 2.687-2.029 3.754-1.845 2.133-4.151 3.688-6.496 5.044-2.359 1.357-4.823 2.49-7.314 3.53-10.027 4.005-20.503 6.547-30.979 8.786-10.502 2.187-21.083 3.912-31.703 5.374-21.228 2.964-42.601 4.637-63.974 5.835-21.387 1.146-42.799 1.673-64.212 1.647-21.412-.132-42.825-.83-64.198-2.174-21.359-1.396-42.72-3.266-63.908-6.572-10.594-1.647-21.149-3.557-31.585-6.086-5.218-1.264-10.396-2.687-15.51-4.386-5.085-1.739-10.159-3.675-14.85-6.507-2.305-1.449-4.585-3.108-6.232-5.492-.804-1.186-1.384-2.622-1.423-4.123-.066-1.515.5-2.964 1.265-4.162 1.581-2.411 3.9-4.018 6.193-5.427 2.332-1.396 4.783-2.529 7.274-3.543 10.027-4.018 20.516-6.376 31.005-8.391-5.218 1.172-10.41 2.463-15.523 3.965-5.125 1.488-10.198 3.148-15.074 5.269-2.438 1.053-4.823 2.239-7.036 3.648-2.188 1.41-4.349 3.043-5.653 5.177-.633 1.053-1.041 2.226-.962 3.398.052 1.172.54 2.305 1.252 3.306 1.449 2.015 3.623 3.556 5.85 4.874 4.533 2.621 9.527 4.465 14.574 6.098 5.06 1.594 10.212 2.924 15.404 4.11 10.383 2.331 20.911 4.083 31.466 5.558 42.285 5.73 85.031 7.785 127.724 7.89 42.693.237 85.439-1.541 127.816-6.625 10.581-1.291 21.149-2.845 31.612-4.861 10.436-2.054 20.872-4.452 30.781-8.206 2.464-.948 4.902-2.002 7.208-3.253 2.293-1.251 4.52-2.687 6.233-4.584.843-.935 1.528-2.015 1.844-3.174.08-.29.145-.58.159-.883a2.563 2.563 0 0 0-.014-.895c-.052-.29-.013-.606-.131-.896l-.29-.869c-.975-2.292-3.071-4.071-5.192-5.559-2.161-1.515-4.533-2.727-6.944-3.833-2.412-1.133-4.915-2.055-7.406-2.977-5.046-1.818-10.185-3.306-15.351-4.663Z"></path>
+              <path d="M349.651 199.247c4.389.987 8.744 2.096 13.033 3.483 2.139.721 4.266 1.464 6.339 2.373 2.072.888 4.122 1.875 6.029 3.14.487.288.942.654 1.396.998.477.333.887.732 1.308 1.131a9.282 9.282 0 0 1 2.094 2.84l.311.865c.11.288.099.61.155.909.055.311.066.611.033.921 0 .311-.067.61-.144.921-.288 1.209-.942 2.263-1.707 3.161-1.551 1.797-3.491 3.106-5.463 4.248-1.984 1.143-4.056 2.097-6.151 2.973-8.434 3.372-17.244 5.513-26.054 7.398-8.833 1.842-17.732 3.295-26.664 4.526-17.854 2.496-35.829 3.904-53.805 4.914-17.986.965-35.995 1.408-54.004 1.386-18.008-.111-36.017-.699-53.992-1.83-17.965-1.176-35.929-2.751-53.75-5.535-8.91-1.387-17.786-2.995-26.564-5.125-4.388-1.064-8.744-2.262-13.043-3.693-4.278-1.464-8.545-3.095-12.49-5.48-1.94-1.22-3.857-2.617-5.242-4.625-.676-.998-1.164-2.207-1.197-3.472-.055-1.275.421-2.496 1.064-3.505 1.33-2.03 3.28-3.383 5.209-4.57 1.961-1.176 4.023-2.129 6.117-2.984 8.434-3.383 17.255-5.368 26.077-7.065-4.389.987-8.755 2.074-13.055 3.339-4.311 1.253-8.578 2.65-12.678 4.436-2.05.888-4.056 1.886-5.918 3.073-1.84 1.187-3.658 2.562-4.755 4.359-.532.887-.875 1.875-.809 2.862.045.987.455 1.941 1.053 2.784 1.22 1.697 3.048 2.995 4.92 4.104 3.813 2.207 8.013 3.76 12.258 5.135 4.255 1.343 8.588 2.463 12.955 3.461 8.733 1.963 17.587 3.439 26.464 4.681 35.563 4.825 71.514 6.555 107.421 6.644 35.906.2 71.857-1.298 107.498-5.579 8.899-1.087 17.787-2.396 26.586-4.093 8.777-1.73 17.554-3.749 25.888-6.91 2.073-.799 4.123-1.686 6.062-2.74 1.929-1.054 3.801-2.263 5.242-3.86.709-.788 1.286-1.697 1.552-2.673.066-.244.122-.488.133-.744a2.17 2.17 0 0 0-.011-.754c-.045-.244-.012-.51-.111-.754l-.244-.732c-.82-1.93-2.582-3.428-4.366-4.681-1.818-1.276-3.813-2.296-5.841-3.228-2.028-.954-4.134-1.73-6.228-2.507-4.245-1.53-8.567-2.784-12.911-3.926Z"></path>
+            </g>
+          </g>
+          <defs>
+            <filter id="school-banner-blue-c" width="291.551" height="44.182" x="64.576" y="303.348" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="2.184"></feGaussianBlur>
+            </filter>
+            <filter id="school-banner-blue-d" width="293.741" height="73.2" x="63.481" y="278.288" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="10.67"></feGaussianBlur>
+            </filter>
+            <filter id="school-banner-blue-e" width="406.459" height="80.161" x="7.122" y="290.998" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="8.985"></feGaussianBlur>
+            </filter>
+            <filter id="school-banner-blue-g" width="388.458" height="62.16" x="16.123" y="299.999" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="4.485"></feGaussianBlur>
+            </filter>
+            <filter id="school-banner-blue-i" width="418.612" height="111.247" x="0.916" y="190.55" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+              <feGaussianBlur result="effect1_foregroundBlur_3377_27632" stdDeviation="3.5"></feGaussianBlur>
+            </filter>
+            <radialGradient id="school-banner-blue-f" cx="0" cy="0" r="1" gradientTransform="matrix(185.259 0 0 22.11 210.352 331.079)" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="0.75" stop-color="rgb(13 48 74)"></stop><stop offset="1" stop-color="rgb(1 83 141)"></stop></radialGradient>
+            <radialGradient id="school-banner-blue-h" cx="0" cy="0" r="1" gradientTransform="matrix(185.259 0 0 22.11 210.352 331.079)" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="0.75" stop-color="rgb(13 48 74)"></stop><stop offset="1" stop-color="rgb(1 83 141)"></stop></radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+    </div> <!-- .media -->
+
+    <!-- ===== Texto (contenido) ===== -->
+    <div class="content">
+      <span class="chip" aria-hidden="true"><span class="dot"></span>CETPRO CREAR</span>
+      <h2 class="title">PROGRAMACIÓN Y<br/>DESARROLLO WEB</h2>
+      <p class="desc">Aprende programación y desarrollo web desde cero con las tecnologías más modernas y efectivas.</p>
+    </div>
+
+  </article>
+
+</body>
+</html>
+
+

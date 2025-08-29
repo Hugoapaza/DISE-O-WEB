@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agencia ProWeb</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #f7f8f8;
+      color: #0d4dc4;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header h2 {
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #486eeb;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .bienvenido {
+      margin-top: 70px; /* espacio para no tapar el header */
+      height: 250px;
+      width: 100%;
+      background: #5d8de6;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .demo {
+      text-decoration: none;
+      background: #f4f4f5;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 15px;
+      color: rgb(73, 161, 212);
+      font-weight: bold;
+    }
+
+    .servicosh2 {
+      text-align: center;
+      margin: 30px 0 10px;
+      font-size: 24px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .caja {
+      width: 220px;
+      height: 400px;
+      border: 3px solid #080808;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #525353;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      padding-top: 60px; /* espacio para imagen flotante */
+    }
+
+    .caja img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 10px;
+    }
+
+    .caja h2 {
+      margin-top: 160px;
+      font-size: 16px;
+      color: black;
+    }
+
+    .caja p {
+      font-size: 14px;
+      padding: 10px;
+      color: #333;
+    }
+
+    .icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .icon img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .footer {
+      background-color: #0d4dc4;
+      padding: 10px;
+      color: #f8f8fa;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Agencia Proweb</h2>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="bienvenido">
+    <h2>Transformamos tu presencia digital</h2>
+    <p>Diseño web, branding, marketing y más. Todo en un solo lugar.</p>
+    <a class="demo" href="#">Solicita un demo</a>
+  </div>
+
+  <div>
+    <h2 class="servicosh2">Servicios destacados</h2>
+  </div>
+
+  <div class="container">
+    <div class="caja">
+      <img src="Imagenes/desarrollo-web-4.jpg" alt="Desarrollo Web" />
+      <h2>Curso de inteligencia artificial</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+
+    <div class="caja">
+      <img src="Imagenes/marketing-digital-portada.webp" alt="Marketing Digital" />
+      <h2>Curso de marketing digital</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+
+    <div class="caja">
+      <img src="Imagenes/Identidad de marca.jpg" alt="Identidad de Marca" />
+      <h2>Curso de identidad de marca</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+
+    <div class="caja">
+      <img src="Imagenes/Persona.png" alt="Persona UX" />
+      <h2>Curso de diseño UX</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+  </div>
+
+  <div class="icon">
+    <a href="#"><img src="Imagenes/whatsapp (1).png" alt="WhatsApp" /></a>
+    <a href="#"><img src="Imagenes/instagram (2).png" alt="Instagram" /></a>
+    <a href="#"><img src="Imagenes/x.png" alt="X (Twitter)" /></a>
+    <a href="#"><img src="Imagenes/youtube.png" alt="YouTube" /></a>
+  </div>
+
+  <div class="footer">
+    <small>© 2025 Agencia ProWeb. Todos los derechos reservados.</small>
+  </div>
+
+</body>
+</html>

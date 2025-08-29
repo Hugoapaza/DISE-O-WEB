@@ -19,6 +19,63 @@
       color:#fff;
     }
 
+    /* HEADER */
+    header {
+      background-color: #29a6e3;
+      color: #fff;
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    header img {
+      width: 100px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+      align-items: center;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 20px;
+    }
+    .login {
+      background: orange;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* SECCIÓN BIENVENIDO */
+    .bienvenido {
+      margin-top: 90px; /* espacio para no tapar el header */
+      height: 250px;
+      background-image: url("https://images.unsplash.com/photo-1592492159418-39f319320569?fm=jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bienvenido h2 {
+      background: #29a6e3;
+      padding: 15px 30px;
+      border-radius: 10px;
+      color: white;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     /* ===== Card ===== */
     .card{
       position:relative;
@@ -186,6 +243,28 @@
       z-index:3;pointer-events:none
     }
 
+       /* WHATSAPP FLOTANTE */
+    .icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .icon img {
+      width: 60px;
+    }
+
+    /* CONTENIDO */
+    .contenido {
+      margin: 40px;
+      font-size: 14px;
+      text-align: justify;
+      line-height: 1.6;
+      display: flex;
+    }
+    p{
+      align-items: space;
+    }
+
     /* responsive */
     @media (max-width:380px){
       .card{width:92vw}
@@ -196,6 +275,21 @@
   </style>
 </head>
 <body>
+  <header>
+    <img
+      src="../imagenes logo/png-clipart-logo-community-text-logo-Photoroom.png"
+      alt="Logo"
+    />
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a class="login" href="#">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <article class="card" aria-label="Tarjeta de curso — Programación y Desarrollo Web">
 
@@ -303,6 +397,32 @@
     </div>
 
   </article>
+
+  <div class="icon">
+    <a href="#">
+      <img
+        src="https://images.icon-icons.com/2857/PNG/512/logo_whatsapp_icon_181639.png"
+        alt="WhatsApp"
+      />
+    </a>
+  </div>
+
+  <div class="contenido">
+    <p>
+      Cuando hablamos de las partes de una página web, normalmente nos referimos a su
+      estructura. O lo que es lo mismo, a todos los elementos o funcionalidades que la
+      componen como, por ejemplo, las secciones o menús, que hacen que se pueda navegar
+      por ella y sea funcional. <br /><br />
+      Aunque menos habitual, también es posible referirnos a las partes de una página web
+      para hablar de su contenido, es decir, las diferentes páginas que se albergan dentro
+      de un sitio web, por ejemplo, la página de contacto, la de servicios o la propia home
+      o página principal. <br /><br />
+      Lo que sí está claro es que existen cientos, por no decir miles, de tipos de páginas
+      web. Por tanto, te podrás imaginar que las partes de una página web no son las mismas
+      en un ecommerce que en una página web corporativa o un blog de repostería, aunque sí
+      es cierto que comparten una estructura y muchos elementos en común.
+    </p>
+  </div>
 
 </body>
 </html>

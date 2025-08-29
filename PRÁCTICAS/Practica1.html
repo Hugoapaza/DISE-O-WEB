@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2>Agencia Proweb</h2>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!---->
+    <div class="bienvenido">
+      <h2>Transformamos tu presencia digital</h2>
+      <p>Diseño web, branding, marketing y más. Todo en un solo lugar.</p>
+      <a class="demo" href="#">Solicita un demo</a>
+    </div>
+    <div><h2 class="servicosh2">Servicios destacados</h2></div>
+
+    <!--Contenedor de cajas-->
+  <div class="container">
+    <div class="caja">
+      <img src="Imagenes/desarrollo-web-4.jpg" alt="Desarrollo Web" />
+      <h2>Diseño Web</h2>
+      <p>Webs modernas,responsivas y optimizadas para posicionarse en buscadores. </p>
+    </div>
+
+    <div class="caja">
+      <img src="Imagenes/marketing-digital-portada.webp" alt="Marketing Digital" />
+      <h2>Marketing Digital</h2>
+      <p>Creamos estrategias en redes sociales, publicidad y email marketing efectivas.</p>
+    </div>
+
+    <div class="caja">
+      <img src="Imagenes/Identidad de marca.jpg" alt="Identidad de Marca" />
+      <h2>Curso de identidad de marca</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+
+    <div class="caja">
+      <img class="persona" src="Imagenes/Persona.png" alt="Persona UX" />
+      <h2>Curso de diseño UX</h2>
+      <p>Este es un ejemplo de un card. Tu imagen sobresale y queda centrada a la mitad de la tarjeta.</p>
+    </div>
+  </div>
+
+    <!--Iconos de redes sociales-->
+    <div class="icon">
+      <a href="#">
+        <img src="Imagenes/whatsapp (1).png"  alt="WhatsApp"/>
+      </a>
+      <a href="#">
+            <img  src="Imagenes/instagram (2).png"  alt="instagram"/>
+      </a>
+      <a href="#">
+        <img  src="Imagenes/x.png"  alt="x"/>
+      </a>
+      <a href="#">
+        <img  src="Imagenes/youtube.png"alt="youtube"/>
+      </a>
+    </div>
+    <div class="footer"><small>© 2025 Agencia proWeb. Todos los derechos reservados.</small></div>
+  </body>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background-color: #f7f8f8;
+      color: #0d4dc4;
+      padding: 10px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+      align-items: center;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #486eeb;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    header h2 {
+      font-size: 18px;
+    }
+    /* SECCIÓN BIENVENIDO */
+    .bienvenido {
+      margin-top: 0px; /* espacio para no tapar el header */
+      height: 250px;
+      width: 100%;
+      background: #5d8de6;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .demo{
+      text-decoration: none;
+      background: #f4f4f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:5px;
+      margin-top: 10px;
+      border-radius: 15px;
+      color: rgb(73, 161, 212);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .caja {
+      width: 220px;
+      height: 300px;
+      border: 3px solid #080808;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #525353;
+      background: #fff;
+      position: relative;
+    
+      padding-top: 60px; /* espacio para imagen flotante */
+    }
+
+    .caja img {
+      width: 210px;
+      height: 150px;
+      object-fit: cover;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 10px;
+    }
+    .caja .persona{
+        width: 210px;
+        height: 190px;
+        position: absolute;
+        top: -50px;
+        right: 0px;
+        left: 0px;
+        padding: 3px 0px;
+        border-bottom: 3px solid #0d4dc4;
+    }
+
+    .caja h2 {
+      margin-top: 160px;
+      font-size: 16px;
+      color: black;
+    }
+
+    .caja p {
+      font-size: 14px;
+      padding: 10px;
+      color: #333;
+    }
+
+    .servicosh2{
+        text-align: center;
+        padding: 30px;
+    }
+        /* WHATSAPP FLOTANTE */
+    .icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .icon img {
+      width: 50px;
+    }
+    nav ul li:hover{
+        border-bottom: 2px solid #486eeb;
+        background-color: #d3e0e0;
+    }
+    .footer{
+        background-color: #0d4dc4;
+        padding: 10px 10px;
+        color: #f8f8fa;
+        text-align: center;
+
+    }
+
+  </style>
+</html>

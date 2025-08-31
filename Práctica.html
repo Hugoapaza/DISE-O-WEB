@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agencia ProWeb | Marketing y Diseño</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <h1 class="logo">Agencia ProWeb</h1>
+      <nav>
+        <ul>
+          <li><a class="nav-link" href="#">Inicio</a></li>
+          <li><a class="nav-link" href="#">Nosotros</a></li>
+          <li><a class="nav-link" href="#">Servicios</a></li>
+          <li><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="bienvenido">
+      <h2>Transformamos tu presencia digital</h2>
+      <p>Diseño web, branding, marketing y más. Todo en un solo lugar.</p>
+      <a class="btn-demo" href="#">Solicita una demo</a>
+    </section>
+
+    <section class="servicios">
+      <h2>Servicios destacados</h2>
+      <div class="cards-container">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="Imagenes/desarrollo-web-4.jpg" alt="Diseño Web" />
+          <h3>Diseño Web</h3>
+          <p>
+            Webs modernas, responsivas y optimizadas para posicionarse en
+            buscadores.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <img
+            src="Imagenes/marketing-digital-portada.webp"
+            alt="Marketing Digital"
+          />
+          <h3>Marketing Digital</h3>
+          <p>
+            Creemos estrategias en redes sociales, publicidad y email marketing
+            efectivas.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="Imagenes/Identidad de marca.jpg" alt="Identidad de Marca" />
+          <h3>Identidad de Marca</h3>
+          <p>
+            Desde el logotipo hasta la voz de tu marca, te ayudamos a destacar.
+          </p>
+        </div>
+        <!-- "Placeholder" vacío en columna 1 -->
+        <div class="placeholder"></div>
+        <!-- Card 4 (Especial) -->
+        <div class="card especial">
+          <div class="img-persona">
+            <img
+              src="Imagenes/Persona.png"
+              alt="Curso de Inteligencia Artificial"
+            />
+          </div>
+          <h3>Curso de Inteligencia Artificial</h3>
+          <p>
+            Este es un ejemplo de un card donde la imagen sobresale y queda
+            centrada a la mitad de la tarjeta.
+          </p>
+          <a href="#" class="btn">Leer más</a>
+        </div>
+        <!-- "Placeholder" vacío en columna 3 -->
+        <div class="placeholder"></div>
+      </div>
+    </section>
+
+    <!-- Iconos flotantes -->
+    <aside class="icon">
+      <a class="social" href="#"
+        ><img src="Imagenes/whatsapp (1).png" alt="WhatsApp"
+      /></a>
+      <a class="social" href="#"
+        ><img src="Imagenes/instagram (2).png" alt="Instagram"
+      /></a>
+      <a class="social" href="#"
+        ><img src="Imagenes/x.png" alt="Logo de X (Twitter)"
+      /></a>
+      <a class="social" href="#"
+        ><img src="Imagenes/youtube.png" alt="YouTube"
+      /></a>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+      <small>© 2025 Agencia ProWeb. Todos los derechos reservados.</small>
+    </footer>
+  </body>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    header {
+      background-color: #f7f8f8;
+      color: #0d4dc4;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #486eeb;
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #0d4dc4;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #486eeb;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .bienvenido {
+      margin-top: 60px; /* espacio para no tapar el header */
+      height: 250px;
+      width: 100%;
+      background: linear-gradient(135deg, #5d8de6, #3a6cd4);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+    }
+
+    .btn-demo {
+      text-decoration: none;
+      background: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 20px;
+      color: #486eeb;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn-demo:hover {
+      background: #486eeb;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .servicios {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /* Contenedor con Flexbox */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap; /* para que se acomoden en varias filas */
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px; /* Ajusta el ancho total */
+      margin: auto;
+    }
+
+    .card {
+      flex: 1 1 260px; /* Crece, reduce y base mínima 260px */
+      max-width: 300px; /* Ancho máximo fijo. No más grande que 300px */
+      min-width: 250px; /* Ancho mínimo para responsividad mínimo 250px */
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 260px;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .placeholder {
+      width: 260px; /* Igual ancho que las cards */
+      min-height: 0; /* No ocupa altura visible */
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Card especial */
+    .card.especial {
+      flex-basis: 100%; /* Ocupar toda la fila */
+      max-width: 260px; /* Mantener el mismo tamaño de las otras */
+      margin-top: 40px; /* Espacio con la fila superior */
+      align-self: center; /* Centrar debajo de las tres */
+      position: relative; /* Para posicionar la imagen sobresaliente */
+      overflow: visible; /* Permitir que la imagen sobresalga */
+    }
+
+    /* Imagen sobresaliente de la card especial */
+    .card.especial .img-persona {
+      position: absolute;
+      top: -70px; /* sube un poco más porque la imagen es más grande */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px; /* tamaño fijo */
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card.especial .img-persona img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Ajustamos el contenido para que no se monte encima de la imagen */
+    .card.especial h3 {
+      margin-top: 90px; /* espacio debajo de la imagen sobresaliente */
+    }
+
+    .card.especial .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #0d47a1;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .card.especial .btn:hover {
+      background: #1565c0;
+    }
+
+    /* Iconos sociales */
+    .icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social img {
+      width: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social img:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0d4dc4;
+      padding: 15px;
+      color: #f8f8fa;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+/* 🚀 SOLO cambia en celulares (pantallas pequeñas) */
+@media (max-width: 600px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card,
+  .card.especial {
+    width: 90%; /* se hace más ancha */
+    max-width: 400px;
+  }
+
+  .card.especial {
+    margin-top: 70px; /* más espacio con la fila anterior */
+  }
+}
+  </style>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Flexbox – Playground Explicado</title>
+<style>
+  /* =========================
+     Variables y base visual
+     ========================= */
+  :root{
+    --bg:#0d1117;           /* fondo página */
+    --card:#0f172a;         /* fondo cards */
+    --muted:#9fb0c3;        /* texto secundario */
+    --text:#e6edf3;         /* texto principal */
+    --brand:#ffd900;        /* acento */
+    --ok:#22c55e;           /* verde */
+    --info:#60a5fa;         /* azul */
+    --warn:#f59e0b;         /* naranja */
+    --radius:14px;          /* radio bordes */
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color:var(--text);
+    background: radial-gradient(1200px 600px at 70% 20%, #0b1320 0, #0d1117 45%, #0a0f17 100%);
+  }
+  header{ text-align:center; padding:24px; }
+  header h1{ margin:0 0 6px; font-size:26px; }
+  header p{ margin:0; color:var(--muted); }
+
+  /* Contenedor de demos en grid (NO es flex, es para la página) */
+  .grid{
+    display:grid; gap:18px; padding:24px; max-width:1200px; margin:0 auto 40px;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  }
+
+  /* Tarjeta demo */
+  .demo{
+    background:linear-gradient(180deg, #0f172a, #0b1222);
+    border:1px solid #1f2a44; border-radius:var(--radius);
+    padding:18px; box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  }
+  .demo h3{ margin:0 0 10px; color:#cfe9ff; font-size:18px; }
+  .demo p{ margin:0 0 12px; color:var(--muted); font-size:13px; }
+
+  /* Bloque “escenario” donde mostramos el flex-container */
+  .stage{
+    background:#0c1527; border:1px dashed #1f2a44; border-radius:12px;
+    padding:12px; min-height:90px;
+  }
+
+  /* Ítems de ejemplo (flex items) */
+  .box{
+    background:#12213a; border:1px solid #223b66; color:#cfe9ff;
+    padding:10px; border-radius:10px; text-align:center; font-size:13px;
+  }
+  .b1{ background:#152a49; }  /* variantes de color */
+  .b2{ background:#1b3356; }
+  .b3{ background:#203b68; }
+  .b4{ background:#244275; }
+  .b5{ background:#294a83; }
+  .b6{ background:#2f5392; }
+
+  /* Utilidades para ver tamaños */
+  .h60{ height:60px; }
+  .h80{ height:80px; }
+  .h100{ height:100px; }
+ .box:nth-child(1){ background:#0a1f3a; }
+  /* =========================
+     1) display:flex
+     - Activa el contexto Flexbox en el contenedor
+     ========================= */
+  .flex{ display:flex; } /* ← propiedad clave para iniciar Flexbox */
+
+  /* =========================
+     2) flex-direction
+     - Eje principal (main axis) y eje cruzado (cross axis)
+     ========================= */
+  .row{ flex-direction: row; }           /* Eje principal = horizontal (izq→der) */
+  .column{ flex-direction: column; }     /* Eje principal = vertical (arriba→abajo) */
+
+  /* =========================
+     3) gap
+     - Espacio entre items (no afecta bordes del contenedor)
+     ========================= */
+  .gap8{ gap:8px; }
+  .gap12{ gap:12px; }
+  .gap16{ gap:16px; }
+
+  /* =========================
+     4) justify-content (a lo largo del eje principal)
+     ========================= */
+  .jc-start{ justify-content:flex-start; }     /* al inicio del eje principal */
+  .jc-center{ justify-content:center; }        /* centrados en el eje principal */
+  .jc-end{ justify-content:flex-end; }         /* al final */
+  .jc-between{ justify-content:space-between; }/* extremos y espacio entre medios */
+  .jc-around{ justify-content:space-around; }  /* espacio alrededor de cada item */
+  .jc-evenly{ justify-content:space-evenly; }  /* espacio uniforme en todo */
+
+  /* =========================
+     5) align-items (a lo largo del eje cruzado)
+     ========================= */
+  .ai-stretch{ align-items:stretch; }  /* estira altura/anchura en cross axis */
+  .ai-start{ align-items:flex-start; } /* al inicio del eje cruzado */
+  .ai-center{ align-items:center; }    /* centrado en el eje cruzado */
+  .ai-end{ align-items:flex-end; }     /* al final del eje cruzado */
+  .ai-baseline{ align-items:baseline; }/* alinea por línea base del texto */
+
+  /* Para demostrar align-items con alturas distintas */
+  .tall .box:nth-child(1){ height:40px; }
+  .tall .box:nth-child(2){ height:70px; }
+  .tall .box:nth-child(3){ height:55px; }
+
+  /* =========================
+     6) flex-wrap + align-content
+     ========================= */
+  .wrap{ flex-wrap:wrap; }  /* permite que los items salten a otra línea/columna */
+  .nowrap{ flex-wrap:nowrap; } /* (por defecto) todo en una sola línea */
+  .ac-start{ align-content:flex-start; } /* distribución de filas envueltas */
+  .ac-center{ align-content:center; }
+  .ac-end{ align-content:flex-end; }
+  .ac-between{ align-content:space-between; }
+  .ac-around{ align-content:space-around; }
+  .w100{ width:100%; } /* util para demos de alineación */
+
+  /* =========================
+     7) flex-grow, flex-shrink, flex-basis (shorthand: flex)
+     - Cómo los items consumen espacio
+     ========================= */
+  .grow1{ flex:1 1 0; }    /* crece 1, encoge 1, base 0 */
+  .grow2{ flex:2 1 0; }    /* crece el doble que grow1 */
+  .nogrow{ flex:0 1 auto; }/* no crece, encoge si es necesario, base auto */
+  .basis150{ flex:0 0 150px; } /* no crece ni encoge, base fija 150px */
+
+  /* =========================
+     8) order
+     - Cambia el orden visual de los items (no el DOM)
+     ========================= */
+  .order-1{ order:1; }
+  .order-2{ order:2; }
+  .order-3{ order:3; }
+
+  /* =========================
+     9) align-self
+     - Sobrescribe align-items para un ítem específico
+     ========================= */
+  .self-start{ align-self:flex-start; }
+  .self-center{ align-self:center; }
+  .self-end{ align-self:flex-end; }
+  .self-stretch{ align-self:stretch; }
+
+  /* =========================
+     10) Ejemplos aplicados:
+         a) Navbar responsive con Flexbox
+         b) Layout de dos columnas igual altura
+     ========================= */
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:#0b1426; border:1px solid #1e2b49; border-radius:12px; padding:10px 12px;
+  }
+  .nav-left, .nav-right{ display:flex; align-items:center; gap:10px; }
+  .nav-menu{ display:flex; gap:10px; }
+  .nav-link{ color:#e6edf3; text-decoration:none; padding:8px 10px; border-radius:8px; }
+  .nav-link:hover{ background:#13213b; }
+
+  .two-col{
+    display:flex; gap:12px; align-items:stretch; /* align-items:stretch da “igual altura” */
+  }
+  .col{
+    flex:1 1 0; background:#0b1426; border:1px solid #1e2b49; border-radius:12px; padding:12px;
+  }
+
+  /* Responsive pequeño: colapsamos el menú */
+  @media (max-width:640px){
+    .nav-menu{ display:none; }
+    .two-col{ flex-direction:column; } /* columnas apiladas en mobile */
+  }
+</style>
+</head>
+<body>
+<header>
+  <p>Explora propiedades de Flexbox con ejemplos claros y comentarios.</p>
+  <h1>Flexbox – Playground explicado</h1>
+  
+</header>
+
+<main class="grid">
+
+  <!-- 1) display:flex -->
+  <section class="demo">
+    <h3>1) display:flex (activar Flexbox)</h3>
+    <p><b>Claves:</b> <code>display:flex</code> convierte al contenedor en “flex container”. Los hijos directos pasan a ser “flex items”.</p>
+    <div class="stage flex gap12 row">
+      <!-- Al aplicar .flex aquí, estos .box se distribuyen en el eje principal (row) -->
+      <div class="box b1">Item 1</div>
+      <div class="box b2">Item 2</div>
+      <div class="box b3">Item 3</div>
+    </div>
+  </section>
+
+  <!-- 2) flex-direction -->
+  <section class="demo">
+    <h3>2) flex-direction (eje principal)</h3>
+    <p><b>Row:</b> eje principal horizontal (izq→der). <b>Column:</b> eje principal vertical (arriba→abajo).</p>
+    <div class="stage flex row gap12" style="margin-bottom:10px;">
+      <div class="box b1">row 1</div>
+      <div class="box b2">row 2</div>
+      <div class="box b3">row 3</div>
+    </div>
+    <div class="stage flex column gap12">
+      <div class="box b1">col 1</div>
+      <div class="box b2">col 2</div>
+      <div class="box b3">col 3</div>
+    </div>
+  </section>
+
+  <!-- 3) justify-content -->
+  <section class="demo">
+    <h3>3) justify-content (eje principal)</h3>
+    <p>Controla cómo se distribuyen los items a lo largo del eje principal.</p>
+    <div class="stage flex row gap12 jc-start" style="margin-bottom:8px;">
+      <div class="box b1">start</div><div class="box b2">start</div><div class="box b3">start</div>
+    </div>
+    <div class="stage flex row gap12 jc-center" style="margin-bottom:8px;">
+      <div class="box b1">center</div><div class="box b2">center</div><div class="box b3">center</div>
+    </div>
+    <div class="stage flex row gap12 jc-end" style="margin-bottom:8px;">
+      <div class="box b1">end</div><div class="box b2">end</div><div class="box b3">end</div>
+    </div>
+    <div class="stage flex row gap12 jc-between" style="margin-bottom:8px;">
+      <div class="box b1">between</div><div class="box b2">between</div><div class="box b3">between</div>
+    </div>
+    <div class="stage flex row gap12 jc-around" style="margin-bottom:8px;">
+      <div class="box b1">around</div><div class="box b2">around</div><div class="box b3">around</div>
+    </div>
+    <div class="stage flex row gap12 jc-evenly">
+      <div class="box b1">evenly</div><div class="box b2">evenly</div><div class="box b3">evenly</div>
+    </div>
+  </section>
+
+  <!-- 4) align-items -->
+  <section class="demo">
+    <h3>4) align-items (eje cruzado)</h3>
+    <p>Controla la alineación vertical (en <i>row</i>) u horizontal (en <i>column</i>) de los items.</p>
+    <div class="stage flex row gap12 ai-start tall" style="margin-bottom:8px;">
+      <div class="box b1">start</div><div class="box b2">start</div><div class="box b3">start</div>
+    </div>
+    <div class="stage flex row gap12 ai-center tall" style="margin-bottom:8px;">
+      <div class="box b1">center</div><div class="box b2">center</div><div class="box b3">center</div>
+    </div>
+    <div class="stage flex row gap12 ai-end tall">
+      <div class="box b1">end</div><div class="box b2">end</div><div class="box b3">end</div>
+    </div>
+  </section>
+
+  <!-- 5) flex-wrap + align-content -->
+  <section class="demo">
+    <h3>5) flex-wrap y align-content</h3>
+    <p><code>flex-wrap:wrap</code> permite saltar de línea. <code>align-content</code> distribuye el espacio entre filas.</p>
+    <div class="stage flex row wrap gap12 ac-center" style="min-height:150px;">
+      <!-- width fijo para forzar wrap -->
+      <div class="box b1" style="width:120px;">1</div>
+      <div class="box b2" style="width:120px;">2</div>
+      <div class="box b3" style="width:120px;">3</div>
+      <div class="box b4" style="width:120px;">4</div>
+      <div class="box b5" style="width:120px;">5</div>
+      <div class="box b6" style="width:120px;">6</div>
+    </div>
+  </section>
+
+  <!-- 6) flex-grow / shrink / basis -->
+  <section class="demo">
+    <h3>6) flex-grow / flex-shrink / flex-basis</h3>
+    <p>Define cómo cada item crece/encoge y su base inicial. <code>flex: grow shrink basis</code>.</p>
+    <div class="stage flex row gap12">
+      <div class="box b1 grow1">flex:1</div>
+      <div class="box b2 grow2">flex:2</div>
+      <div class="box b3 nogrow basis150">flex:0 0 150px</div>
+    </div>
+  </section>
+
+  <!-- 7) align-self (override por item) -->
+  <section class="demo">
+    <h3>7) align-self (por ítem)</h3>
+    <p>Sobrescribe <code>align-items</code> para un item específico.</p>
+    <div class="stage flex row gap12 ai-center" style="min-height:120px;">
+      <div class="box b1 self-start h60">self-start</div>
+      <div class="box b2 self-center h80">self-center</div>
+      <div class="box b3 self-end h100">self-end</div>
+      <div class="box b4 self-stretch">self-stretch</div>
+    </div>
+  </section>
+
+  <!-- 8) order -->
+  <section class="demo">
+    <h3>8) order (reordenar visualmente)</h3>
+    <p><code>order</code> cambia el orden visual (no el DOM). Útil para responsive.</p>
+    <div class="stage flex row gap12">
+      <div class="box b1 order-3">A (order:3)</div>
+      <div class="box b2 order-1">B (order:1)</div>
+      <div class="box b3 order-2">C (order:2)</div>
+    </div>
+  </section>
+
+  <!-- 9a) Navbar responsive -->
+  <section class="demo">
+    <h3>9a) Navbar con Flexbox</h3>
+    <p>Separa bloques con <code>justify-content:space-between</code>, agrupa botones con contenedores flex.</p>
+    <nav class="navbar">
+      <div class="nav-left">
+        <strong style="color:var(--brand)">MiLogo</strong>
+      </div>
+      <div class="nav-menu">
+        <a class="nav-link" href="#">Inicio</a>
+        <a class="nav-link" href="#">Cursos</a>
+        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="#">Contacto</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="#" style="background:#13213b;border:1px solid #1e2b49;">Registrarse</a>
+      </div>
+    </nav>
+    <p style="margin-top:8px;color:var(--muted);font-size:12px;">En pantallas pequeñas el <b>menú</b> se oculta (media query), pero podrías mostrar un “hamburger”.</p>
+  </section>
+
+  <!-- 9b) Dos columnas igual altura -->
+  <section class="demo">
+    <h3>9b) Dos columnas de igual altura</h3>
+    <p><code>align-items:stretch</code> en el contenedor hace que ambas columnas tengan igual altura automáticamente.</p>
+    <div class="stage two-col">
+      <div class="col">
+        <h4 style="margin:0 0 8px;">Columna A</h4>
+        <p style="margin:0; color:var(--muted)">Contenido corto.</p>
+      </div>
+      <div class="col">
+        <h4 style="margin:0 0 8px;">Columna B</h4>
+        <p style="margin:0; color:var(--muted)">Contenido más largo para ilustrar cómo Flexbox estira la altura
+        de ambas columnas sin hacks de igual-altura.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<header>
+  <nav>
+    <ul>
+      <li class="logo"><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <div class="redessociales"></div>
+  </section>
+</main>
+<div class="box">
+
+</div>
+<footer style="text-align:center;color:var(--muted);font-size:12px;margin-bottom:28px;">
+  Hecho con ♥ y Flexbox. Prueba a inspeccionar y activar/desactivar clases para ver el efecto.
+</footer>
+</body>
+</html>

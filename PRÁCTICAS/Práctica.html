@@ -97,6 +97,9 @@
       <a class="social" href="#"
         ><img src="Imagenes/youtube.png" alt="YouTube"
       /></a>
+      <a class="social" href="https://www.facebook.com/" target="_blank"
+        ><img src="Imagenes/Facebook.png" alt="Facebook"
+      /></a>
     </aside>
 
     <!-- Footer -->
@@ -169,7 +172,7 @@
 
     /* Hero */
     .bienvenido {
-      margin-top: 60px; /* espacio para no tapar el header */
+      margin-top: 50px; /* espacio para no tapar el header */
       height: 250px;
       width: 100%;
       background: linear-gradient(135deg, #5d8de6, #3a6cd4);
@@ -326,22 +329,26 @@
       margin-top: 30px;
     }
 
-/* 🚀 SOLO cambia en celulares (pantallas pequeñas) */
-@media (max-width: 600px) {
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
+    h2{
+      margin-bottom: 10px;
+    }
 
-  .card,
-  .card.especial {
-    width: 90%; /* se hace más ancha */
-    max-width: 400px;
-  }
+    /* 🚀 SOLO cambia en celulares (pantallas pequeñas) */
+    @media (max-width: 600px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .card.especial {
-    margin-top: 70px; /* más espacio con la fila anterior */
-  }
-}
+      .card,
+      .card.especial {
+        width: 90%; /* se hace más ancha */
+        max-width: 400px;
+      }
+
+      .card.especial {
+        margin-top: 70px; /* más espacio con la fila anterior */
+      }
+    }
   </style>
 </html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2>Flex<span class="h1-span">Box</span> Co.</h2>
+      <nav>
+        <ul>
+          <li><a class="nave" href="">Inicio</a></li>
+          <li><a class="nave" href="">Características</a></li>
+          <li><a class="nave" href="">Iniciar sesión</a></li>
+          <li><a class="nave" href="">Probar gratis</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="planes">
+      <h3>Planes simples, precios claros</h3>
+      <p>Elige un plan y cambia cuando quieras. Todo hecho con Flexbox.</p>
+      <div class="contenedor">
+        <div class="caja">
+          <div class="titulo">
+            <h2>Básico</h2>
+            <p>$ <span>9</span> /mes</p>
+          </div>
+          <div>
+            <ul>
+              <li>proyectos</li>
+              <li>Colaboración básica</li>
+              <li>Soporte por email</li>
+            </ul>
+            <a class="btn" href="#">Elegir básico</a>
+          </div>
+        </div>
+
+        <div class="caja">
+          <div class="titulo">
+            <h2>Pro</h2>
+            <a class="btn-demo" href="#">Recomendado</a>
+          </div>
+          <p>$ <span>19</span> /mes</p>
+          <ul>
+            <li>proyectos ilimitados</li>
+            <li>Equipos y permisos</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a class="btn" href="#">Ir con Pro</a>
+        </div>
+
+        <div class="caja">
+          <div class="titulo">
+                <h2>Empresas</h2>
+                <p>$ <span>49</span> /mes</p>
+          </div>
+          <ul>
+            <li>Single Sign-On (SSO)</li>
+            <li>Auditoría y reportes</li>
+            <li>Gerente dedicado</li>
+          </ul>
+          <a class="btn" href="#">Contactar ventas</a>
+        </div>
+      </div>
+      <p class="p-abajo">
+        Hecho con <span class="h2-span">display:flex</span> en cada contenedor clave.
+      </p>
+    </section>
+  </body>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      background: #111729;
+      color: #f7f8f8;
+    }
+
+    /* Header */
+    header {
+      background-color: #f7f8f8;
+      color: #0d4dc4;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nave {
+      text-decoration: none;
+      color: #486eeb;
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .planes {
+      margin-top: 50px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      max-width: 900px; /* Ajusta el ancho total */
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .caja {
+      flex: 1 1 260px; /* Crece, reduce y base mínima 260px */
+      max-width: 300px; /* Ancho máximo fijo. No más grande que 300px */
+      min-width: 250px; /* Ancho mínimo para responsividad mínimo 250px */
+      background: #1d1a3f;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+    }
+    .p-abajo {
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #fff;
+      display: flex;
+      flex-direction: flex-end;
+      padding: 10px 20px;
+      margin-top: 30px;
+      border-radius: 5px;
+      color: #486eeb;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn-demo {
+      text-decoration: none;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: #486eeb;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .titulo{
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+    }
+    .caja li ul{
+        justify-content: center;
+        align-items: center;
+    }
+    .h2-span{
+        font-size: 16px;
+    }
+    .h1-span{
+        font-size: 20px;
+        color: #f7e602;
+    }
+  </style>
+</html>

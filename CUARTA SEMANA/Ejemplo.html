@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Flex</title>
+    <style>
+      /* 🎨 Estilos generales */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0d1117;
+        color: #fff;
+      }
+
+      header {
+        background-color: #0a0f1a;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #1f2937;
+      }
+
+      header h1 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      header h1 span {
+        color: #facc15; /* Amarillo */
+      }
+
+      header .actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .btn-yellow {
+        background-color: #facc15;
+        color: #000;
+        font-weight: bold;
+      }
+
+      .btn-dark {
+        background-color: #1f2937;
+        color: #fff;
+      }
+
+      /* 🔍 Panel de búsqueda */
+      .search-panel {
+        display: flex;
+        justify-content: flex-end; /* lo manda a la derecha */
+        align-items: center;
+        gap: 10px;
+        padding: 5px 30px;
+        margin-top: 50px;
+      }
+
+      .search-panel input {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: none;
+        background-color: #1f2937;
+        color: #fff;
+        width: 200px;
+      }
+
+      .search-panel input::placeholder {
+        color: #9ca3af;
+      }
+
+      /* 🎯 Contenedor principal */
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 30px;
+        position: relative;
+      }
+
+      /* 📌 Caja lateral (Filtros) */
+      .filtros {
+        background-color: #111827;
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1; /* crecen y se reparten el espacio */
+        max-width: 200px;
+        min-height: 300px;
+        position: absolute;
+        top: -35px;
+        left: 50px;
+      }
+
+      .filtros h2 {
+        margin-bottom: 15px;
+      }
+
+      .estado {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+      }
+
+      .tag {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      .activo {
+        background-color: #2f3f36;
+        border: 1px solid #065f46;
+      }
+      .pendiente {
+        background-color: #70462b;
+        border: 1px solid #493220;
+      }
+      .archivado {
+        background-color: #252a31;
+        border: 1px solid #4d504f;
+      }
+
+      /* 📊 Resumen */
+      .resumen {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background-color: #111827;
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1 1 200px;
+        max-width: 500px;
+        min-height: 200px;
+      }
+
+      .card h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 12px;
+        margin: 0;
+      }
+
+      .sub-text {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* 📈 Barra de progreso */
+      .progress {
+        background-color: #1f2937;
+        border-radius: 6px;
+        height: 8px;
+        margin-top: 10px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        background-color: #3b82f6;
+        width: 76%;
+        height: 100%;
+      }
+
+      /* 📝 Botones de notas */
+      .btn-agenda {
+        background-color: #facc15;
+        color: #000;
+        font-weight: bold;
+        padding: 6px 12px;
+        border-radius: 6px;
+        margin-right: 5px;
+        border: none;
+        margin-top: 15px;
+      }
+
+      .btn-compartir {
+        background-color: #1f2937;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: none;
+      }
+
+      .footer {
+        text-align: center;
+        color: #9ca3af;
+      }
+      .span-footer{
+        font-weight: bold;
+        font-size: 18px;
+        color: #b1a8a8;
+      }
+      .num{
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 🔝 Header -->
+    <header>
+      <h1>Panel <span>Flex</span></h1>
+      <div class="actions">
+        <button class="btn btn-yellow">Nuevo</button>
+        <button class="btn btn-dark">Exportar</button>
+      </div>
+    </header>
+
+    <!-- 🔍 Panel de búsqueda -->
+    <div class="search-panel">
+      <h2 class="resumen">Resumen</h2>
+      <input type="text" placeholder="Buscar..." />
+      <button class="btn btn-yellow">Aplicar</button>
+    </div>
+
+    <!-- 📌 Contenido -->
+    <div class="container">
+      <!-- Filtros -->
+      <div class="filtros">
+        <h2>Filtros</h2>
+        <p>Estado</p>
+        <div class="estado">
+          <span class="tag activo">Activo</span>
+          <span class="tag pendiente">Pendiente</span>
+          <span class="tag archivado">Archivado</span>
+        </div>
+        <p>Equipos</p>
+        <ul>
+          <li>Frontend</li>
+          <li>Backend</li>
+          <li>Data</li>
+          <li>Mobile</li>
+        </ul>
+      </div>
+
+      <!-- Resumen -->
+      <div class="resumen">
+        <div class="card">
+          <h3>Usuarios</h3>
+          <span class="num">1,284</span> <br>
+          <span class="sub-text">+8% esta semana</span>
+        </div>
+
+        <div class="card">
+          <h3>Ventas</h3>
+          <span class="num">$32k</span>
+          <span class="sub-text">+12% esta semana</span>
+        </div>
+
+        <div class="card">
+          <h3>Tickets</h3>
+          <span class="num">57</span>
+          <span class="sub-text">-4% esta semana</span>
+        </div>
+
+        <div class="card">
+          <h3>Actividad reciente</h3>
+          <ul>
+            <li><b>Ana</b> creó una tarea</li>
+            <li><b>Leo</b> cerró un bug</li>
+            <li><b>Carla</b> subió un informe</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Objetivos</h3>
+          <p>Estamos al <b>76%</b> del objetivo mensual.</p>
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Notas</h3>
+          <p>Próxima reunión con el equipo de datos el viernes.</p>
+          <button class="btn-agenda">Ver agenda</button>
+          <button class="btn-compartir">Compartir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔻 Footer -->
+
+    <div class="footer">
+      Layout construido con <span class="span-footer">flex, gap, align-items, order</span> y
+      <span class="span-footer">flex-wrap</span>.
+    </div>
+  </body>
+</html>

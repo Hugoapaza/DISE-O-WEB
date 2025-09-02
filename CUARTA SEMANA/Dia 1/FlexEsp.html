@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Flex</title>
+<style>
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Cabecera */
+        .cabecera {
+            background: #1e293b;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logotipo {
+            font-size: 18px;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .logotipo strong {
+            font-weight: 600;
+        }
+
+        .botones-cabecera {
+            display: flex;
+            gap: 12px;
+        }
+
+        .boton-cabecera {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .boton-cabecera.nuevo {
+            background: #eab308;
+            color: #000000;
+        }
+
+        .boton-cabecera.exportar {
+            background: transparent;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+        }
+
+        /* Contenedor Principal */
+        .contenedor-principal {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        /* Barra Lateral */
+        .barra-lateral {
+            width: 320px;
+            background: #0f172a;
+            padding: 24px;
+            flex-shrink: 0;
+        }
+
+        .contenedor-filtros {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .titulo-barra-lateral {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .grupo-filtros {
+            margin-bottom: 32px;
+        }
+
+        .etiqueta-filtro {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .botones-estado {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .boton-estado {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .boton-estado.activo {
+            background: #22c55e;
+            color: #ffffff;
+        }
+
+        .boton-estado.pendiente {
+            background: #f59e0b;
+            color: #000000;
+        }
+
+        .boton-estado.archivado {
+            background: #64748b;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+        .seccion-equipos {
+            margin-top: 24px;
+        }
+
+        .etiqueta-equipos {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .lista-equipos {
+            list-style: none;
+        }
+
+        .elemento-equipo {
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .elemento-equipo:before {
+            content: "•";
+            color: #64748b;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .elemento-equipo:hover {
+            color: #ffffff;
+        }
+
+        /* Área de Contenido */
+        .contenido {
+            flex: 1;
+            background: #0f172a;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .cabecera-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .titulo-contenido {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .area-busqueda {
+            display: flex;
+            gap: 8px;
+        }
+
+        .entrada-busqueda {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #ffffff;
+            font-size: 14px;
+            width: 160px;
+        }
+
+        .entrada-busqueda::placeholder {
+            color: #64748b;
+        }
+
+        .entrada-busqueda:focus {
+            outline: none;
+            border-color: #eab308;
+        }
+
+        .boton-aplicar {
+            padding: 8px 16px;
+            background: #eab308;
+            color: #000000;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Cuadrícula de Estadísticas */
+        .cuadricula-estadisticas {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .tarjeta-estadistica {
+            flex: 1;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+
+        .titulo-estadistica {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .numero-estadistica {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .cambio-estadistica {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* Cuadrícula de Contenido */
+        .cuadricula-contenido {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tarjeta-contenido {
+            flex: 1;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+
+        .titulo-tarjeta-contenido {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .lista-actividad {
+            list-style: none;
+        }
+
+        .elemento-actividad {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .elemento-actividad:before {
+            content: "•";
+            color: #64748b;
+            margin-right: 8px;
+        }
+
+        .nombre-actividad {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .accion-actividad {
+            color: #cbd5e1;
+        }
+
+        .contenido-objetivos {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .porcentaje-objetivos {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .contenedor-barra-progreso {
+            width: 100%;
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .relleno-barra-progreso {
+            height: 100%;
+            width: 76%;
+            background: #3b82f6;
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        .texto-notas {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .botones-notas {
+            display: flex;
+            gap: 8px;
+        }
+
+        .boton-notas {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .boton-notas.ver-agenda {
+            background: #eab308;
+            color: #000000;
+        }
+
+        .boton-notas.compartir {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+
+        .informacion-pie {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .informacion-pie strong {
+            color: #94a3b8;
+        }
+</style>
+
+<div class="cabecera">
+        <div class="logotipo">Panel <strong>Flex</strong></div>
+        <div class="botones-cabecera">
+            <button class="boton-cabecera nuevo">Nuevo</button>
+            <button class="boton-cabecera exportar">Exportar</button>
+        </div>
+    </div>
+
+    <div class="contenedor-principal">
+        <div class="barra-lateral">
+            <div class="contenedor-filtros" id="contenedorFiltros">
+                <h2 class="titulo-barra-lateral">Filtros</h2>
+                
+                <div class="grupo-filtros">
+                    <div class="etiqueta-filtro">Estado</div>
+                    <div class="botones-estado">
+                        <button class="boton-estado activo" id="botonActivo">Activo</button>
+                        <button class="boton-estado pendiente" id="botonPendiente">Pendiente</button>
+                    </div>
+                    <button class="boton-estado archivado" id="botonArchivado">Archivado</button>
+                </div>
+
+                <div class="seccion-equipos">
+                    <div class="etiqueta-equipos">Equipos</div>
+                    <ul class="lista-equipos">
+                        <li class="elemento-equipo" id="equipoFrontend">Frontend</li>
+                        <li class="elemento-equipo" id="equipoBackend">Backend</li>
+                        <li class="elemento-equipo" id="equipoData">Data</li>
+                        <li class="elemento-equipo" id="equipoMobile">Mobile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenido">
+            <div class="cabecera-contenido">
+                <h1 class="titulo-contenido">Resumen</h1>
+                <div class="area-busqueda">
+                    <input type="text" class="entrada-busqueda" placeholder="Buscar..." id="campoBusqueda">
+                    <button class="boton-aplicar" id="botonAplicar">Aplicar</button>
+                </div>
+            </div>
+
+            <div class="cuadricula-estadisticas">
+                <div class="tarjeta-estadistica" id="tarjetaUsuarios">
+                    <div class="titulo-estadistica">Usuarios</div>
+                    <div class="numero-estadistica">1,284</div>
+                    <div class="cambio-estadistica">+5% esta semana</div>
+                </div>
+                <div class="tarjeta-estadistica" id="tarjetaVentas">
+                    <div class="titulo-estadistica">Ventas</div>
+                    <div class="numero-estadistica">$32k</div>
+                    <div class="cambio-estadistica">+12% esta semana</div>
+                </div>
+                <div class="tarjeta-estadistica" id="tarjetaTickets">
+                    <div class="titulo-estadistica">Tickets</div>
+                    <div class="numero-estadistica">57</div>
+                    <div class="cambio-estadistica">-4% esta semana</div>
+                </div>
+            </div>
+
+            <div class="cuadricula-contenido">
+                <div class="tarjeta-contenido" id="tarjetaActividad">
+                    <h3 class="titulo-tarjeta-contenido">Actividad reciente</h3>
+                    <ul class="lista-actividad">
+                        <li class="elemento-actividad">
+                            <span class="nombre-actividad">Ana</span>
+                            <span class="accion-actividad"> creó una tarea</span>
+                        </li>
+                        <li class="elemento-actividad">
+                            <span class="nombre-actividad">Leo</span>
+                            <span class="accion-actividad"> cerró un bug</span>
+                        </li>
+                        <li class="elemento-actividad">
+                            <span class="nombre-actividad">Carla</span>
+                            <span class="accion-actividad"> subió un informe</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tarjeta-contenido" id="tarjetaObjetivos">
+                    <h3 class="titulo-tarjeta-contenido">Objetivos</h3>
+                    <div class="contenido-objetivos">
+                        Estamos al <span class="porcentaje-objetivos">76%</span> del objetivo mensual.
+                    </div>
+                    <div class="contenedor-barra-progreso">
+                        <div class="relleno-barra-progreso" id="barraProgreso"></div>
+                    </div>
+                </div>
+
+                <div class="tarjeta-contenido" id="tarjetaNotas">
+                    <h3 class="titulo-tarjeta-contenido">Notas</h3>
+                    <div class="texto-notas">
+                        Próxima reunión con el equipo de datos el viernes.
+                    </div>
+                    <div class="botones-notas">
+                        <button class="boton-notas ver-agenda" id="botonVerAgenda">Ver agenda</button>
+                        <button class="boton-notas compartir" id="botonCompartir">Compartir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="informacion-pie">
+        Layout construido con <strong>flex</strong>, <strong>gap</strong>, <strong>align-items</strong>, <strong>order</strong> y <strong>flex-wrap</strong>.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interacción de botones de estado
+            const botonesEstado = document.querySelectorAll('.boton-estado');
+            
+            // Estado inicial - Activo seleccionado
+            document.getElementById('botonActivo').style.opacity = '1';
+            botonesEstado.forEach(boton => {
+                if (boton.id !== 'botonActivo') {
+                    boton.style.opacity = '0.8';
+                }
+            });
+
+            botonesEstado.forEach(boton => {
+                boton.addEventListener('click', function() {
+                    botonesEstado.forEach(b => b.style.opacity = '0.8');
+                    this.style.opacity = '1';
+                });
+            });
+
+            // Interacción de elementos de equipo
+            const elementosEquipo = document.querySelectorAll('.elemento-equipo');
+            elementosEquipo.forEach(elemento => {
+                elemento.addEventListener('click', function() {
+                    elementosEquipo.forEach(e => e.style.color = '#94a3b8');
+                    this.style.color = '#ffffff';
+                });
+            });
+
+            // Botón de búsqueda y aplicar
+            const campoBusqueda = document.getElementById('campoBusqueda');
+            const botonAplicar = document.getElementById('botonAplicar');
+            
+            botonAplicar.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+
+            // Animación de barra de progreso
+            setTimeout(() => {
+                const barraProgreso = document.getElementById('barraProgreso');
+                barraProgreso.style.width = '0%';
+                setTimeout(() => {
+                    barraProgreso.style.width = '76%';
+                }, 200);
+            }, 300);
+
+            // Efectos hover para botones
+            const todosBotones = document.querySelectorAll('button');
+            todosBotones.forEach(boton => {
+                boton.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('boton-estado')) {
+                        this.style.transform = 'translateY(-1px)';
+                    }
+                });
+                boton.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('boton-estado')) {
+                        this.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

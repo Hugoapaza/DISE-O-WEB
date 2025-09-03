@@ -12,7 +12,7 @@
 
     <!-- CABECERA: Logo y botones de acción principales -->
     <div class="cabecera">
-      <div class="logotipo">Panel <strong>Flex</strong></div>
+      <div class="logotipo">Panel <strong class="amarillo-flex">Flex</strong></div>
       <div class="botones-cabecera">
         <button class="boton-cabecera nuevo">Nuevo</button>
         <button class="boton-cabecera exportar">Exportar</button>
@@ -31,16 +31,10 @@
             <div class="etiqueta-filtro">Estado</div>
             <div class="botones-estado">
               <!-- Botones con flex-wrap para que "Archivado" baje -->
-              <button class="boton-estado activo" id="botonActivo">
-                Activo
-              </button>
-              <button class="boton-estado pendiente" id="botonPendiente">
-                Pendiente
-              </button>
+              <button class="boton-estado activo" id="botonActivo">Activo</button>
+              <button class="boton-estado pendiente" id="botonPendiente">Pendiente</button>
             </div>
-            <button class="boton-estado archivado" id="botonArchivado">
-              Archivado
-            </button>
+            <button class="boton-estado archivado" id="botonArchivado">Archivado</button>
           </div>
 
           <!-- Lista de equipos -->
@@ -62,12 +56,7 @@
         <div class="cabecera-contenido">
           <h1 class="titulo-contenido">Resumen</h1>
           <div class="area-busqueda">
-            <input
-              type="text"
-              class="entrada-busqueda"
-              placeholder="Buscar..."
-              id="campoBusqueda"
-            />
+            <input type="text" class="entrada-busqueda" placeholder="Buscar..."id="campoBusqueda"/>
             <button class="boton-aplicar" id="botonAplicar">Aplicar</button>
           </div>
         </div>
@@ -97,47 +86,25 @@
           <div class="tarjeta-contenido" id="tarjetaActividad">
             <h3 class="titulo-tarjeta-contenido">Actividad reciente</h3>
             <ul class="lista-actividad">
-              <li class="elemento-actividad">
-                <span class="nombre-actividad">Ana</span>
-                <span class="accion-actividad"> creó una tarea</span>
-              </li>
-              <li class="elemento-actividad">
-                <span class="nombre-actividad">Leo</span>
-                <span class="accion-actividad"> cerró un bug</span>
-              </li>
-              <li class="elemento-actividad">
-                <span class="nombre-actividad">Carla</span>
-                <span class="accion-actividad"> subió un informe</span>
-              </li>
+              <li class="elemento-actividad"><span class="nombre-actividad">Ana</span><span class="accion-actividad"> creó una tarea</span></li>
+              <li class="elemento-actividad"><span class="nombre-actividad">Leo</span><span class="accion-actividad"> cerró un bug</span></li>
+              <li class="elemento-actividad"><span class="nombre-actividad">Carla</span><span class="accion-actividad"> subió un informe</span></li>
             </ul>
           </div>
 
           <!-- TARJETA 2: Objetivos con barra de progreso -->
           <div class="tarjeta-contenido" id="tarjetaObjetivos">
             <h3 class="titulo-tarjeta-contenido">Objetivos</h3>
-            <div class="contenido-objetivos">
-              Estamos al <span class="porcentaje-objetivos">76%</span> del
-              objetivo mensual.
-            </div>
-            <!-- Barra de progreso animada -->
-            <div class="contenedor-barra-progreso">
-              <div class="relleno-barra-progreso" id="barraProgreso"></div>
-            </div>
+            <div class="contenido-objetivos">Estamos al <span class="porcentaje-objetivos">76%</span> delobjetivo mensual.</div>
           </div>
 
           <!-- TARJETA 3: Notas con botones de acción -->
           <div class="tarjeta-contenido" id="tarjetaNotas">
             <h3 class="titulo-tarjeta-contenido">Notas</h3>
-            <div class="texto-notas">
-              Próxima reunión con el equipo de datos el viernes.
-            </div>
+            <div class="texto-notas">Próxima reunión con el equipo de datos el viernes.</div>
             <div class="botones-notas">
-              <button class="boton-notas ver-agenda" id="botonVerAgenda">
-                Ver agenda
-              </button>
-              <button class="boton-notas compartir" id="botonCompartir">
-                Compartir
-              </button>
+              <button class="boton-notas ver-agenda" id="botonVerAgenda">Ver agenda</button>
+              <button class="boton-notas compartir" id="botonCompartir">Compartir</button>
             </div>
           </div>
         </div>
@@ -162,8 +129,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,"Helvetica Neue", Arial, sans-serif;
       background: #0f172a;
       color: #ffffff;
       height: 100vh;
@@ -220,6 +186,10 @@
       color: #cbd5e1;
       border: 1px solid #475569;
     }
+    .amarillo-flex {
+      color: #ffc414;
+      font-weight: bold;
+    }
 
     /* =================================================
            CONTENEDOR PRINCIPAL
@@ -228,7 +198,7 @@
            ================================================= */
     .contenedor-principal {
       display: flex;
-      height: calc(100vh - 60px);
+      min-height: calc(100vh - 60px);
     }
 
     /* =================================================
@@ -280,7 +250,7 @@
 
     .boton-estado {
       padding: 6px 12px;
-      border-radius: 4px;
+      border-radius: 15px;
       border: none;
       cursor: pointer;
       font-size: 12px;

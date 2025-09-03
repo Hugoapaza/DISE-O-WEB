@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" /> <!-- Definimos codificación de caracteres -->
+<meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- Ajusta escala en móviles -->
+<title>Ejercicios de Animación – Playground</title>
+<style>
+  :root{ /* Variables de colores y estilos generales */
+    --bg:#0d1117;       /* color de fondo de la página */
+    --card:#111827;     /* color de fondo de las tarjetas demo */
+    --muted:#9fb0c3;    /* color de texto apagado */
+    --text:#e6edf3;     /* color de texto normal */
+    --brand:#ffd900;    /* color amarillo principal */
+    --ok:#22c55e;       /* color verde (correcto) */
+    --warn:#f59e0b;     /* color naranja (advertencia) */
+    --info:#3b82f6;     /* color azul (info) */
+    --radius:16px;      /* radio estándar de bordes */
+  }
+  *{ box-sizing: border-box; } /* Incluye borde y padding en el tamaño total */
+  body{
+    margin:0; /* elimina márgenes por defecto */
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; /* tipografía */
+    color:var(--text); /* color de texto */
+    background: radial-gradient(1200px 600px at 70% 20%, #0b1320 0, #0d1117 45%, #0a0f17 100%); /* degradado de fondo */
+  }
+  header{
+    padding:24px; /* espacio interno */
+    text-align:center; /* centrar contenido */
+  }
+  header h1{ margin:0 0 6px; font-size:24px; } /* título principal */
+  header p{ margin:0; color:var(--muted); } /* párrafo debajo del título */
+
+  .grid{ /* contenedor en cuadrícula */
+    display:grid; /* usamos grid layout */
+    gap:18px; /* espacio entre tarjetas */
+    padding:24px; /* padding general */
+    max-width:1200px; /* ancho máximo */
+    margin:0 auto 40px; /* centrado con margen inferior */
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); /* columnas adaptativas */
+  }
+  .demo{
+    background:linear-gradient(180deg, #0f172a, #0b1222); /* fondo degradado */
+    border:1px solid #1f2a44; /* borde */
+    border-radius:var(--radius); /* bordes redondeados */
+    padding:18px; /* espacio interno */
+    box-shadow: 0 8px 24px rgba(0,0,0,.35); /* sombra */
+  }
+  .demo h3{ margin:0 0 10px; font-size:16px; color:#cfe9ff; } /* títulos dentro de las cards */
+  .demo p{ margin:8px 0 0; font-size:13px; color:var(--muted); } /* descripción de cada demo */
+
+  /* 1) Subrayado animado (izq -> der) */
+  .link-underline{
+    position:relative; /* necesario para posicionar el ::after relativo al link */
+    display:inline-block; /* convierte al enlace en bloque en línea */
+    color:#fff; /* color del texto */
+    text-decoration:none; /* quita el subrayado normal */
+    padding-bottom:6px; /* espacio inferior para el pseudo-elemento */
+  }
+  .link-underline::after{
+    content:""; /* genera pseudo-elemento vacío */
+    position:absolute; /* posición absoluta dentro del enlace */
+    left:0; bottom:0; /* anclado abajo a la izquierda */
+    height:2px; width:0%; /* empieza sin ancho (invisible) */
+    background:var(--brand); /* color de la barra */
+    transition: width .35s ease; /* animación suave del ancho */
+  }
+  .link-underline:hover::after{ width:100%; } /* en hover se expande al 100% */
+
+  /* ================================= */
+ 
+
+  .enlace{
+    position:relative; /* necesario para posicionar el ::after relativo al link */
+    display:inline-block; /* convierte al enlace en bloque en línea */
+    color:#fff; /* color del texto */
+    text-decoration:none; /* quita el subrayado normal */
+    padding-bottom:6px; /* espacio inferior para el pseudo-elemento */
+    
+  }
+  .enlace::after{
+    content:""; /* genera pseudo-elemento vacío */
+    position:absolute; /* posición absoluta dentro del enlace */
+    left:0; bottom:0; /* anclado abajo a la izquierda */
+    height:2px; width:0%; /* empieza sin ancho (invisible) */
+    background:red; /* color de la barra */
+    transition: width .35s ease; /* animación suave del ancho */
+  }
+
+  .enlace::after{ width:100%; } /* en hover se expande al 100% */
+
+
+   
+  /* 2) Subrayado desde el centro */
+  .link-center{
+    position:relative; /* necesario para ::after */
+    display:inline-block; /* bloque en línea */
+    color:#fff; /* color del texto */
+    padding-bottom:6px; /* espacio inferior */
+    text-decoration:none; /* sin subrayado */
+  }
+  .link-center::after{
+    content:""; /* pseudo-elemento vacío */
+    position:absolute; /* posición absoluta */
+    left:50%; transform:translateX(-50%); /* se centra */
+    bottom:0; height:2px; width:0; /* barra invisible al inicio */
+    background:var(--info); /* color azul */
+    transition: width .35s ease; /* transición del ancho */
+  }
+  .link-center:hover::after{ width:100%; } /* al hover crece de centro a lados */
+
+  /* 3) Fondo se rellena a la derecha */
+  .btn-fill{
+    position:relative; /* para que el ::before se ubique dentro */
+    display:inline-block; /* bloque en línea */
+    padding:10px 14px; /* espacio interno */
+    border:1px solid #2a3b61; /* borde */
+    border-radius:12px; /* redondeo */
+    color:#fff; /* color texto */
+    overflow:hidden; /* oculta lo que sobresalga */
+    text-decoration:none; /* quita subrayado */
+  }
+  .btn-fill::before{
+    content:""; /* pseudo-elemento */
+    position:absolute; inset:0 100% 0 0; /* empieza oculto desde la derecha */
+    background:#203055; /* color del relleno */
+    transition: inset .35s ease; /* animación de entrada */
+  }
+  .btn-fill:hover::before{ inset:0 0 0 0; } /* al hover se rellena completo */
+  .btn-fill span{ position:relative; z-index:1; } /* texto por encima del ::before */
+
+  /* 4) Borde que se dibuja */
+  .btn-stroke{
+    --c:#60a5fa; /* color del borde */
+    position:relative; display:inline-block; padding:10px 14px; color:#fff;
+    text-decoration:none; border-radius:10px;
+  }
+  .btn-stroke::before, .btn-stroke::after{
+    content:""; position:absolute; inset:0; border-radius:10px; pointer-events:none;
+  }
+  .btn-stroke::before{ border:2px solid transparent; } /* borde invisible de base */
+  .btn-stroke::after{
+    border:2px solid var(--c); /* borde visible */
+    clip-path: inset(0 100% 0 0); /* recortado al inicio (invisible) */
+    transition: clip-path .4s ease; /* transición de clip-path */
+  }
+  .btn-stroke:hover::after{ clip-path: inset(0 0 0 0); } /* se revela al hover */
+
+  /* 5) Icono gira */
+  .icon-spin{ display:inline-flex; align-items:center; gap:8px; color:#fff; text-decoration:none; }
+  .icon-spin i{ transition: transform .45s ease; } /* transición de rotación */
+  .icon-spin:hover i{ transform: rotate(180deg) scale(1.1); } /* gira y escala */
+
+  /* 6) Card elevación */
+  .lift{
+    display:block; padding:16px; border-radius:14px; background:#0e1627; border:1px solid #1d2a46;
+    transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease; /* animaciones */
+  }
+  .lift:hover{
+    transform: translateY(-4px); /* se eleva */
+    box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 0 4px #3ea6ff22; /* sombra */
+    border-color:#2a4673; /* color de borde más fuerte */
+  }
+
+  /* 7) Skeleton shimmer */
+  .skeleton{
+    border-radius:12px; 
+    background: linear-gradient(90deg,#1a243b 25%,#223050 37%,#1a243b 63%); /* franjas */
+    background-size: 400% 100%; /* se repite */
+    height:90px; 
+    animation: shimmer 1.2s infinite; /* animación infinita */
+  }
+  @keyframes shimmer{
+    0%{ background-position: 100% 0; } /* empieza derecha */
+    100%{ background-position: 0 0; } /* se mueve a izquierda */
+  }
+
+  /* 8) Loader spinner */
+  .spinner{
+    width:44px; height:44px; 
+    border:3px solid #2b3d64; /* borde gris */
+    border-top-color: var(--brand); /* parte visible amarilla */
+    border-radius:50%; /* círculo */
+    animation: spin .8s linear infinite; /* gira sin parar */
+    margin:10px auto 0;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg);} } /* gira en 360° */
+
+  /* 9) Pulso */
+  .pulse{
+    width:14px; height:14px; border-radius:999px; background: var(--ok);
+    box-shadow:0 0 0 0 rgba(34,197,94,.6); /* sombra inicial */
+    animation: beat 1.6s ease-out infinite; /* animación infinita */
+  }
+  @keyframes beat{
+    0%{ box-shadow:0 0 0 0 rgba(34,197,94,.55); transform: scale(1); }
+    70%{ box-shadow:0 0 0 16px rgba(34,197,94,0); transform: scale(1.06); }
+    100%{ box-shadow:0 0 0 0 rgba(34,197,94,0); transform: scale(1); }
+  }
+
+  /* 10) Tooltip */
+  .tip-wrap{ position:relative; display:inline-block; }
+  .tip{
+    position:absolute; left:50%; transform:translate(-50%, 6px); bottom:100%; white-space:nowrap;
+    background:#111c31; border:1px solid #223458; color:#cfe9ff; font-size:12px; padding:6px 8px; border-radius:8px;
+    opacity:0; pointer-events:none; transition: opacity .2s ease, transform .2s ease; /* se desvanece */
+  }
+  .tip-wrap:hover .tip{ opacity:1; transform: translate(-50%, 0); } /* aparece */
+
+  /* 11) Acordeón */
+  .acc{ border:1px solid #233356; border-radius:12px; overflow:hidden; }
+  .acc input{ display:none; } /* escondemos checkbox */
+  .acc label{ display:flex; justify-content:space-between; gap:12px; align-items:center;
+    padding:12px 14px; background:#0f1a30; cursor:pointer; user-select:none; }
+  .acc .panel{
+    max-height:0; overflow:hidden; transition: max-height .35s ease, padding .35s ease;
+    padding:0 14px; background:#0c1527; color:var(--muted);
+  }
+  .acc input:checked + label + .panel{
+    max-height:160px; padding:12px 14px 14px; /* se expande */
+  }
+  .acc label i{ transition: transform .25s ease; }
+  .acc input:checked + label i{ transform: rotate(90deg); } /* flecha rota */
+
+  /* 12) Barra de progreso */
+  .progress{ background:#0f1a2c; border:1px solid #1f2e4e; border-radius:999px; height:12px; overflow:hidden; }
+  .progress > span{
+    display:block; height:100%; width:0; background: linear-gradient(90deg, var(--info), #60a5fa);
+    animation: grow 2.2s ease forwards; /* crece el ancho */
+  }
+  @keyframes grow{ to{ width:76%; } } /* animación del progreso */
+
+  /* 13) Ripple */
+  .ripple-btn{
+    position:relative; overflow:hidden; border:1px solid #2b3d64; background:#0e1629; color:#fff;
+    border-radius:12px; padding:10px 14px; cursor:pointer;
+  }
+  .ripple{
+    position:absolute; border-radius:50%; transform: scale(0); opacity:.6; pointer-events:none;
+    background: radial-gradient(circle, #60a5fa 0%, #60a5fa55 40%, transparent 60%);
+    animation: ripple .6s ease-out forwards; /* onda que se expande */
+  }
+  @keyframes ripple{
+    to{ transform: scale(12); opacity:0; } /* se agranda y desvanece */
+  }
+
+  .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; } /* layout fila */
+  .btn{ padding:10px 14px; border:1px solid #2a3b61; border-radius:12px; color:#fff; background:#0e1629; text-decoration:none; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <h1>Ejercicios de Animación (CSS/HTML)</h1>
+    <p>Pasa el mouse o interactúa con cada ejemplo.</p>
+  </header>
+
+  <main class="grid">
+    <section class="demo">
+      <h3>1) Subrayado izq→der</h3>
+      <a class="link-underline" href="#">Hover aquí</a>
+      <p><b>Hecho con:</b> <code>position: relative</code> en el enlace, pseudo-elemento <code>::after</code> con <code>height</code> y <code>background</code>, animación con <code>transition: width .35s ease</code> al pasar de <code>width: 0%</code> a <code>100%</code>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>2) Subrayado desde el centro</h3>
+      <a class="link-center" href="#">Hover aquí</a>
+      <p><b>Hecho con:</b> <code>::after</code> centrado (<code>left:50%</code> + <code>transform:translateX(-50%)</code>) y <code>transition: width</code> para expandir de 0 a 100%.</p>
+    </section>
+
+    <section class="demo">
+      <h3>3) Fondo relleno</h3>
+      <a class="btn-fill" href="#"><span>Hover aquí</span></a>
+      <p><b>Hecho con:</b> pseudo-elemento <code>::before</code> desplazado usando <code>inset</code> (oculto) que se anima a <code>inset:0</code>. El texto va sobre <code>::before</code> con <code>z-index</code>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>4) Borde dibujado</h3>
+      <a class="btn-stroke" href="#">Hover aquí</a>
+      <p><b>Hecho con:</b> <code>::after</code> con <code>border</code> y recorte por <code>clip-path: inset()</code> que se anima con <code>transition</code> para “dibujar” el borde.</p>
+    </section>
+
+    <section class="demo">
+      <h3>5) Icono gira</h3>
+      <a class="icon-spin" href="#"><i class="fa-solid fa-rotate-right"></i> Actualizar</a>
+      <p><b>Hecho con:</b> <code>transform: rotate() scale()</code> aplicado al ícono en <code>:hover</code>, suavizado con <code>transition</code>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>6) Card elevación</h3>
+      <a class="lift" href="#"><strong>Curso Frontend</strong><br/><span style="color:var(--muted)">HTML • CSS • JS</span></a>
+      <p><b>Hecho con:</b> <code>transform: translateY()</code>, cambio de <code>box-shadow</code> y de <code>border-color</code> con <code>transition</code> en hover.</p>
+    </section>
+
+    <section class="demo">
+      <h3>7) Skeleton shimmer</h3>
+      <div class="skeleton"></div>
+      <p><b>Hecho con:</b> <code>linear-gradient</code> animado en <code>@keyframes</code> moviendo <code>background-position</code> (efecto “brillo” de carga).</p>
+    </section>
+
+    <section class="demo">
+      <h3>8) Loader spinner</h3>
+      <div class="spinner"></div>
+      <p><b>Hecho con:</b> borde circular con <code>border-top-color</code> distinto y rotación 360° en <code>@keyframes</code>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>9) Pulso heartbeat</h3>
+      <div class="row">
+        <div class="pulse" title="online"></div>
+        <span>Servidor online</span>
+      </div>
+      <p><b>Hecho con:</b> expansión de <code>box-shadow</code> y ligera <code>scale()</code> en <code>@keyframes</code> para simular latido.</p>
+    </section>
+
+    <section class="demo">
+      <h3>10) Tooltip</h3>
+      <div class="tip-wrap">
+        <a class="btn" href="#">Hover aquí</a>
+        <div class="tip">Soy un tooltip 😄</div>
+      </div>
+      <p><b>Hecho con:</b> cuadro posicionado con <code>position:absolute</code> y aparición por <code>opacity</code> + <code>transform</code> usando <code>transition</code>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>11) Acordeón</h3>
+      <div class="acc">
+        <input id="a1" type="checkbox">
+        <label for="a1">Click aquí <i class="fa-solid fa-angle-right"></i></label>
+        <div class="panel">
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Animaciones</li>
+          </ul>
+        </div>
+      </div>
+      <p><b>Hecho con:</b> “checkbox hack”. <code>max-height</code> y <code>padding</code> cambian con <code>transition</code> cuando el <code>input:checked</code> está activo.</p>
+    </section>
+
+    <section class="demo">
+      <h3>12) Progreso</h3>
+      <div class="progress"><span></span></div>
+      <p><b>Hecho con:</b> animación de <code>width</code> en <code>@keyframes</code> desde 0 hasta el porcentaje objetivo (<code>to { width: 76% }</code>).</p>
+    </section>
+
+    <section class="demo">
+      <h3>13) Ripple (click)</h3>
+      <button class="ripple-btn" id="rippleBtn">Click aquí</button>
+      <p><b>Hecho con:</b> JS que inserta un <code>span</code> en la posición del click. El círculo se anima con <code>@keyframes</code> (escala + desvanecido) y luego se remueve.</p>
+    </section>
+  </main>
+
+  
+    <a class="enlace" href="">PRUEBA DE ANIMACION</a>
+  
+
+<script>
+  // Obtenemos el botón por su id
+  const btn = document.getElementById('rippleBtn'); 
+  // Escuchamos el evento click
+  btn.addEventListener('click', (e) => { 
+    const rect = btn.getBoundingClientRect(); // obtenemos dimensiones del botón
+    const x = e.clientX - rect.left; // posición X del click dentro del botón
+    const y = e.clientY - rect.top;  // posición Y del click dentro del botón
+
+    const wave = document.createElement('span'); // creamos un span para la onda
+    wave.className = 'ripple'; // le damos la clase ripple (con animación CSS)
+    wave.style.left = `${x}px`; // ubicamos en X
+    wave.style.top  = `${y}px`; // ubicamos en Y
+    const size = Math.max(rect.width, rect.height); // calculamos tamaño máximo
+    wave.style.width = wave.style.height = `${size}px`; // asignamos ancho/alto iguales
+
+    btn.appendChild(wave); // insertamos dentro del botón
+    setTimeout(() => wave.remove(), 600); // lo eliminamos después de 600ms
+  });
+</script>
+</body>
+</html>

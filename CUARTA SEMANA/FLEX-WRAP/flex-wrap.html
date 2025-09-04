@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparación flex</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border: 2px solid #444;
+      padding: 10px;
+      margin-bottom: 20px;
+      background: #f9f9f9;
+    }
+
+    .caja {
+      min-width: 0; /* permite encoger más si es necesario */
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Colores para distinguir */
+    .caja:nth-child(1) { background: #0074D9; }
+    .caja:nth-child(2) { background: #FF4136; }
+    .caja:nth-child(3) { background: #2ECC40; }
+    .caja:nth-child(4) { background: #FF851B; }
+    .caja:nth-child(5) { background: #B10DC9; }
+  </style>
+</head>
+<body>
+
+  <h1>Comparación de valores <code>flex</code></h1>
+
+  <h2>1) <code>flex: 0 0 250px;</code> (fijo, no crece ni encoge)</h2>
+  <div class="contenedor">
+    <div class="caja" style="flex:0 0 250px;">1</div>
+    <div class="caja" style="flex:0 0 250px;">2</div>
+    <div class="caja" style="flex:0 0 250px;">3</div>
+    <div class="caja" style="flex:0 0 250px;">4</div>
+    <div class="caja" style="flex:0 0 250px;">5</div>
+  </div>
+
+  <h2>2) <code>flex: 1 1 250px;</code> (base 250px, puede crecer o encoger)</h2>
+  <div class="contenedor">
+    <div class="caja" style="flex:1 1 250px;">1</div>
+    <div class="caja" style="flex:1 1 250px;">2</div>
+    <div class="caja" style="flex:1 1 250px;">3</div>
+    <div class="caja" style="flex:1 1 250px;">4</div>
+    <div class="caja" style="flex:1 1 250px;">5</div>
+  </div>
+
+  <h2>3) <code>flex: 1 1 0;</code> (ignora base, reparte todo el espacio por igual)</h2>
+  <div class="contenedor">
+    <div class="caja" style="flex:1 1 0;">1</div>
+    <div class="caja" style="flex:1 1 0;">2</div>
+    <div class="caja" style="flex:1 1 0;">3</div>
+    <div class="caja" style="flex:1 1 0;">4</div>
+    <div class="caja" style="flex:1 1 0;">5</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios Municipales</title>
+
+  <!-- Importar iconos de Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* Reset general: elimina márgenes/padding por defecto y normaliza cajas */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fondo de la página y scroll */
+    body {
+      background: #f5f7fa; /* gris claro */
+      overflow-y: auto; /* scroll vertical automático si hay contenido largo */
+    }
+
+    /* ========================== */
+    /* Barra superior azul oscuro */
+    /* ========================== */
+    .header {
+      background: #0048a9;
+      color: white;
+      display: flex; /* organiza en fila */
+      justify-content: space-between; /* distribuye espacio: título izq, redes der */
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .header h1 {
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 8px; /* espacio entre ícono y texto */
+    }
+    .header ul {
+      display: flex;
+      gap: 15px;
+      list-style: none; /* quita viñetas */
+    }
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    /* ========================== */
+    /* Header principal con logo y menú */
+    /* ========================== */
+    header {
+      background: linear-gradient(to right, #0048a9, #0075ff); /* degradado */
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between; /* logo izq, menú der */
+      align-items: center;
+      flex-wrap: wrap; /* para que al achicar pantalla se apilen */
+    }
+    header img {
+      height: 60px; /* tamaño del logo */
+    }
+    header ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ========================== */
+    /* Títulos de secciones */
+    /* ========================== */
+    .titulo {
+      text-align: center;
+      font-size: 1.8em;
+      margin: 10px 0;
+      margin-top: 30px; /* espacio extra superior */
+    }
+    .titulo-servicios {
+      text-align: center;
+      font-size: 1.8em;
+      padding-bottom: 0;
+      margin-top: 10px; /* menos espacio que el primero */
+      margin-bottom: 10px; /* espacio debajo del título */
+    }
+
+    /* ========================== */
+    /* Contenedores flex de servicios */
+    /* ========================== */
+    .servicios-municipales,
+    .servicios-principales,
+    .servicios-grandes {
+      display: flex;
+      flex-wrap: wrap; /* permite que bajen si no caben */
+      gap: 15px;
+      justify-content: center;
+      padding: 10px 20px;
+    }
+
+    /* ========================== */
+    /* Cajas de servicios */
+    /* ========================== */
+
+    /* Cajas grandes (primera fila) */
+    .servicio {
+      flex: 1 1 250px; /* ancho flexible, mínimo 250px */
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .servicio:hover {
+      transform: translateY(-5px); /* efecto al pasar el mouse */
+    }
+    .servicio i {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #0075ff;
+    }
+
+    /* Cajas más pequeñas (segunda fila) */
+    .servicio2 {
+      flex: 1 1 150px; /* mínimo 150px */
+      max-width: 250px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .servicio2:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Cajas largas (tercera fila) */
+    .servicio-grande {
+      flex: 1 1 300px; /* mínimo 300px */
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .servicio-grande:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ========================== */
+    /* Footer */
+    /* ========================== */
+    footer {
+      background: #0048a9;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    footer ul {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      list-style: none;
+      margin-top: 10px;
+    }
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ========================== */
+    /* Botón flotante inferior derecho */
+    /* ========================== */
+    .btn-flotante {
+      position: fixed; /* siempre visible */
+      bottom: 20px;
+      right: 20px;
+      background: #0075ff;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; /* círculo */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+    .btn-flotante:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra superior -->
+  <div class="header">
+    <h1><i class="fa-solid fa-briefcase"></i> Bolsa de Trabajo</h1>
+    <div class="lista">
+      <ul>
+        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Header principal -->
+  <header>
+    <a href="#"><img src="logo-clt.png" alt="Logo CLT" /></a>
+    <nav class="lista">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Primer título -->
+  <h2 class="titulo">Servicios Municipales</h2>
+
+  <!-- Primera fila (5 cajas grandes) -->
+  <div class="servicios-municipales">
+    <div class="servicio">
+      <i class="fa-solid fa-user"></i>
+      <h3>Servicio 1</h3>
+      <p>Descripción del servicio.</p>
+    </div>
+    <div class="servicio">
+      <i class="fa-solid fa-car"></i>
+      <h3>Servicio 2</h3>
+      <p>Descripción del servicio.</p>
+    </div>
+    <div class="servicio">
+      <i class="fa-solid fa-building"></i>
+      <h3>Servicio 3</h3>
+      <p>Descripción del servicio.</p>
+    </div>
+    <div class="servicio">
+      <i class="fa-solid fa-phone"></i>
+      <h3>Servicio 4</h3>
+      <p>Descripción del servicio.</p>
+    </div>
+    <div class="servicio">
+      <i class="fa-solid fa-envelope"></i>
+      <h3>Servicio 5</h3>
+      <p>Descripción del servicio.</p>
+    </div>
+  </div>
+
+  <!-- Segundo título -->
+  <h2 class="titulo-servicios">Servicios Municipales</h2>
+
+  <!-- Segunda fila (7 cajas pequeñas) -->
+  <div class="servicios-principales">
+    <div class="servicio2"><h3>Servicio A</h3></div>
+    <div class="servicio2"><h3>Servicio B</h3></div>
+    <div class="servicio2"><h3>Servicio C</h3></div>
+    <div class="servicio2"><h3>Servicio D</h3></div>
+    <div class="servicio2"><h3>Servicio E</h3></div>
+    <div class="servicio2"><h3>Servicio F</h3></div>
+    <div class="servicio2"><h3>Servicio G</h3></div>
+  </div>
+
+  <!-- Tercera fila (3 cajas largas) -->
+  <div class="servicios-grandes">
+    <div class="servicio-grande"><h3>Servicio Grande 1</h3></div>
+    <div class="servicio-grande"><h3>Servicio Grande 2</h3></div>
+    <div class="servicio-grande"><h3>Servicio Grande 3</h3></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <small>© 2025 Mi Sitio Web. Todos los derechos reservados.</small>
+    <ul>
+      <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+  </footer>
+
+  <!-- Botón flotante inferior -->
+  <a href="#" class="btn-flotante">
+    <i class="fa-solid fa-user-plus"></i>
+  </a>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios Municipales</title>
+
+    <!-- Font Awesome para iconos -->
+    <script
+      src="https://kit.fontawesome.com/2661879d80.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /* ============================
+         ESTILOS GLOBALES
+      ============================ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: #f5f7fa;
+        overflow-x: hidden; /* evita scroll horizontal */
+      }
+
+      /* ============================
+         BARRA SUPERIOR
+      ============================ */
+      .header {
+        background: #0e1b3a;
+        color: #fff;
+        padding: 5px 20px 5px 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header h1 {
+        font-size: 15px;
+      }
+
+      .header .lista ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+      }
+
+      /* ============================
+         HEADER PRINCIPAL
+      ============================ */
+      header {
+        background: linear-gradient(to right, #0048a9, #0075ff);
+        padding: 8px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      header img {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+      }
+
+      header nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+      }
+
+      .nav-link:hover {
+        color: #ffcc00;
+      }
+
+      /* ============================
+         TÍTULOS
+      ============================ */
+      .titulo {
+        text-align: center;
+        font-size: 1.8em;
+        margin: 30px 0 20px 0;
+        color: #333;
+      }
+
+      /* ============================
+         CONTENEDORES FLEX
+      ============================ */
+      .servicios-municipales,
+      .servicios-principales,
+      .servicios-grandes {
+        padding: 40px 50px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      /* ============================
+         CAJAS DE SERVICIOS (fila 1)
+      ============================ */
+      .servicio {
+        flex: 1 1 250px;
+        min-height: 120px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        padding: 15px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      /* ============================
+         CAJAS DE SERVICIOS (fila 2)
+      ============================ */
+      .servicio2 {
+        flex: 1 1 150px; /* ancho mínimo flexible */
+        min-height: 150px;
+        max-width: 250px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        padding: 15px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      /* Hover general */
+      .servicio:hover,
+      .servicio2:hover,
+      .servicio-grande:hover {
+        transform: translateY(-4px);
+      }
+
+      /* Iconos */
+      .servicio i,
+      .servicio2 i,
+      .servicio-grande i {
+        font-size: 38px;
+        color: #d60000;
+        margin-bottom: 10px;
+      }
+
+      /* Títulos internos */
+      .servicio h2,
+      .servicio2 h2,
+      .servicio-grande h2 {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #222;
+      }
+
+      /* Textos internos */
+      .servicio p,
+      .servicio2 p,
+      .servicio-grande p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.4;
+      }
+
+      /* ============================
+         CAJAS GRANDES (fila 3)
+      ============================ */
+      .servicio-grande {
+        flex: 1 1 250px;
+        min-height: 180px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      /* ============================
+         FOOTER
+      ============================ */
+      footer {
+        background: #0e1b3a;
+        color: #fff;
+        padding: 20px 15px;
+        text-align: center;
+      }
+
+      footer small {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      footer i {
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      /* ============================
+         BOTÓN FLOTANTE
+      ============================ */
+      .btn-flotante {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #0075ff;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+        z-index: 1000;
+      }
+
+      .btn-flotante:hover {
+        background: #0048a9;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================
+         BARRA SUPERIOR
+    ============================ -->
+    <div class="header">
+      <h1><i class="fa-solid fa-briefcase"></i> Bolsa de Trabajo</h1>
+      <div class="lista">
+        <ul>
+          <li><i class="fa-brands fa-facebook" aria-label="Facebook"></i></li>
+          <li><i class="fa-brands fa-tiktok" aria-label="TikTok"></i></li>
+          <li><i class="fa-brands fa-instagram" aria-label="Instagram"></i></li>
+          <li><i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i></li>
+          <li><i class="fa-brands fa-youtube" aria-label="YouTube"></i></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================
+         HEADER PRINCIPAL
+    ============================ -->
+    <header>
+      <!-- Logo -->
+      <a href="#">
+        <img
+          src="logo-clt.png"
+          alt="Corporación Logística & Transporte"
+        />
+      </a>
+
+      <!-- Navegación principal -->
+      <nav class="lista">
+        <ul>
+          <li><a class="nav-link" href="#">Inicio</a></li>
+          <li><a class="nav-link" href="#">Nosotros</a></li>
+          <li><a class="nav-link" href="#">Servicios</a></li>
+          <li><a class="nav-link" href="#">Blog</a></li>
+          <li><a class="nav-link" href="#">Bolsa de Trabajo</a></li>
+          <li><a class="nav-link" href="#">Tracking</a></li>
+          <li><a class="nav-link" href="#">Tarifarios</a></li>
+          <li><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ============================
+         CONTENIDO PRINCIPAL
+    ============================ -->
+    <main>
+      <!-- Primera sección -->
+      <section>
+        <h2 class="titulo">
+          <i class="fa-solid fa-user"></i> Servicios Municipales
+        </h2>
+
+        <!-- Fila 1 -->
+        <section class="servicios-municipales">
+          <article class="servicio">
+            <i class="fa-solid fa-file"></i>
+            <h3>Trámites</h3>
+            <p>Consulta y realiza tus trámites de manera rápida y segura.</p>
+          </article>
+          <article class="servicio">
+            <i class="fa-solid fa-broom"></i>
+            <h3>Limpieza Pública</h3>
+            <p>Gestión eficiente para mantener la ciudad limpia y ordenada.</p>
+          </article>
+          <article class="servicio">
+            <i class="fa-solid fa-tree"></i>
+            <h3>Áreas Verdes</h3>
+            <p>Cuidado y mantenimiento de parques y jardines.</p>
+          </article>
+          <article class="servicio">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Seguridad Ciudadana</h3>
+            <p>Patrullaje y atención inmediata para tu seguridad.</p>
+          </article>
+          <article class="servicio">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <h3>Programas Sociales</h3>
+            <p>Apoyo y asistencia a las familias más necesitadas.</p>
+          </article>
+        </section>
+      </section>
+
+      <!-- Segunda sección -->
+      <section>
+        <h2 class="titulo">Servicios Principales</h2>
+
+        <!-- Fila 2 -->
+        <section class="servicios-principales">
+          <article class="servicio2">
+            <i class="fa-solid fa-file"></i>
+            <h3>Trámites</h3>
+            <p>Consulta y realiza tus trámites de manera rápida y segura.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-broom"></i>
+            <h3>Limpieza Pública</h3>
+            <p>Gestión eficiente para mantener la ciudad limpia y ordenada.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-tree"></i>
+            <h3>Áreas Verdes</h3>
+            <p>Cuidado y mantenimiento de parques y jardines.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Seguridad Ciudadana</h3>
+            <p>Patrullaje y atención inmediata para tu seguridad.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <h3>Programas Sociales</h3>
+            <p>Apoyo y asistencia a las familias más necesitadas.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-kit-medical"></i>
+            <h3>Salud</h3>
+            <p>Atención médica y campañas de prevención en tu comunidad.</p>
+          </article>
+          <article class="servicio2">
+            <i class="fa-solid fa-book"></i>
+            <h3>Educación</h3>
+            <p>Capacitación, talleres y programas educativos.</p>
+          </article>
+        </section>
+
+        <!-- Fila 3 -->
+        <section class="servicios-grandes">
+          <article class="servicio-grande">
+            <i class="fa-solid fa-landmark"></i>
+            <h3>Cultura</h3>
+            <p>Eventos culturales, ferias y actividades comunitarias.</p>
+          </article>
+          <article class="servicio-grande">
+            <i class="fa-solid fa-futbol"></i>
+            <h3>Deportes</h3>
+            <p>Escuelas deportivas y torneos locales para jóvenes.</p>
+          </article>
+          <article class="servicio-grande">
+            <i class="fa-solid fa-bus"></i>
+            <h3>Transporte</h3>
+            <p>Gestión de movilidad y transporte público accesible.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <!-- ============================
+         FOOTER
+    ============================ -->
+    <footer>
+      <small>© 2025 Mi Sitio Web. Todos los derechos reservados.</small>
+      <ul>
+        <li><i class="fa-brands fa-facebook" aria-label="Facebook"></i></li>
+        <li><i class="fa-brands fa-tiktok" aria-label="TikTok"></i></li>
+        <li><i class="fa-brands fa-instagram" aria-label="Instagram"></i></li>
+        <li><i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i></li>
+      </ul>
+    </footer>
+
+    <!-- Botón flotante -->
+    <a href="#" class="btn-flotante" aria-label="Botón flotante de contacto">
+      <i class="fa-solid fa-user-plus"></i>
+    </a>
+  </body>
+</html>

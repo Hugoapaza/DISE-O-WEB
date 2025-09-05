@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de ejemplo</title>
+  <style>
+    /* ========== ESTILOS GENERALES ========== */
+    body {
+      font-family: Arial, sans-serif; /* Fuente */
+      margin: 0;                      /* Quitamos margen por defecto */
+      padding: 0;
+      background: #f4f4f4;             /* Fondo gris claro */
+      color: #333;                     /* Texto oscuro */
+    }
+
+    /* ========== ENCABEZADO ========== */
+    header {
+      background: #0075ff;  /* Azul */
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0; /* Quitamos espacio extra */
+    }
+
+    /* ========== SECCIÓN DE PRESENTACIÓN ========== */
+    .presentacion {
+      background: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ========== SECCIÓN DE SERVICIOS ========== */
+    .servicios {
+      display: flex;          /* Activamos Flexbox */
+      flex-wrap: wrap;        /* Que las cajas bajen si no entran */
+      gap: 20px;              /* Espacio entre cajas */
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 200px;            /* Tamaño fijo */
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    /* Efecto hover en tarjetas */
+    .card:hover {
+      transform: scale(1.05);  /* Se agranda al pasar mouse */
+      background: #e6f0ff;     /* Cambia color */
+    }
+
+    /* ========== BOTÓN FLOTANTE ========== */
+    .btn-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0075ff;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    .btn-flotante:hover {
+      background: #0057cc;
+    }
+
+    /* ========== PIE DE PÁGINA ========== */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #222;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <h1>Mi Página de Ejemplo</h1>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <!-- Presentación -->
+    <section class="presentacion">
+      <h2>Sobre mí</h2>
+      <p>Soy estudiante de desarrollo web y estoy aprendiendo HTML y CSS.</p>
+    </section>
+
+    <!-- Servicios -->
+    <section>
+      <h2 style="text-align:center;">Servicios</h2>
+      <div class="servicios">
+        <div class="card">Diseño Web</div>
+        <div class="card">Programación</div>
+        <div class="card">SEO</div>
+        <div class="card">Marketing</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÓN FLOTANTE -->
+  <a href="#" class="btn-flotante">↑</a>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>© 2025 - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!----1. Estructura básica de un HTML---->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi primera página</title>
+    <!-- Enlace a CSS externo -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Encabezado de la página -->
+    <header>
+      <h1>Bienvenido a mi sitio</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <section class="presentacion">
+        <h2>Sobre mí</h2>
+        <p>Hola, soy desarrollador web y me gusta crear páginas dinámicas.</p>
+      </section>
+
+      <section class="servicios">
+        <h2>Servicios</h2>
+        <div class="card">Diseño Web</div>
+        <div class="card">Programación</div>
+        <div class="card">SEO</div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>© 2025 - Todos los derechos reservados</p>
+    </footer>
+    <style>
+      /*---2. Estructura semántica:
+  - <header>: Encabezado de la página.
+  - <main>: Contenido principal.
+  - <section>: Secciones del contenido.
+  - <footer>: Pie de página.
+    - <h1>, <h2>: Títulos y subtítulos.
+    - <p>: Párrafos de texto.
+    - <div>: Contenedores genéricos (usados aquí para tarjetas de servicios
+        con clase "card").*/
+
+      /*--------------2. Aplicar estilos con CSS----------------*/
+
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0; /* quitamos márgenes del navegador */
+        padding: 0;
+        background: #f4f4f4; /* color de fondo */
+        color: #333;
+      }
+
+      /* Encabezado */
+      header {
+        background: #0075ff;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Sección de presentación */
+      .presentacion {
+        padding: 20px;
+        background: white;
+        margin: 20px;
+        border-radius: 10px; /* bordes redondeados */
+      }
+
+      /* Contenedor de servicios con Flexbox */
+      .servicios {
+        display: flex; /* activa Flexbox */
+        flex-wrap: wrap; /* permite que las cajas bajen si no entran */
+        gap: 20px; /* espacio entre cajas */
+        justify-content: center;
+        padding: 20px;
+      }
+
+      /* Cada tarjeta de servicio */
+      .card {
+        background: white;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease; /* animación */
+      }
+
+      /* Efecto hover */
+      .card:hover {
+        transform: scale(1.05); /* se agranda un poco al pasar el mouse */
+        background: #e6f0ff;
+      }
+      /*--------------------------3. Contenedores y sus propiedades principales-----------------------*/
+      .caja {
+        margin: 20px; /* espacio fuera de la caja */
+        padding: 15px; /* espacio dentro de la caja */
+        background: #ddd;
+      }
+      /*-------------------Bordes y esquinas------------------*/
+      .caja {
+        border: 2px solid #333; /* grosor, estilo, color */
+        border-radius: 10px; /* esquinas redondeadas */
+      }
+      /*-------------------Tamaño------------------*/
+      .caja {
+        width: 300px; /* ancho fijo */
+        height: 150px; /* alto fijo */
+        max-width: 100%; /* no se pasa del tamaño de la pantalla */
+      }
+      /*-------------------Flexbox para alinear------------------*/
+      .contenedor {
+  display: flex;
+  justify-content: space-around; /* espacio entre cajas */
+  align-items: center;           /* alinea vertical */
+}
+        /*-------------------Sombra y efectos------------------*/
+        .caja {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+            transition: transform 0.3s ease; /* animación */
+        }
+        .caja:hover {
+            transform: translateY(-5px); /* se eleva al pasar el mouse */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* sombra más fuerte */
+        }
+        /*-------------------Pie de página------------------*/
+        footer {
+            background: #0075ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /*-------------------Botón flotante------------------*/
+        .btn-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0075ff;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-size: 24px;
+            transition: background 0.3s ease;
+        }   
+        .btn-flotante:hover {
+            background: #005bb5;
+        }
+        /*-------------------Estilos adicionales------------------*/
+        h1, h2 {
+            color: #0075ff;
+        }
+        p {
+            line-height: 1.6; /* mejora la legibilidad */
+        }
+        /*-------------------Estilos específicos del ejercicio------------------*/
+        
+    </style>
+  </body>
+</html>
+
+!

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web con Flexbox</title>
+  <style>
+    /* ===============================
+       RESET BÁSICO
+       =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===============================
+       1. CONTENEDOR GENERAL
+       =============================== */
+    .contenedor {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* ===============================
+       2. HEADER CON FLEXBOX
+       =============================== */
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 15px 0;
+    }
+
+    header .contenedor {
+      display: flex;                  /* Flexbox */
+      justify-content: space-between; /* Espacio entre logo y menú */
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;   /* Menú horizontal */
+      gap: 20px;       /* Espaciado entre enlaces */
+      list-style: none;
+    }
+
+    nav a {
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ddd;
+    }
+
+    /* ===============================
+       3. HERO (PORTADA)
+       =============================== */
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #28a745;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .boton:hover {
+      background: #1e7e34;
+    }
+
+    /* ===============================
+       4. SECCIÓN NOSOTROS (CAJAS)
+       =============================== */
+    .cajas {
+      display: flex;         /* Flexbox */
+      gap: 20px;
+      flex-wrap: wrap;       /* Responsive: se acomodan en varias filas */
+      margin-top: 20px;
+    }
+
+    .caja {
+      flex: 1 1 250px;       /* Crecen y se adaptan al espacio */
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .caja:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===============================
+       5. SECCIÓN SERVICIOS (CARDS)
+       =============================== */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card h3 {
+      margin: 15px;
+      color: #007BFF;
+    }
+
+    .card p {
+      margin: 0 15px 15px;
+      color: #555;
+    }
+
+    .card .boton {
+      margin: 15px;
+      display: inline-block;
+    }
+
+    /* ===============================
+       6. SECCIÓN CONTACTO (FORMULARIO)
+       =============================== */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    form button {
+      align-self: flex-start;
+    }
+
+    /* ===============================
+       7. FOOTER
+       =============================== */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="contenedor">
+      <h1>Mi Empresa</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="contenedor">
+      <h2>Bienvenido a Nuestra Web</h2>
+      <p>Construimos experiencias digitales con Flexbox</p>
+      <a href="#servicios" class="boton">Ver Servicios</a>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="contenedor">
+    <h2>Sobre Nosotros</h2>
+    <div class="cajas">
+      <div class="caja">
+        <h3>Misión</h3>
+        <p>Explicación de la misión de la empresa.</p>
+      </div>
+      <div class="caja">
+        <h3>Visión</h3>
+        <p>Explicación de la visión de la empresa.</p>
+      </div>
+      <div class="caja">
+        <h3>Valores</h3>
+        <p>Explicación de los valores principales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="contenedor">
+    <h2>Nuestros Servicios</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Servicio 1">
+        <h3>Servicio 1</h3>
+        <p>Descripción breve del servicio.</p>
+        <a href="#" class="boton">Leer más</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Servicio 2">
+        <h3>Servicio 2</h3>
+        <p>Descripción breve del servicio.</p>
+        <a href="#" class="boton">Leer más</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Servicio 3">
+        <h3>Servicio 3</h3>
+        <p>Descripción breve del servicio.</p>
+        <a href="#" class="boton">Leer más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contenedor">
+    <h2>Contáctanos</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit" class="boton">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="contenedor">
+      <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<!-----------------------------
+🔎 Explicación rápida
+-------------------------------
+Header → usa Flexbox para alinear el logo a la izquierda y el menú a la derecha.
+
+Hero → sección destacada con texto y botón centrado.
+
+Nosotros (Cajas) → usa .cajas con display:flex para mostrar misión, visión y valores.
+
+Servicios (Cards) → usa .cards con Flexbox y cada .card tiene imagen + texto + botón.
+
+Contacto (Formulario) → organizado con Flexbox en columna.
+
+Footer → bloque final con derechos de autor.-->
+
+<!------------------------------------------------
+📌 Propiedades de Flexbox usadas en el proyecto
+🔹 1. display: flex;
+
+👉 Se aplica al contenedor para activar Flexbox.
+
+Convierte a todos sus elementos hijos (.caja, .card, etc.) en flex items.
+
+A partir de aquí podemos controlar cómo se acomodan, se alinean y se distribuyen.
+
+Ejemplo:
+
+.cajas {
+  display: flex; /* Activo Flexbox */
+}
+
+🔹 2. flex-direction
+
+👉 Define la dirección del eje principal (cómo se ordenan las cajas dentro del contenedor).
+
+row → las cajas se ordenan en fila (horizontal, de izquierda a derecha).
+
+row-reverse → fila, pero al revés (de derecha a izquierda).
+
+column → las cajas se ordenan en columna (de arriba a abajo).
+
+column-reverse → columna al revés (de abajo a arriba).
+
+Ejemplo usado:
+
+header .contenedor {
+  display: flex;
+  flex-direction: row; /* Predeterminado: horizontal */
+}
+
+🔹 3. justify-content
+
+👉 Alinea los elementos en el eje principal (horizontal si es row, vertical si es column).
+
+Valores más usados:
+
+flex-start → alineados al inicio (izquierda).
+
+center → alineados al centro.
+
+flex-end → alineados al final (derecha).
+
+space-between → espacio uniforme entre elementos (sin espacio en los extremos).
+
+space-around → espacio alrededor de cada elemento (espacios laterales iguales).
+
+space-evenly → distribuye con espacios exactamente iguales en todo.
+
+Ejemplo usado:
+
+header .contenedor {
+  justify-content: space-between; /* Logo a la izquierda y menú a la derecha */
+}
+
+🔹 4. align-items
+
+👉 Alinea los elementos en el eje secundario (el contrario al flex-direction).
+
+Valores más usados:
+
+flex-start → arriba.
+
+center → centrados verticalmente.
+
+flex-end → abajo.
+
+stretch → estira los elementos para que ocupen toda la altura.
+
+baseline → alinea según la línea base del texto.
+
+Ejemplo usado:
+
+header .contenedor {
+  align-items: center; /* Centra logo y menú verticalmente */
+}
+
+🔹 5. flex-wrap
+
+👉 Permite que los elementos salten a otra línea si no caben en el mismo renglón.
+
+nowrap → (por defecto) todo en una sola línea (puede desbordar).
+
+wrap → las cajas se acomodan en nuevas filas cuando no hay espacio.
+
+wrap-reverse → igual que wrap, pero al revés.
+
+Ejemplo usado:
+
+.cajas {
+  display: flex;
+  flex-wrap: wrap; /* Se ajustan en varias filas en pantallas pequeñas */
+}
+
+🔹 6. gap
+
+👉 Define el espacio entre elementos flex (más moderno que usar margin).
+Ejemplo:
+
+.cajas {
+  gap: 20px; /* Espacio de 20px entre cajas */
+}
+
+🔹 7. flex (en los hijos)
+
+👉 Se aplica a cada caja/card dentro del contenedor flex.
+Es una propiedad abreviada de:
+
+flex: grow shrink basis;
+
+
+grow (cuánto puede crecer el elemento si hay espacio extra).
+
+shrink (cuánto puede encogerse si falta espacio).
+
+basis (tamaño base inicial del elemento, como "mínimo preferido").
+
+Ejemplo usado:
+
+.caja {
+  flex: 1 1 250px; 
+}
+
+
+Esto significa:
+
+1 → puede crecer.
+
+1 → puede encogerse.
+
+250px → tamaño base inicial.
+
+👉 Resultado: las cajas tratan de medir 250px, pero pueden agrandarse o encogerse según el espacio disponible.
+
+📌 Resumen gráfico de cómo se usaron
+
+✅ Contenedor con Flexbox:
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+
+
+✅ Cajas dentro del contenedor:
+
+flex: 1 1 250px;
+
+
+Esto hace que:
+
+El header tenga el logo a la izquierda y el menú a la derecha.
+
+Las cajas (misión, visión, valores) se ajusten en fila y bajen a otra línea en pantallas pequeñas.
+
+Las cards (servicios) se comporten como bloques flexibles y responsivos.-->

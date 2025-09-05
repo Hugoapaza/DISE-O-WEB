@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo Flexbox</title>
+    <style>
+      /* ===============================
+       1. RESET BÁSICO
+       =============================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
+
+      /* ===============================
+       2. CONTENEDOR FLEX
+       =============================== */
+      .contenedor {
+        display: flex; /* Activa Flexbox */
+        flex-direction: row; /* Dirección de las cajas: row (fila) o column */
+        justify-content: space-between; /* Alinea en el eje principal (horizontal) */
+        align-items: center; /* Alinea en el eje secundario (vertical) */
+        gap: 20px; /* Espacio entre cajas */
+        flex-wrap: wrap; /* Permite que las cajas bajen a otra línea */
+        padding: 20px;
+        background: #fff;
+        border: 2px solid #333;
+        border-radius: 10px;
+      }
+
+      /* ===============================
+       3. CAJAS DENTRO DEL CONTENEDOR
+       =============================== */
+      .caja {
+        flex: 1 1 200px; /* Grow:1 | Shrink:1 | Basis:200px */
+        background: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .caja:hover {
+        transform: scale(1.1); /* Agranda la caja al pasar el mouse */
+        background: #0056b3; /* Oscurece el color */
+      }
+
+      /* ===============================
+       4. SUB-GRUPOS DENTRO DEL FLEX
+       =============================== */
+      .grupo {
+        display: flex; /* Otro contenedor flex dentro del principal */
+        flex-direction: column; /* Acomoda cajas en columna */
+        gap: 10px;
+        flex: 1 1 250px;
+      }
+
+      .grupo .caja {
+        background: #28a745; /* Verde para diferenciar subgrupo */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ejemplo Flexbox con Cajas</h1>
+    <p>Un contenedor principal con Flexbox y agrupación de cajas.</p>
+
+    <!-- ===============================
+       CONTENEDOR FLEX PRINCIPAL
+       =============================== -->
+    <div class="contenedor">
+      <!-- Cajas individuales -->
+      <div class="caja">Caja 1</div>
+      <div class="caja">Caja 2</div>
+
+      <!-- Subgrupo de cajas (otro contenedor flex dentro del principal) -->
+      <div class="grupo">
+        <div class="caja">Subcaja 1</div>
+        <div class="caja">Subcaja 2</div>
+        <div class="caja">Subcaja 3</div>
+      </div>
+
+      <!-- Más cajas sueltas -->
+      <div class="caja">Caja 3</div>
+      <div class="caja">Caja 4</div>
+    </div>
+  </body>
+</html>
+<!-----------------------------
+🔎 Explicación paso a paso
+1. Estructura HTML correcta
+
+Usamos un div con clase .contenedor → es nuestro contenedor Flexbox.
+Dentro de él, ponemos cajas individuales (.caja).
+
+Si queremos agrupar cajas dentro de otro bloque, usamos un subcontenedor .grupo, que también puede usar Flexbox.
+👉 Esto permite crear estructuras organizadas, como columnas dentro de filas.
+------------------------------------------------
+2. Propiedades importantes de Flexbox
+------------------------------------------------
+display: flex; → activa Flexbox en el contenedor.
+
+flex-direction: row → las cajas se ordenan en fila (horizontal).
+
+column → las cajas se ordenan en columna (vertical).
+
+justify-content (eje principal):
+
+flex-start → a la izquierda.
+
+center → al centro.
+
+space-between → espacio igual entre cajas.
+
+space-around → espacio alrededor de cada caja.
+
+align-items (eje secundario):
+
+flex-start → arriba.
+
+center → centradas verticalmente.
+
+flex-end → abajo.
+
+flex-wrap: wrap; → permite que las cajas salten a otra línea si no hay espacio.
+------------------------------------------
+3. Propiedades de cada caja
+------------------------------------------
+flex: 1 1 200px;
+
+Grow (1) → puede crecer para ocupar más espacio.
+
+Shrink (1) → puede encogerse si no cabe.
+
+Basis (200px) → tamaño base inicial.
+
+transition + hover → hacen que las cajas se agranden suavemente al pasar el mouse.
+
+4. Subgrupos dentro del contenedor
+
+.grupo también usa display:flex, pero con flex-direction: column.
+
+Así logramos filas dentro de filas, o columnas dentro de un layout.
+
+⚡ Con este ejemplo ya puedes:
+✔ Agrupar cajas.
+✔ Usar Flexbox correctamente.
+✔ Aplicar hover para dar interacción.
+✔ Entender la estructura HTML clara y ordenada.-->

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Web Oficial</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS externo -->
+</head>
+<body>
+  <!-- ===============================
+       1. ENCABEZADO PRINCIPAL
+       =============================== -->
+  <header>
+    <div class="contenedor">
+      <h1>Nombre de la Empresa</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===============================
+       2. SECCIÓN PRINCIPAL (HERO)
+       =============================== -->
+  <section id="inicio" class="hero">
+    <div class="contenedor">
+      <h2>Bienvenido a Nuestra Página</h2>
+      <p>Texto de introducción, slogan o frase principal.</p>
+      <a href="#servicios" class="boton">Ver más</a>
+    </div>
+  </section>
+
+  <!-- ===============================
+       3. SECCIÓN NOSOTROS
+       =============================== -->
+  <section id="nosotros">
+    <div class="contenedor">
+      <h2>Sobre Nosotros</h2>
+      <div class="cajas">
+        <div class="caja">
+          <h3>Misión</h3>
+          <p>Explicación de la misión de la empresa.</p>
+        </div>
+        <div class="caja">
+          <h3>Visión</h3>
+          <p>Explicación de la visión de la empresa.</p>
+        </div>
+        <div class="caja">
+          <h3>Valores</h3>
+          <p>Explicación de los valores principales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===============================
+       4. SECCIÓN DE SERVICIOS (CARDS)
+       =============================== -->
+  <section id="servicios">
+    <div class="contenedor">
+      <h2>Nuestros Servicios</h2>
+      <div class="cards">
+        <!-- CARD 1 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Servicio 1">
+          <h3>Servicio 1</h3>
+          <p>Descripción breve del servicio.</p>
+          <a href="#" class="boton">Leer más</a>
+        </div>
+        <!-- CARD 2 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Servicio 2">
+          <h3>Servicio 2</h3>
+          <p>Descripción breve del servicio.</p>
+          <a href="#" class="boton">Leer más</a>
+        </div>
+        <!-- CARD 3 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Servicio 3">
+          <h3>Servicio 3</h3>
+          <p>Descripción breve del servicio.</p>
+          <a href="#" class="boton">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===============================
+       5. SECCIÓN DE CONTACTO
+       =============================== -->
+  <section id="contacto">
+    <div class="contenedor">
+      <h2>Contáctanos</h2>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit" class="boton">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===============================
+       6. FOOTER
+       =============================== -->
+  <footer>
+    <div class="contenedor">
+      <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
+<!------------------------------------------
+🔎 Explicación de la estructura
+--------------------------------------------
+<header> → Encabezado de la página con el logo/título y el menú de navegación.
+
+<section> → Divide las secciones principales de la página (inicio, nosotros, servicios, contacto).
+
+.contenedor → Es un div que centra y limita el ancho del contenido en cada sección.
+
+.cajas → Grupo de cajas simples (.caja) usadas para mostrar información básica.
+
+.cards → Contenedor de tarjetas (.card) que suelen incluir imagen + título + descripción + botón.
+
+<footer> → Pie de página con derechos de autor o información de contacto.-->

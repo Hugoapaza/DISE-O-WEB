@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exported Layout</title>
+		<style>
+			* {
+			    margin: 0;
+			    padding: 0;
+			    box-sizing: border-box;
+			}
+			
+			html,
+			body,
+			.container {
+			   height: 100%;
+			   width: 100%;
+			}
+			
+			body {
+			  display: flex;
+			  padding: 10px;
+			}
+			
+			.item {
+			  background-color: #24292d;
+			  color: #fff;
+			  border-radius: 10px;
+			  padding: 10px 15px;
+			}
+			
+			.container {
+			  display: flex;
+			  gap: 2%;
+			  flex-wrap: wrap;
+			}
+			
+			.item:nth-child(1),
+			.item:nth-child(2),
+			.item:nth-child(3),
+			.item:nth-child(4),
+			.item:nth-child(5),
+			.item:nth-child(6),
+			.item:nth-child(7),
+			.item:nth-child(8),
+			.item:nth-child(9) {
+			  width: 32%;
+			  height: 32%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		  <div class="item">1</div>
+		  <div class="item">2</div>
+		  <div class="item">3</div>
+		  <div class="item">4</div>
+		  <div class="item">5</div>
+		  <div class="item">6</div>
+		  <div class="item">7</div>
+		  <div class="item">8</div>
+		  <div class="item">9</div>
+		</div>
+	</body>
+</html>

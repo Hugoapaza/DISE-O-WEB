@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+        <div class="audio">
+        <audio
+          autoplay=""
+          controls=""
+          id="stream"
+          preload="none"
+          src="Audio/coin-pickup-mario.mp3"
+          style="width: 400px"
+          type="audio/mpeg"
+        ></audio>
+        </div>
+    <section class="contenedor">
+      <div class="caja">
+        <h2>Bowser</h2>
+        <p>
+          Bowser es un personaje ficticio creado por Nintendo <br />
+          y el villano principal de la franquicia Super Mario, <br />
+          conocido como el Rey Koopa y archienemigo de Mario.
+        </p>
+        <img src="Imagenes/Bowser.png" alt="" />
+      </div>
+      <div class="caja">
+        <h2>Toad</h2>
+        <p>
+        Es un pequeño humanoide con una cabeza en forma de champiñón.
+        </p>
+        <img class="toad" src="Imagenes/Toad.png" alt=""/>
+      </div>
+      <div class="caja">
+        <h2>Mario</h2>
+        <p>
+        El héroe principal del Reino Champiñón. Mario es muy positivo y siempre está alegre.
+        </p>
+        <img class="mario" src="Imagenes/Mario.png" alt="" />
+      </div>
+    </section>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        
+      }
+
+      .audio{
+        display: flex;
+        justify-content: center;
+      }
+
+      .caja h2 {
+        color: #110d0d;
+        
+      }
+
+      .caja p{
+        color: #f5efef;
+        text-align: center;
+      }
+
+      .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 10px;
+      }
+      .caja {
+        width: 200px;
+        height: 600px;
+        color: #da5858;
+        font-weight: bold;
+        background: #da5858;
+        transition: background-color 0.3s ease;
+        box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.6);
+        border-radius: 6%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 5px 10px;
+        transition: all 0.6s;
+        flex: 1 1 250px;
+        border-bottom: 10px solid #110d0d;
+     }
+
+      .caja img {
+        width: 200px;
+        height: 200px;
+        margin-top: 40px;
+      }
+
+      .caja img:hover{
+        transform: scale(1.6);
+        filter: drop-shadow(0 0 10px rgb(255, 217, 0))  /*  */
+          drop-shadow(0 0 20px rgb(255, 77, 22));
+      }
+
+      .toad:hover{
+        transform: scale(1.9);
+        filter: drop-shadow(0 0 10px rgba(4, 4, 245, 0.568))  /*  */
+        drop-shadow(0 0 20px rgb(255, 255, 255));
+      }
+
+      .caja .mario:hover{
+        transform: scale(1.9);
+        filter: drop-shadow(0 0 10px rgb(255, 30, 0))  /*  */
+        drop-shadow(0 0 20px rgb(56, 6, 238));
+      }
+
+      .caja:hover{
+        background-color: #17cc4d;
+      }
+
+      .caja h2:hover{
+        transform: scale(1.6);
+        filter: drop-shadow(0 0 10px rgb(0, 26, 255))  /*  */
+        drop-shadow(0 0 20px rgb(245, 244, 243));
+      }
+
+    </style>
+  </body>
+</html>

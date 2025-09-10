@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radio Máxima Puno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/2661879d80.css" crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #1f1f1f, #3a3a3a);
+      color: white;
+    }
+
+    header {
+      background: #ca1616;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 2rem;
+    }
+
+    .titulo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .titulo img {
+      width: 80px;
+    }
+
+    .titulo h1 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .container-imagen {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container-imagen img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .item {
+      background-color: #24292d;
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1 1 350px;
+      max-width: 600px;
+    }
+
+    .imagen-izq {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .imagen-izq:hover {
+      transform: scale(1.03);
+    }
+
+    .contratos {
+      background: #2811a8;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .centro {
+      background: #000;
+      padding: 1rem;
+    }
+
+    .centro h3 a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .centro h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .radio-player {
+      margin-top: 1rem;
+      background: #222;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 60, 60, 0.4);
+    }
+
+    .radio-player audio {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="titulo">
+      <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirXPSHYIAh4BwUkYJSw7LPNxC0-s_3kQeedR4B0iS8buwks2eaJo9nC1o2BZxuu-Hhv10KOyNhjKC-1pAdDhfCDb3cnqUMrv9IGd7YdMaklNd9dGIzFP8nct2IJGFNlebUKkq9Kux9f7I/s752/maxima+png.png" alt="Logo Radio Máxima" /></a>
+      <h1>Radio Máxima</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- IMAGEN PRINCIPAL -->
+  <div class="container-imagen">
+    <img src="Logo/maxima png-Photoroom.png" alt="Logo Radio Máxima" />
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- LADO IZQUIERDO -->
+    <div class="item">
+      <div class="contratos">Contratos</div>
+      <img class="imagen-izq" src="Logo/maxima png.png" alt="Imagen Contrato 1" />
+      <img class="imagen-izq" src="Logo/maxima png.png" alt="Imagen Contrato 2" />
+      <img class="imagen-izq" src="Logo/maxima png.png" alt="Imagen Contrato 3" />
+    </div>
+
+    <!-- CENTRO / RADIO -->
+    <div class="item centro">
+      <h3>
+        <a href="https://radiomaximapuno.blogspot.com/2019/05/contactos.html" target="_blank">
+          🎙️ RADIO MÁXIMA PUNO - EN VIVO
+        </a>
+      </h3>
+      <p><b>CONTACTOS:</b> Telf. 051 - 200583 | Cel. 987870711 / 961062505</p>
+
+      <!-- AUDIO EN VIVO -->
+      <div class="radio-player">
+        <h4>🔴 Escúchanos en vivo ahora:</h4>
+        <audio controls autoplay>
+          <!-- ✅ Reemplaza el SRC con tu URL de streaming -->
+          <source src="https://stream.zeno.fm/your-radio-url.mp3" type="audio/mpeg" />
+          Tu navegador no soporta el reproductor de audio.
+        </audio>
+      </div>
+
+      <!-- BOTONES O IMÁGENES -->
+      <div style="margin-top: 1rem;">
+        <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGvmnaz8QiD0VYF4XylAGtpERetFrTPHRXm69WTa8gI1UXPHv8EpL_im9LdLwIZoISlPzRuNAAvaG8Crd7OrGBoNvg_BJZvRE2Xyv9b4BkuhkJ5cIHxzINn-eO0Ub7L8n7iNRn550n4ipm/s120/winamp.png" width="120" /></a>
+        <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjde3mgfYMLJ8-7ErprVagAYn7lrTgGR3Gwwpo0PJ96HQq-dldwG-gzYKY7rnqTt-_GYDVskwB4FDl1kmqSXxTw5n4hyFdEorjwR-CrC7YaQLjoS425dQLoxswmg81BioT39zf1bXlWc4A/s200/91606151_537887483806274_1387478430374690816_o.png" width="150" /></a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <small>© Con la tecnología de Blogger | Radio Máxima Puno</small>
+  </footer>
+</body>
+</html>

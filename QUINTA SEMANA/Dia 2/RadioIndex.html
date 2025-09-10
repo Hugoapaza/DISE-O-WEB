@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radio Viva FM</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 10px 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #444;
+      border-radius: 4px;
+    }
+
+    .live-section {
+      background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .live-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .live-section h1,
+    .live-section p,
+    .live-section .player {
+      position: relative;
+      z-index: 1;
+    }
+
+    .live-section h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .live-section p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .player audio {
+      width: 300px;
+      max-width: 90%;
+    }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+      max-width: 300px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 24px;
+      color: #1e1e1e;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ff4747;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .live-section h1 {
+        font-size: 32px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Radio_icon.png" alt="Radio Viva FM Logo">
+    <nav>
+      <a href="#en-vivo">En Vivo</a>
+      <a href="#programacion">Programación</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- EN VIVO -->
+  <section class="live-section" id="en-vivo">
+    <h1>¡Estamos en Vivo!</h1>
+    <p>Escúchanos las 24 horas con la mejor música y programación en Radio Viva FM</p>
+    <div class="player">
+      <audio controls>
+        <!-- Reemplaza esta URL con la de tu servidor de streaming -->
+        <source src="https://stream.zeno.fm/your-stream-url" type="audio/mpeg">
+        Tu navegador no soporta el reproductor de audio.
+      </audio>
+    </div>
+  </section>
+
+  <!-- PROGRAMACIÓN -->
+  <section class="section" id="programacion">
+    <h2>Programación de Hoy</h2>
+    <div class="flex-container">
+      <div class="card">
+        <h3>Mañanas Musicales</h3>
+        <p>6:00 AM - 10:00 AM</p>
+        <p>Conduce: Laura González</p>
+      </div>
+      <div class="card">
+        <h3>Noticias al Día</h3>
+        <p>10:00 AM - 12:00 PM</p>
+        <p>Conduce: Andrés Pérez</p>
+      </div>
+      <div class="card">
+        <h3>Tardes Latinas</h3>
+        <p>1:00 PM - 5:00 PM</p>
+        <p>Conduce: Karla Romero</p>
+      </div>
+      <div class="card">
+        <h3>Noches de Rock</h3>
+        <p>8:00 PM - 12:00 AM</p>
+        <p>Conduce: El Rulo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICIAS -->
+  <section class="section" id="noticias">
+    <h2>Últimas Noticias</h2>
+    <div class="flex-container">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x200/?news,radio" alt="Noticia 1">
+        <h3>Nuevo Álbum de Shakira</h3>
+        <p>¡La cantante colombiana lanza su nuevo disco este viernes!</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x200/?music,concert" alt="Noticia 2">
+        <h3>Festival Sonorama 2025</h3>
+        <p>Todo listo para el festival más esperado del año en Madrid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>Correo: contacto@radiovivafm.com | Teléfono: +34 900 123 456</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">📘</a>
+      <a href="https://twitter.com" target="_blank">🐦</a>
+      <a href="https://instagram.com" target="_blank">📸</a>
+      <a href="https://youtube.com" target="_blank">▶️</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Radio Viva FM - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>

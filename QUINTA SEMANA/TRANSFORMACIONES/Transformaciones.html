@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformaciones en 2D</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+        .caja {
+            width: 120px;
+            height: 120px;
+            background: #3498db;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            transition: 0.5s;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* 1. TRANSLATE: mover el elemento en X y/o Y */
+        .translate:hover {
+            transform: translate( 10px);
+        }
+
+        /* 2. ROTATE: rotar el elemento (grados) */
+        .rotate:hover {
+            transform: rotate(30deg);
+        }
+
+        /* 3. SCALEX: escalar solo en el eje X */
+        .scaleX:hover {
+            transform: scaleX(0.5);
+        }
+
+        /* 4. SCALEY: escalar solo en el eje Y */
+        .scaleY:hover {
+            transform: scaleY(1.5);
+        }
+
+        /* 5. SCALE: escalar en ambos ejes */
+        .scale:hover {
+            transform: scale(1.5);
+        }
+
+        /* 6. SKEWX: inclinar en el eje X */
+        .skewX:hover {
+            transform: skewX(30deg);
+        }
+
+        /* 7. SKEWY: inclinar en el eje Y */
+        .skewY:hover {
+            transform: skewY(30deg);
+        }
+
+        /* 8. SKEW: inclinar en ambos ejes */
+        .skew:hover {
+            transform: skew(20deg, 10deg);
+        }
+
+        /* 9. MATRIX: combinación de transformaciones */
+        /* matrix(scaleX, skewY, skewX, scaleY, translateX, translateY) */
+        .matrix:hover {
+            transform: matrix(1, 0.5, -0.5, 1, 50, 20);
+        }
+
+         
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de Transformaciones en 2D (CSS)</h1>
+    <p>Pasa el mouse por cada caja para ver la transformación.</p>
+
+    <div class="contenedor">
+        <div class="caja translate">translate()</div>
+        <div class="caja rotate">rotate()</div>
+        <div class="caja scaleX">scaleX()</div>
+        <div class="caja scaleY">scaleY()</div>
+        <div class="caja scale">scale()</div>
+        <div class="caja skewX">skewX()</div>
+        <div class="caja skewY">skewY()</div>
+        <div class="caja skew">skew()</div>
+        <div class="caja matrix">matrix()</div>
+    </div>
+</body>
+</html>

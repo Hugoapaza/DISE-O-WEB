@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="contenedor">
+      <section class="texto">
+        <article>
+          <h1>
+            Prepárate para un futuro <br>
+            <span>dominado 100% por la <br> tecnología</span>
+          </h1>
+          <p>
+            Aprende Inteligencia Artificial, programación y las habilidades<br />
+            que necesitas para tu futuro profesional en EDtam, <br />
+            9 años la plataforma más obsesionada con la calidad de los cursos.
+          </p>
+          <div class="boton">
+            <a class="btn" href="#">Comienza a estudiar gratis</a>
+          </div>
+          <div class="lista">
+            <ul>
+              <li><small>No necesitas tarjeta de crédito</small></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+      <section class="logos">
+        <article><img class="Imagenes figma" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-figma-mobile.webp" alt=""></article>
+        <article><img class="Imagenes react" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-reactjs-mobile.webp" alt=""></article>
+        <article><img class="persona" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-picture-5.webp" alt=""></article>
+        <article><img class="Imagenes go" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-go-mobile.webp" alt=""></article>
+        <article><img class="Imagenes linux" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-desktop-linux.webp" alt=""></article>
+      </section>
+    </main>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100vh;
+            background: #5772e9;
+            background-image: url(https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-background.webp);
+            animation: CambiarFondo 5s ease-in-out infinite;
+
+        }
+
+        /*-------------Sección Texto---------------*/
+        .texto{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 800px;
+            height: 600px;
+            margin: 20px;
+        }
+        h1{
+            color: #fff;
+        }
+        span{
+            color: #facd05;
+            font-weight: bold;
+            font-size: 3rem;
+        }
+        p{
+            color: #ebe4e4;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .boton{
+            margin-top: 40px;
+        }
+
+        .btn{
+            background: #faea05;
+            text-decoration: none;
+            border-radius: 10px;
+            padding: 10px 10px;
+        }
+        .lista{
+            color: #fff;
+            margin-left:-20px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+
+
+
+
+
+        /*-------------Sección Logo----------------*/
+
+        .logos{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .Imagenes{
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            animation: logos 6s ease-in-out infinite;
+        }
+
+        /*--------Izquierda-------*/
+
+        .figma{
+            left: 120px;
+            bottom: 440px;
+        }
+        .react{
+            left: 7px;
+            bottom: 220px;
+        }
+
+        /*--------Derecha-------*/
+        .go{
+            top: 7px;
+            right: 50px;
+        }
+
+        .linux{
+            right: 10px;
+            bottom: 300px;
+        }
+
+        .persona{
+            width: 700px;
+            height: 550px;
+        }
+
+        /*---------------Animacione de logos----------*/
+        @keyframes logos{
+            0%{transform: translateY(0);}
+            50%{transform: translateY(50px);}
+            50%{transform: translateY(-30px);}
+
+
+        }
+
+        /*---------------Animacione cambiar color de fondo----------*/
+        @keyframes CambiarFondo{
+            0%{background: #1613131e;}
+            50%{background: #402abd8f;}
+            100%{background: #d3b79265;}
+        }
+
+    </style>
+  </body>
+</html>

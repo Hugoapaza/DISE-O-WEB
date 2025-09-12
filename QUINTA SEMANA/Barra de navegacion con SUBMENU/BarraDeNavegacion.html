@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar con Menú Desplegable</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+
+    /* Barra */
+    nav {
+      background-color: #333;
+      padding: 10px 20px; 
+    }
+
+    /* Lista */
+    nav ul {
+      list-style: none;  /* Quitar los puntos viñetas */
+      margin: 0;
+      padding: 0;
+      display: flex; /* alinea los elementos en una fila */
+    }
+
+    /* Ítems */
+    nav ul li {
+      position: relative; /* Necesario para el dropdown */     
+    }
+
+    nav ul li a {
+      text-decoration: none; /* Quitar el subrayado */
+      color: white;
+      padding: 10px 15px;
+      display: block; /* para que mantegan el mismo tamaño */
+      transition: background 0.3s; /* Transición */
+    }
+
+    nav ul li a:hover {
+      background: #444;
+    }
+
+    /* Submenú oculto */
+    nav ul li ul {
+    display: none;
+      position: absolute; 
+      background: #333;
+      min-width: 160px;
+      list-style: none;
+      border-radius: 0 0 5px 5px;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+    }
+
+    /* Mostrar al pasar el mouse */
+    nav ul li:hover ul {
+      display: block;
+      
+    }
+
+
+    p:hover{
+      border-bottom: 2px solid red;
+      display: block;
+      width: 500px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Nosotros</a></li>
+      <li>
+        <a href="#">carreras ▼</a>
+            <ul>
+              <li><a href="#">carrera 1</a></li>
+              <li><a href="#">carrera 2</a></li>
+              <li><a href="#">carrera 3</a></li>
+              <li><a href="#">carrera 4</a></li>
+              <li><a href="#">carrera 5</a></li>
+            </ul>
+      </li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section style="padding:20px;">
+    <h1>Menú Desplegable en CSS</h1>
+    <p>Pasa el mouse sobre "Servicios" para ver el submenú.</p>
+  </section>
+
+</body>
+</html>

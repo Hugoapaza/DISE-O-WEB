@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animaciones CSS @keyframes - TODO EN UNO</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #333;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .anim-section {
+      margin: 50px 0;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .anim-section h2 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    /* ================================================
+       ANIMACIONES @KEYFRAMES
+       ================================================ */
+
+    /* 1. Slide In Left */
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .slide-in {
+      animation: slideInLeft 1s ease-out forwards;
+      background: #ff6b6b;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    /* 2. Bounce */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    .bounce {
+      animation: bounce 1s infinite;
+      background: #4ecdc4;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    /* 3. Spin */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin {
+      animation: spin 2s linear infinite;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(to right, #ff9a9e, #fecfef);
+      border-radius: 50%;
+      margin: 20px auto;
+    }
+
+    /* 4. Fade In/Out */
+    @keyframes fade {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .fade {
+      animation: fade 3s ease-in-out infinite;
+      font-size: 2rem;
+      color: white;
+      margin: 20px;
+    }
+
+    /* 5. Pulse */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .pulse {
+      animation: pulse 1.5s ease-in-out infinite;
+      padding: 15px 30px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin: 15px;
+    }
+
+    /* 6. Wave (secuencia) */
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .wave-item {
+      display: inline-block;
+      margin: 0 8px;
+      font-size: 2rem;
+      animation: wave 1s ease-in-out infinite;
+    }
+    .wave-item:nth-child(2) { animation-delay: 0.2s; }
+    .wave-item:nth-child(3) { animation-delay: 0.4s; }
+    .wave-item:nth-child(4) { animation-delay: 0.6s; }
+    .wave-item:nth-child(5) { animation-delay: 0.8s; }
+
+    /* 7. Loading Spinner (3 círculos) */
+    @keyframes loading {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto;
+    }
+    .loading-circle {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: white;
+      animation: loading 1.4s infinite ease-in-out;
+    }
+    .loading-circle:nth-child(2) { animation-delay: -0.32s; }
+    .loading-circle:nth-child(3) { animation-delay: -0.16s; }
+
+    /* Estilo general para los títulos de sección */
+    .anim-section p {
+      color: rgba(255,255,255,0.9);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>✨ Animaciones CSS @keyframes — TODO EN UNO ✨</h1>
+
+    <!-- 1. Slide In -->
+    <div class="anim-section">
+      <h2>1. Deslizamiento (Slide In)</h2>
+      <div class="slide-in">¡Hola! Me deslizo desde la izquierda.</div>
+      <p>Se mueve desde fuera de pantalla hasta su posición final.</p>
+    </div>
+
+    <!-- 2. Bounce -->
+    <div class="anim-section">
+      <h2>2. Rebote (Bounce)</h2>
+      <div class="bounce">¡Rebotando como una pelota!</div>
+      <p>Sube y baja con efecto elástico.</p>
+    </div>
+
+    <!-- 3. Spin -->
+    <div class="anim-section">
+      <h2>3. Giro Continuo (Spin)</h2>
+      <div class="spin"></div>
+      <p>Un círculo que gira infinitamente.</p>
+    </div>
+
+    <!-- 4. Fade -->
+    <div class="anim-section">
+      <h2>4. Desvanecimiento (Fade)</h2>
+      <div class="fade">¡Me voy... y vuelvo!</div>
+      <p>Transición suave de opacidad.</p>
+    </div>
+
+    <!-- 5. Pulse -->
+    <div class="anim-section">
+      <h2>5. Pulsación (Pulse)</h2>
+      <button class="pulse">¡Púlsame!</button>
+      <p>El botón "late" suavemente.</p>
+    </div>
+
+    <!-- 6. Wave -->
+    <div class="anim-section">
+      <h2>6. Ola (Wave)</h2>
+      <div class="wave-container">
+        <span class="wave-item">❤️</span>
+        <span class="wave-item">🧡</span>
+        <span class="wave-item">💛</span>
+        <span class="wave-item">💚</span>
+        <span class="wave-item">💙</span>
+      </div>
+      <p>Una secuencia de emojis que suben y bajan en onda.</p>
+    </div>
+
+    <!-- 7. Loading -->
+    <div class="anim-section">
+      <h2>7. Cargando (Loading Spinner)</h2>
+      <div class="loading-container">
+        <div class="loading-circle"></div>
+        <div class="loading-circle"></div>
+        <div class="loading-circle"></div>
+      </div>
+      <p>Tres puntos que parpadean en secuencia — ideal para cargas.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

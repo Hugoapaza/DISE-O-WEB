@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EDtam Landing</title>
+  <style>
+    /* Estilos globales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Contenedor principal con animación */
+    .contenedor {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100vh;
+
+      /* Imagen de fondo con capa de color */
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-background.webp);
+      background-size: cover;
+      background-position: center;
+      animation: CambiarFondo 10s ease-in-out infinite;
+    }
+
+    /* Animación que cambia el overlay de color */
+    @keyframes CambiarFondo {
+      0% {
+        background-image:
+          linear-gradient(rgba(22, 19, 19, 0.4), rgba(22, 19, 19, 0.4)),
+          url(https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-background.webp);
+      }
+      50% {
+        background-image:
+          linear-gradient(rgba(64, 42, 189, 0.4), rgba(64, 42, 189, 0.4)),
+          url(https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-background.webp);
+      }
+      100% {
+        background-image:
+          linear-gradient(rgba(211, 183, 146, 0.4), rgba(211, 183, 146, 0.4)),
+          url(https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-background.webp);
+      }
+    }
+
+    /* Texto */
+    .texto {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 800px;
+      height: 600px;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2.5rem;
+    }
+
+    span {
+      color: #facd05;
+      font-weight: bold;
+      font-size: 3rem;
+    }
+
+    p {
+      color: #ebe4e4;
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .boton {
+      margin-top: 40px;
+    }
+
+    .btn {
+      background: #faea05;
+      color: #000;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #e5d106;
+    }
+
+    .lista {
+      color: #fff;
+      margin-left: -20px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Logos */
+    .logos {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .Imagenes {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      animation: logos 6s ease-in-out infinite;
+    }
+
+    .figma {
+      left: 120px;
+      bottom: 440px;
+    }
+
+    .react {
+      left: 7px;
+      bottom: 220px;
+    }
+
+    .go {
+      top: 7px;
+      right: 50px;
+    }
+
+    .linux {
+      right: 10px;
+      bottom: 300px;
+    }
+
+    .persona {
+      width: 700px;
+      height: 550px;
+    }
+
+    /* Animación de los logos */
+    @keyframes logos {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="contenedor">
+    <!-- Texto -->
+    <section class="texto">
+      <article>
+        <h1>
+          Prepárate para un futuro <br />
+          <span>dominado 100% por la <br /> tecnología</span>
+        </h1>
+        <p>
+          Aprende Inteligencia Artificial, programación y las habilidades<br />
+          que necesitas para tu futuro profesional en EDtam, <br />
+          9 años la plataforma más obsesionada con la calidad de los cursos.
+        </p>
+        <div class="boton">
+          <a class="btn" href="#">Comienza a estudiar gratis</a>
+        </div>
+        <div class="lista">
+          <ul>
+            <li><small>No necesitas tarjeta de crédito</small></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- Logos -->
+    <section class="logos">
+      <article>
+        <img class="Imagenes figma" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-figma-mobile.webp" alt="Figma" />
+      </article>
+      <article>
+        <img class="Imagenes react" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-reactjs-mobile.webp" alt="React" />
+      </article>
+      <article>
+        <img class="persona" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/schools-banner-picture-5.webp" alt="Persona" />
+      </article>
+      <article>
+        <img class="Imagenes go" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-go-mobile.webp" alt="Go" />
+      </article>
+      <article>
+        <img class="Imagenes linux" src="https://edteam-media.s3.amazonaws.com/web/modules/schools/tech-desktop-linux.webp" alt="Linux" />
+      </article>
+    </section>
+  </main>
+</body>
+</html>

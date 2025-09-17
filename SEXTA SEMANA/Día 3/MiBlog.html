@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" media="all" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/v4-shims.css" media="all" />
+  <title>Grid Layout</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 1.2rem;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* CSS Grid  contenedor  padre requerido*/
+    .grid-container {
+      display: grid;
+      gap: 20px;
+      /* orden de las filas */
+      grid-template:
+        "header" auto   
+        "navbar" 50px
+        "sidebar" 50px
+        "main" auto
+        "footer" 50px;
+    }
+
+
+    .grid-container > * {
+      box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* CSS Grid definir nombres de las areas */
+    .header { grid-area: header; background: rgba(52, 255, 2, 0.74); }
+    .navbar { grid-area: navbar; background: rgba(179, 46, 241, 0.74); }
+    .sidebar { grid-area: sidebar; background: rgba(77, 237, 106, 0.74); }
+    .main { grid-area: main; background: #02eeff; }
+    .footer { grid-area: footer; background: rgba(103, 93, 241, 0.74); }
+
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background: #0a58e7;
+    }
+
+    .navbar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background: #0a8fe7;
+    }
+    .navbar a{
+        text-decoration: none;
+        color: white;
+        font-weight: 200;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+    .navbar a:hover,
+    .navbar a:focus {
+        background-color: #1abc9c;
+        outline: none;
+    }
+
+    .main{
+        text-align: left;
+        padding: 20px;
+        background: rgb(118, 133, 150);
+    }
+    .sidebar{
+        text-align: left;
+        padding: 20px;
+        background: rgb(118, 133, 150);
+    }
+
+    .footer{
+        color: white;
+        background: #0a58e7;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+
+
+
+    /* Diseño responsivo (pantallas anchas) */
+    @media (min-width: 767px) {
+      .grid-container {
+        grid-template:
+          "header header" 200px
+          "navbar navbar" auto
+          "sidebar main" 200px
+          "footer footer" 50px/ 200px
+      }
+    }
+
+/* Diseño responsivo (pantallas grandes) */
+     @media (min-width: 1024px) {
+      .grid-container {
+        grid-template:
+          "header header header" 200px
+          "navbar navbar navbar" 50px
+          "sidebar main main" 300px
+          "footer footer footer" 50px/200px auto 200px
+      }
+       .menu{
+        display: block;
+    }
+
+       .hamburgesa {
+        display: none;
+    }
+
+    }
+   
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <header class="header">
+        <h1>Mi Blog</h1>  
+    </header>
+    <nav class="navbar">
+        <a href="#"><i class="fas fa-home"></i> Inicio |</a>
+        <a href="#"><i class="fas fa-user"></i> Noticias |</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contacto</a>
+    </nav>
+    <aside class="sidebar">Categorías</aside>
+    <article class="main">
+        <h2>Artículo 1</h2>
+        <p>Contenido del blog...</p>
+    </article>
+    <footer class="footer"><small>© 2025 Mi Blog</small></footer>
+  </div>
+  <style>
+ 
+   
+  </style>
+</body>
+</html>

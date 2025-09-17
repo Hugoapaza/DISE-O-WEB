@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Municipalidad de Puno</title>
+    <link rel="stylesheet" href="Pagina.css">
+    <script src="https://kit.fontawesome.com/2661879d80.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Shadows+Into+Light&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!---------------- HEADER ---------------->
+    <header>
+      <!-- Contenedor izquierdo -->
+      <div class="logo">
+        <img src="https://portal.munipuno.gob.pe/sites/default/files/Imagotipo_Muni-Puno%202025_uu.png" alt="Logo Municipalidad de Puno">
+      </div>
+
+      <!-- Contenedor derecho (contacto + navegación) -->
+      <div class="header-derecho">
+        <div class="contacto">
+          <div class="icono"><i class="fa-solid fa-phone"></i></div>
+          <div class="telefono">
+            <h5>(051) 601000</h5>
+            <p>Central Telefónica</p>
+          </div>
+
+          <div class="icono"><i class="fa-solid fa-phone"></i></div>
+          <div class="telefono">
+            <h5>(051) 601010</h5>
+            <p>Serenazgo</p>
+          </div>
+
+          <img src="https://portal.munipuno.gob.pe/sites/default/files/Archivos-variados-2020/sugerencias_4.png" alt="">
+          <img src="https://portal.munipuno.gob.pe/sites/default/files/inline-images/Pte_min_0_0.png" alt="">
+        </div>
+
+        <div class="navegacion">
+          <ul class="menu">
+            <li>
+              <a href="#"><i class="fa-solid fa-landmark"></i> PUNO ▼</a>
+              <ul class="submenu">
+                <li><a href="#">Nuestra Empresa</a></li>
+                <li><a href="#">Plantel Ejecutivo</a></li>
+                <li><a href="#">Certificaciones</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-building"></i> MUNICIPALIDAD ▼</a>
+              <ul class="submenu">
+                <li><a href="#">Cimentaciones Profundas</a></li>
+                <li><a href="#">Pantallas y Anclajes</a></li>
+                <li><a href="#">Mejoramiento de Suelos</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="fa-regular fa-handshake"></i> GESTIÓN MUNICIPAL ▼</a>
+              <ul class="submenu">
+                <li><a href="#">Cimentaciones Profundas</a></li>
+                <li><a href="#">Pantallas y Anclajes</a></li>
+                <li><a href="#">Mejoramiento de Suelos</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-chart-simple"></i> PLAN DE INCENTIVOS</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!---------------- CONTENIDO PRINCIPAL ---------------->
+    <main>
+      <section>
+        <img src="https://portal.munipuno.gob.pe/sites/default/files/Slider-2023/alo%20puno.png" alt="">
+      </section> 
+      <div class="contenido">
+        <section>
+          <p>Realiza tus trámites <span>sin salir de casa</span></p>
+        </section>
+        <section class="boton">
+          <a href="">Ir a la Mesa de Partes Virtual</a>
+        </section>
+      </div>
+    </main>
+
+    <!---------------- PIE DE PÁGINA ---------------->
+    <footer>
+      <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+ <style> 
+/* ==================== VARIABLES ==================== */
+:root {
+  --color-primario: #0799ee;
+  --color-secundario: #000;
+  --color-fondo: #fdfafa;
+  --color-texto: #2b2a2a;
+  --color-blanco: #fff;
+
+  --font-base: Arial, sans-serif;
+  --font-deco: "Shadows Into Light", cursive;
+
+  --fs-base: 14px;
+  --fs-sub: 12px;
+  --fs-titulo: 2em;
+
+  --spacing: 15px;
+  --radius: 10px;
+}
+
+/* ==================== RESET GENERAL ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  line-height: 1.6;
+  background: var(--color-texto);
+}
+
+/* ==================== HEADER ==================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primario);
+  padding: 10px 20px;
+  background: var(--color-fondo);
+  flex-wrap: wrap;
+  gap: var(--spacing);
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+  padding-right: 20%;
+
+}
+
+.header-derecho {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20%;
+  gap: 15px;
+  flex: 1;
+}
+
+/* ==================== CONTACTOS ==================== */
+.contacto {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+}
+
+.contacto h5 {
+  font-size: var(--fs-base);
+}
+.contacto p {
+  font-size: var(--fs-sub);
+}
+
+.telefono {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-primario);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+/* ==================== NAVEGACIÓN ==================== */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: var(--color-primario);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-blanco);
+  list-style: none;
+  min-width: 160px;
+  border-radius: 0 0 5px 5px;
+  z-index: 100;
+  padding: 5px 0;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px;
+  color: var(--color-texto);
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+
+/* ==================== MAIN ==================== */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main section img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+main .contenido {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background: var(--color-secundario);
+  padding: 40px 0;
+  flex-wrap: wrap;
+}
+
+main .contenido p {
+  color: var(--color-blanco);
+}
+
+span {
+  font-family: var(--font-deco);
+  font-size: var(--fs-titulo);
+  color: var(--color-primario);
+}
+
+main .boton a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 19px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background-color: var(--color-secundario);
+  text-align: center;
+  padding: 1em;
+  color: var(--color-blanco);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 0;
+  }
+  .header-derecho {
+    align-items: center;
+  }
+  .contacto {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contacto {
+    justify-content: flex-start;
+  }
+}
+
+</style>
+  </body>
+</html>

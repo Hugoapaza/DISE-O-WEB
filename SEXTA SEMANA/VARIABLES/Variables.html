@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Ejemplos de Variables en CSS</title>
+ 
+</head>
+<body>
+  <h1>Ejemplos de Variables en CSS</h1>
+
+  <div class="caja">Caja con color primario (azul)</div>
+
+  <div class="caja tema-verde">Caja con tema verde (usa la misma variable redefinida)</div>
+
+  <div class="caja especial">Caja especial (color rojo local)</div>
+
+<div class="box"></div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Berkshire+Swash&family=Cossette+Titre:wght@400;700&family=Lavishly+Yours&family=Libertinus+Keyboard&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Rubik+Bubbles&family=Rubik+Spray+Paint&family=Sour+Gummy:ital,wdth,wght@0,118.9,100..900;1,118.9,100..900&family=Story+Script&display=swap');
+
+ 
+ /* ===============================
+       1. Declaración de variables
+       Se definen dentro de :root para que estén disponibles globalmente
+       =============================== */
+    :root {
+      --color-primario: #0bff5c;
+      --color-secundario: #eeff02;
+      --color-texto: #fff;
+      --padding-general: 30px;
+      --borderedibdie:  35px; /* radio de los contenedores cajas */
+      --fuente-principal: "Rubik Bubbles", system-ui;
+  font-weight: 400;
+  font-style: normal;;
+    }
+
+    body {
+      font-family: var(--fuente-principal);
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: var(--color-primario);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ===============================
+       2. Uso de variables
+       =============================== */
+    .caja {
+      background: var(--color-primario);
+      color: var(--color-texto);
+      padding: var(--padding-general);
+      border-radius: var(--borderedibdie);
+      margin: 10px 0;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    /* ===============================
+       3. Cambio de valores en otro contexto
+       =============================== */
+    .tema-verde {
+      --color-primario: var(--color-secundario);
+    }
+
+    /* ===============================
+       4. Uso en pseudoclases
+       =============================== */
+    .caja:hover {
+      background: var(--color-secundario);
+    }
+
+    /* ===============================
+       5. Variables locales (definidas en un bloque)
+       =============================== */
+    .especial {
+      --color-primario: #e74c3c; /* rojo */
+      background: var(--color-primario);
+    }
+
+
+    /* shift + alt + a */
+
+    
+</style>
+
+</body>
+</html>

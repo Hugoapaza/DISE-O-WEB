@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda Verde</title>
+  <style>
+    :root {
+      --verde-principal: #4CAF50;
+      --verde-oscuro: #2E7D32;
+      --verde-claro: #A5D6A7;
+      --fondo: #f1f8f1;
+      --blanco: #ffffff;
+      --texto: #000000;
+      --sombra: rgba(0,0,0,0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      display: flex;
+      justify-content: center;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template:
+        "header" auto
+        "main" auto
+        "sidebar" auto
+        "footer" 50px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* Header */
+    .header {
+      grid-area: header;
+      background: var(--verde-principal);
+      text-align: center;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .nav {
+      background: var(--verde-claro);
+      padding: 8px 0;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--texto);
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main - productos */
+    .main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    .producto {
+      background: var(--blanco);
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px var(--sombra);
+      border-radius: 5px;
+    }
+
+    /* Sidebar - filtros */
+    .sidebar {
+      grid-area: sidebar;
+      background: var(--verde-claro);
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      grid-area: footer;
+      background: var(--verde-oscuro);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+
+          /* Diseño responsivo (pantallas anchas) */
+      @media (min-width: 767px) {
+        .grid-container {
+          grid-template:
+            "header header" 200px
+            "sidebar main" 200px
+            "footer footer" 50px/ 200px;
+        }
+      }
+
+      /* Diseño responsivo (pantallas grandes) */
+      @media (min-width: 1024px) {
+        .grid-container {
+          grid-template:
+            "header header header" 200px
+            "navbar navbar navbar" 50px
+            "sidebar main main" 300px
+            "footer footer footer" 50px/200px auto 200px;
+        }
+        .menu {
+          display: block;
+        }
+
+        .hamburgesa {
+          display: none;
+        }
+      }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Tienda Verde</h1>
+      <nav class="nav">
+        <a href="#">Inicio</a> |
+        <a href="#">Productos</a> |
+        <a href="#">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="producto">Producto 1</div>
+      <div class="producto">Producto 2</div>
+      <div class="producto">Producto 3</div>
+      <div class="producto">Producto 4</div>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      Filtros
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <small>© 2025 Tienda Verde</small>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipalidad Distrital de Mariano Melgar - Aviso</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            padding: 40px;
+            margin: 20px;
+        }
+        
+        h1 {
+            color: #004b8d;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid #004b8d;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .instructions h2 {
+            color: #004b8d;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        
+        .instructions ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #004b8d;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #e74c3c;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- En un sitio real, aquí iría el logo de la municipalidad -->
+        <svg class="logo" width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="80" fill="#004b8d"/>
+            <path d="M50 20H150V60H50V20Z" fill="#ffffff"/>
+            <path d="M60 30H140V50H60V30Z" fill="#004b8d"/>
+            <text x="100" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">MUNICIPALIDAD DISTRITAL</text>
+            <text x="100" y="70" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">MARIANO MELGAR</text>
+        </svg>
+
+        <h1>Sitio Web de la Municipalidad</h1>
+        <p>Has creado correctamente la estructura base del sitio web de la <span class="highlight">Municipalidad Distrital de Mariano Melgar</span>.</p>
+        
+        <div class="instructions">
+            <h2>Nota importante:</h2>
+            <p>Para visualizar correctamente el sitio web completo, necesitarás:</p>
+            <ul>
+                <li>Crear o añadir imágenes en la carpeta <span class="highlight">/img</span>:
+                    <ul>
+                        <li>logo.png - Logo principal de la municipalidad</li>
+                        <li>logo-white.png - Versión blanca del logo para el footer</li>
+                        <li>banner1.jpg, banner2.jpg, banner3.jpg - Imágenes para el carrusel</li>
+                        <li>news1.jpg, news2.jpg, news3.jpg - Imágenes para las noticias</li>
+                        <li>project1.jpg, project2.jpg - Imágenes para los proyectos</li>
+                        <li>Íconos para la sección de enlaces rápidos</li>
+                    </ul>
+                </li>
+                <li>Asegúrate de que todas las dependencias (Bootstrap, FontAwesome) estén cargando correctamente</li>
+            </ul>
+        </div>
+
+        <p>Puedes comenzar a navegar por el sitio web desde la página principal:</p>
+        <a href="index.html" class="btn">Ir a la página principal</a>
+    </div>
+</body>
+</html>

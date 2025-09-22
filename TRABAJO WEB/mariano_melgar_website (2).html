@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipalidad Distrital de Mariano Melgar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 52px;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/muni-marianomelgar.png') center/contain no-repeat;
+        }
+
+        .municipality-info h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .header-services {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .serenazgo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .libro-reclamaciones, .pagos-online {
+            background: #28a745;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 11px;
+            transition: background 0.3s;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .libro-reclamaciones:hover, .pagos-online:hover {
+            background: #218838;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            display: block;
+            font-weight: 500;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dropdown Submenu Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #2a5298;
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 5px 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            display: block;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .transparency-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+
+        .transparency-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            padding: 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/portada-muni.jpg') center/cover;
+            opacity: 0.4;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        /* Navigation arrows for hero slider */
+        .hero-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 3;
+        }
+
+        .hero-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-nav.prev {
+            left: 20px;
+        }
+
+        .hero-nav.next {
+            right: 20px;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 50px 20px;
+            background: #f8f9fa;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #ffeb3b, #4caf50, #2196f3);
+            margin: 30px 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: #2a5298;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .service-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 50px 20px;
+            background: white;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: #9ccc00;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .main-news {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #2a5298, #4a90e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            color: #2a5298;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .facebook-widget {
+            width: 100%;
+            min-height: 400px;
+            background: #1877f2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Services */
+        .additional-services {
+            padding: 50px 20px;
+            background: #2a5298;
+            color: white;
+        }
+
+        .additional-services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .additional-card {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .additional-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .additional-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .additional-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .additional-description {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Info Cards Section */
+        .info-cards-section {
+            padding: 50px 20px;
+            background: #f8f9fa;
+        }
+
+        .info-cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-card-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* COVID Section */
+        .covid-section {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9ccc00, #7cb300);
+            color: #2c3e50;
+        }
+
+        .covid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .covid-content h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .covid-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .covid-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .covid-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .covid-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .covid-illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .covid-graphic {
+            width: 250px;
+            height: 250px;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2021/06/covid.png') center/contain no-repeat;
+        }
+
+        /* Works Section */
+        .works-section {
+            padding: 50px 20px;
+            background: #9ccc00;
+            text-align: center;
+        }
+
+        .works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .works-title {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .works-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .works-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .works-logo {
+            width: 60px;
+            height: 60px;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/mmlegar-escudo-2.png') center/contain no-repeat;
+        }
+
+        .works-info h3 {
+            color: #2a5298;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .works-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Partners Section */
+        .partners-section {
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2a5298;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .footer-section p, .footer-section div {
+            margin-bottom: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 35px;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/muni-marianomelgar.png') center/contain no-repeat;
+        }
+
+        .footer-logo-text {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-link-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-link-icon {
+            width: 30px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            opacity: 0.8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            max-width: 250px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5); }
+            100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .municipality-info h1 {
+                font-size: 16px;
+            }
+
+            .header-services {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .covid-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 12px;
+                font-size: 11px;
+                max-width: 200px;
+            }
+
+            .additional-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero {
+                padding: 40px 15px;
+                min-height: 300px;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo"></div>
+                <div class="municipality-info">
+                    <h1>Municipalidad<br>Distrital<br>Mariano Melgar</h1>
+                </div>
+            </div>
+            <div class="header-services">
+                <div class="serenazgo">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <div><strong>SERENAZGO</strong></div>
+                        <div>054-455041</div>
+                    </div>
+                </div>
+                <a href="https://reclamos.servicios.gob.pe/?institution_id=2565" target="_blank" class="libro-reclamaciones">
+                    <i class="fas fa-book"></i>
+                    <span>Libro de reclamaciones digital</span>
+                </a>
+                <a href="https://pagosvirtualesperu.com/login?ide_eje=892" target="_blank" class="pagos-online">
+                    <i class="fas fa-credit-card"></i>
+                    <span>PAGOS Online</span>
+                </a>
+            </div>
+        </div>
+        <nav class="navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="https://munimarianomelgar.gob.pe/" class="nav-link">INICIO</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">DISTRITO +</a>
+                        <div class="dropdown">
+                            <a href="https://munimarianomelgar.gob.pe/distrito/galeria-de-fotos/" class="dropdown-item">Galería de fotos</a>
+                            <a href="https://munimarianomelgar.gob.pe/distrito/historia-del-distrito/" class="dropdown-item">Historia del Distrito</a>
+                            <a href="https://munimarianomelgar.gob.pe/distrito/locales-municipales/" class="dropdown-item">Locales Municipales</a>
+                            <a href="https://munimarianomelgar.gob.pe/distrito/simbolos-del-distrito/" class="dropdown-item">Símbolos del Distrito</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">MUNICIPALIDAD +</a>
+                        <div class="dropdown">
+                            <a href="https://munimarianomelgar.gob.pe/municipalidad/concejo-municipal/" class="dropdown-item">Concejo Municipal</a>
+                            <a href="https://munimarianomelgar.gob.pe/municipalidad/mision-y-vision/" class="dropdown-item">Misión y Visión</a>
+                            <a href="https://munimarianomelgar.gob.pe/municipalidad/organigrama/" class="dropdown-item">Organigrama</a>
+                            <a href="https://munimarianomelgar.gob.pe/municipalidad/ubicacion/" class="dropdown-item">Ubicación</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">NORMATIVIDAD +</a>
+                        <div class="dropdown">
+                            <a href="https://munimarianomelgar.gob.pe/normatividad/documentos-transparencia/" class="dropdown-item">Documentos de Trasparencia</a>
+                            <a href="https://munimarianomelgar.gob.pe/normatividad/directivas/" class="dropdown-item">Directivas</a>
+                            <a href="https://munimarianomelgar.gob.pe/normatividad/instrumentos-de-gestion/" class="dropdown-item">Instrumentos de gestión</a>
+                            <a href="https://munimarianomelgar.gob.pe/normatividad/normas-municipales/" class="dropdown-item">Normas Municipales</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">SERVICIOS +</a>
+                        <div class="dropdown">
+                            <a href="https://munimarianomelgar.gob.pe/servicios/piscina-municipal/" class="dropdown-item">Piscina Municipal</a>
+                            <a href="https://munimarianomelgar.gob.pe/servicios/limpieza-publica/" class="dropdown-item">Limpieza Publica</a>
+                            <a href="https://munimarianomelgar.gob.pe/?page_id=6056" class="dropdown-item">Registro Civil</a>
+                            <a href="https://munimarianomelgar.gob.pe/servicios/sisfoh/" class="dropdown-item">SISFOH</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">TRÁMITES +</a>
+                        <div class="dropdown">
+                            <a href="https://munimarianomelgar.gob.pe/tramites/carnet-de-sanidad/" class="dropdown-item">Carnet de Sanidad</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/certificado-itse-defensa-civil/" class="dropdown-item">Certificado ITSE (DEFENSA CIVIL)</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/comercializacion/" class="dropdown-item">Comercialización</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/fedatarios-municipales/" class="dropdown-item">Fedatarios Municipales</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/licencias-de-edificacion/" class="dropdown-item">Licencias de Edificación</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/licencias-de-funcionamiento/" class="dropdown-item">Licencias de Funcionamiento</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/matrimonio-civil/" class="dropdown-item">Matrimonio Civil</a>
+                            <a href="https://munimarianomelgar.gob.pe/tramites/separacion-convencional-y-divorcio-ulterior/" class="dropdown-item">Separación Convencional y Divorcio Ulterior</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="https://munimarianomelgar.gob.pe/noticias/" class="nav-link">NOTICIAS</a></li>
+                    <li class="nav-item"><a href="https://munimarianomelgar.gob.pe:2096/" target="_blank" class="nav-link">WEBMAIL</a></li>
+                </ul>
+                <button class="transparency-btn" onclick="window.open('http://munimarianomelgar.gob.pe/transparencia', '_blank')">
+                    <i class="fas fa-search"></i>
+                    Portal de Transparencia
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Hero image with drone video background -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/portada-muni.jpg') center/cover; z-index: 1;"></div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(74, 144, 226, 0.7) 0%, rgba(53, 122, 189, 0.7) 100%); z-index: 2;"></div>
+        
+        <!-- Navigation arrows -->
+        <button class="hero-nav prev" style="z-index: 3;">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-nav next" style="z-index: 3;">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Services overlay at bottom -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%); padding: 20px 0; z-index: 3;">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; gap: 20px;">
+                <div class="hero-service" onclick="window.open('https://munimarianomelgar.gob.pe/wp-content/uploads/2022/02/TUPA-Integral-Mno.Melgar-Oct.pdf', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 50px; height: 50px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/insurance_hover.svg" style="width: 30px; height: 30px;" alt="TUPA">
+                    </div>
+                    <div style="font-size: 14px; font-weight: bold;">TUPA</div>
+                </div>
+                
+                <div class="hero-service" onclick="window.open('https://api.iuvade.com/oficina_marianomelgar/#login', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 50px; height: 50px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/computer_hover-1.svg" style="width: 30px; height: 30px;" alt="Mesa de Partes">
+                    </div>
+                    <div style="font-size: 13px; font-weight: bold; line-height: 1.2;">Mesa de Partes<br>Virtual</div>
+                </div>
+                
+                <div class="hero-service" onclick="window.open('https://iuvade.com/siggo/marianomelgar/', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 50px; height: 50px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Buscar_Expediente-1.png" style="width: 35px; height: 35px;" alt="Seguimiento">
+                    </div>
+                    <div style="font-size: 13px; font-weight: bold; line-height: 1.2;">Seguimiento de<br>Expedientes</div>
+                </div>
+                
+                <div class="hero-service" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-edificacion/', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 50px; height: 50px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/skyline_hover.svg" style="width: 30px; height: 30px;" alt="Licencias Edificación">
+                    </div>
+                    <div style="font-size: 13px; font-weight: bold; line-height: 1.2;">Licencias de<br>Edificación</div>
+                </div>
+                
+                <div class="hero-service" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-funcionamiento/', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 50px; height: 50px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/diploma_hover.svg" style="width: 30px; height: 30px;" alt="Licencias Funcionamiento">
+                    </div>
+                    <div style="font-size: 13px; font-weight: bold; line-height: 1.2;">Licencias de<br>Funcionamiento</div>
+                </div>
+                
+                <div class="hero-service" onclick="window.open('https://pagosvirtualesperu.com/login?ide_eje=892', '_blank')" style="flex: 1; text-align: center; color: white; cursor: pointer; padding: 15px; transition: all 0.3s;">
+                    <div style="width: 80px; height: 45px; margin: 0 auto 10px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/pagos-en-linea-2.png" style="width: 70px; height: 40px; object-fit: contain;" alt="Pagos Online">
+                    </div>
+                    <div style="font-size: 11px; font-weight: bold; margin-top: 5px;">PAGOS Online</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .hero-service:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 8px;
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-divider"></div>
+            <div class="services-grid">
+                <div class="service-card" onclick="window.open('https://munimarianomelgar.gob.pe/wp-content/uploads/2022/02/TUPA-Integral-Mno.Melgar-Oct.pdf', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/insurance_hover.svg'); background-size: 40px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">TUPA</div>
+                    <div class="service-description">Texto Único de Procedimientos Administrativos</div>
+                </div>
+                <div class="service-card" onclick="window.open('https://api.iuvade.com/oficina_marianomelgar/#login', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/computer_hover-1.svg'); background-size: 40px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">Mesa de Partes Virtual</div>
+                    <div class="service-description">Sistema de gestión documentaria online</div>
+                </div>
+                <div class="service-card" onclick="window.open('https://iuvade.com/siggo/marianomelgar/', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Buscar_Expediente-1.png'); background-size: 45px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">Seguimiento de Expedientes</div>
+                    <div class="service-description">Consulta el estado de tus trámites</div>
+                </div>
+                <div class="service-card" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-edificacion/', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/skyline_hover.svg'); background-size: 40px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">Licencias de Funcionamiento</div>
+                    <div class="service-description">Permisos para actividades comerciales</div>
+                </div>
+                <div class="service-card" onclick="window.open('https://pagosvirtualesperu.com/login?ide_eje=892', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/pagos-en-linea-2.png'); background-size: 50px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">Pagos en Línea</div>
+                    <div class="service-description">Realiza tus pagos de forma segura</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Message -->
+    <section style="padding: 50px 20px; background: linear-gradient(135deg, #9ccc00, #7cb300); color: #2c3e50;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+            <div style="text-align: center;">
+                <div style="width: 150px; height: 150px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user-tie" style="font-size: 60px; color: white;"></i>
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 16px; margin-bottom: 10px; color: #2c3e50;">ING. OSCAR ALFREDO AYALA ARENAS</p>
+                <h3 style="font-size: 24px; font-weight: bold; color: #2c3e50;">Bienvenidos al portal de la Municipalidad de Mariano Melgar.</h3>
+            </div>
+        </div>
+    </section>
+    <section class="news-section">
+        <div class="news-container">
+            <h2 class="section-title">NOTICIAS DEL DISTRITO</h2>
+            <div class="news-grid">
+                <div class="main-news">
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/09/Voluntariado_2025.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">VOLUNTARIADO 2025 – MDMM</h3>
+                            <p class="news-description">Únete a nuestro programa de voluntariado municipal y contribuye al desarrollo de tu distrito...</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Subasta-02-2025-1024x1024.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">SUBASTA PÚBLICA N° 002-2025-MDMM</h3>
+                            <p class="news-description">Subasta pública de bienes muebles programada para el mes de agosto. Consulta las bases...</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Voluntariado-1-1024x548.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">PROGRAMA DE VOLUNTARIADO 2025</h3>
+                            <p class="news-description">Inscripciones abiertas hasta el 30 de septiembre. Participa en el desarrollo comunitario...</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/1.-TODO-LO-QUE-DEBES-SABER-EG-2026_002.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">ONPE – ELECCIONES GENERALES 2026</h3>
+                            <p class="news-description">Información importante sobre las próximas elecciones generales del 2026...</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/AFICHE-CASTELLANO-735x1024.jpeg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">CENSOS NACIONALES 2025</h3>
+                            <p class="news-description">Participa en los censos nacionales 2025. Tu participación es fundamental para el país...</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/POST-DE-SUBASTA-PUBLICA-1024x1024.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">SUBASTA PÚBLICA N° 001-2025-MDMM DE BIENES MUEBLES</h3>
+                            <p class="news-description">Subasta de bienes muebles municipales. Revisa las bases y requisitos...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Síguenos en Facebook</h3>
+                    <div class="facebook-widget">
+                        <div style="text-align: center;">
+                            <i class="fab fa-facebook-f" style="font-size: 48px; margin-bottom: 15px;"></i>
+                            <p>Municipalidad Distrital Mariano Melgar</p>
+                            <p style="font-size: 12px;">Síguenos para estar al día con las últimas noticias</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/02/Anexo-N°-4-Cuadro-Multianual-de-Necesidades.pdf" target="_blank">
+                            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/Cuadro_MN.png" style="width: 100%; border-radius: 5px; margin-bottom: 10px;" alt="Cuadro Multianual">
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/SEGUNDA-AUDIENCIA-PUBLICA-2024.pdf" target="_blank">
+                            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/2da-audiencia-publica.jpg" style="width: 100%; border-radius: 5px; margin-bottom: 10px;" alt="2da Audiencia Pública">
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/PRIMERA-AUDIENCIA-PUBLICA-2025.pdf" target="_blank">
+                            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/1ra_Audiencia_Publica_2025.jpg" style="width: 100%; border-radius: 5px;" alt="1ra Audiencia Pública 2025">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards Section -->
+    <section class="info-cards-section">
+        <div class="info-cards-container">
+            <div class="info-cards-grid">
+                <div class="info-card" onclick="window.open('https://munimarianomelgar.gob.pe/sistema-de-control-interno/', '_blank')">
+                    <div class="info-card-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/04/control_interno.png');"></div>
+                    <div style="padding: 20px; text-align: center;">
+                        <h3 style="color: #2a5298; margin-bottom: 10px;">CONTROL INTERNO</h3>
+                        <p style="color: #666; font-size: 14px;">Órgano de Control Institucional</p>
+                    </div>
+                </div>
+                <div class="info-card" onclick="window.open('https://munimarianomelgar.gob.pe/wp-content/uploads/2025/04/INFORME-DE-RENDICION-DE-CUENTA-DE-TITULARES-MUNICIPALIDAD-DISTRITAL-DE-MARIANO-MELGAR.pdf', '_blank')">
+                    <div class="info-card-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/05/INFORME-RENDICION-CUENTAS.jpeg');"></div>
+                    <div style="padding: 20px; text-align: center;">
+                        <h3 style="color: #2a5298; margin-bottom: 10px;">INFORME DE RENDICIÓN DE CUENTAS</h3>
+                        <p style="color: #666; font-size: 14px;">Informes financieros y de gestión municipal</p>
+                    </div>
+                </div>
+                <div class="info-card" onclick="window.open('https://munimarianomelgar.gob.pe/obras-por-impuestos/', '_blank')">
+                    <div class="info-card-image" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2021/11/obras.jpg');"></div>
+                    <div style="padding: 20px; text-align: center;">
+                        <h3 style="color: #2a5298; margin-bottom: 10px;">OBRAS POR IMPUESTOS</h3>
+                        <p style="color: #666; font-size: 14px;">Proyectos de inversión pública financiados por el sector privado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="additional-services">
+        <div class="additional-services-container">
+            <div class="additional-grid">
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/presupuesto-participativo-2024/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/participacion.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">PARTICIPACIÓN CIUDADANA</div>
+                    <div class="additional-description">Presupuesto Participativo</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-funcionamiento/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/tienda.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">LICENCIA DE FUNCIONAMIENTO</div>
+                    <div class="additional-description">Trámites, formularios, etc</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-edificacion/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/edificio-empire-state.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">LICENCIAS DE EDIFICACIÓN</div>
+                    <div class="additional-description">Trámites, formularios, etc</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/servicios/limpieza-publica/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/trash.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">LIMPIEZA PÚBLICA</div>
+                    <div class="additional-description">Lugares de Acopio, rutas, etc</div>
+                </div>
+                <div class="additional-card" onclick="alert('Información de DEMUNA disponible próximamente')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/mama.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">DEMUNA</div>
+                    <div class="additional-description">Defensoría Municipal del Niño y del Adolescente</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/matrimonio-civil/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/certificado-de-boda.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">REGISTRO CIVIL</div>
+                    <div class="additional-description">Trámites, formularios, etc</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/oportunidad-laboral/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/empresario.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">OPORTUNIDADES LABORALES</div>
+                    <div class="additional-description">Procesos CAS, otros, etc</div>
+                </div>
+                <div class="additional-card" onclick="alert('Plataforma Virtual próximamente disponible')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/trabajando.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">PLATAFORMA VIRTUAL</div>
+                    <div class="additional-description">Seguridad Ciudadana</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/codisec-seguridad-ciudadana/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/guardia.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">CODISEC</div>
+                    <div class="additional-description">Comité Distrital de Seguridad Ciudadana</div>
+                </div>
+                <div class="additional-card" onclick="window.open('https://munimarianomelgar.gob.pe/instancia-distrital-de-concertacion/', '_blank')">
+                    <div class="additional-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/12/IDC-1.png'); background-size: 40px; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="additional-title">IDC</div>
+                    <div class="additional-description">INSTANCIA DISTRITAL DE CONCERTACIÓN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVID Section -->
+    <section class="covid-section">
+        <div class="covid-container">
+            <div class="covid-illustration">
+                <div class="covid-graphic"></div>
+            </div>
+            <div class="covid-content">
+                <h2>CORONAVIRUS</h2>
+                <p>Manténgase al tanto del <strong>COVID-19</strong>, quédese en casa y seguro para usted y los demás, y mantenga todas las medidas de seguridad de los profesionales médicos para vencerlo.</p>
+                <div class="covid-buttons">
+                    <a href="https://www.who.int/es/news-room/q-a-detail/coronavirus-disease-covid-19" target="_blank" class="covid-btn">
+                        <div style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2021/06/virus.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 40px; height: 40px;"></div>
+                        <span>CORONAVIRUS</span>
+                    </a>
+                    <a href="https://www.gob.pe/coronavirus#recomendaciones" target="_blank" class="covid-btn">
+                        <div style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2021/06/first-aid-kit.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 40px; height: 40px;"></div>
+                        <span>MEDIDAS Y RECOMENDACIONES</span>
+                    </a>
+                    <a href="https://covid19.minsa.gob.pe/sala_situacional.asp" target="_blank" class="covid-btn">
+                        <div style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2021/06/peru.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 40px; height: 40px;"></div>
+                        <span>COVID-19 EN PERU</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="works-section">
+        <div class="works-container">
+            <h2 class="works-title">OBRAS MUNICIPALES</h2>
+            <div class="works-content">
+                <div class="works-header">
+                    <div class="works-logo"></div>
+                    <div class="works-info">
+                        <h3>MARIANO MELGAR</h3>
+                        <p>SEGUIMOS MEJORANDO EL ORNATO DE NUESTRO DISTRITO</p>
+                        <div style="margin-top: 15px; color: #666;">
+                            <strong>LIMPIEZA DE VÍAS</strong>
+                            <span style="margin-left: 20px; color: #2a5298;">2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="partners-container">
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/1.png');" title="Banco de la Nación"></div>
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/14.png');" title="Poder Judicial"></div>
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/13.png');" title="Defensoría del Pueblo"></div>
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/12.png');" title="INDECI"></div>
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/11.png');" title="PCM"></div>
+            <div class="partner-logo" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/10.png');" title="SUNAT"></div>
+        </div>
+    </section>
+
+    <!-- COVID Footer Message -->
+    <section style="padding: 40px 20px; background: linear-gradient(135deg, #9ccc00, #7cb300); color: #2c3e50;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <h3 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">CORONAVIRUS EN EL DISTRITO</h3>
+                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+                    El COVID-19 Es Un Virus Que Causa Una Enfermedad Similar A Una Gripe Y Que, En Algunos Casos, Puede Generar Una Infección Respiratoria Grave.
+                </p>
+                <a href="#" style="background: #2a5298; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 12px;">Más Información</a>
+            </div>
+            <div style="text-align: right;">
+                <h3 style="font-size: 18px; margin-bottom: 10px; color: #2c3e50;">Seguridad Ciudadana</h3>
+                <p style="font-size: 24px; font-weight: bold; color: #2a5298;">941 64 55 86</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo-section">
+                    <div class="footer-logo"></div>
+                    <div class="footer-logo-text">
+                        Municipalidad<br>Distrital<br>Mariano Melgar
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MunicipalidadMarianoMelgar/" target="_blank" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Información de Contacto</h3>
+                <p><strong>Dirección:</strong><br>Av. Simón Bolivar N°908, Mariano Melgar</p>
+                <p><strong>Central telefónica:</strong><br>(054) 452289</p>
+                <p><strong>Correo electrónico:</strong><br>info@munimarianomelgar.gob.pe</p>
+                <p><strong>Horario de atención al público:</strong><br>Lunes a viernes de 8:00 a 16:00 hrs</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Útiles</h3>
+                <div class="footer-links">
+                    <a href="https://reclamos.servicios.gob.pe/?institution_id=2565" target="_blank" class="footer-link-item">
+                        <div class="footer-link-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/libro_reclamaciones.png');"></div>
+                        <span>Libro de Reclamaciones</span>
+                    </a>
+                    <a href="https://munimarianomelgar.gob.pe:2096/" target="_blank" class="footer-link-item">
+                        <div class="footer-link-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/webmail-1.png');"></div>
+                        <span>Webmail</span>
+                    </a>
+                    <a href="http://munimarianomelgar.gob.pe/transparencia" target="_blank" class="footer-link-item">
+                        <div class="footer-link-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/portal.png');"></div>
+                        <span>Portal de Transparencia</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 © Municipalidad Distrital de Mariano Melgar. Todos los derechos reservados.</p>
+            <p>Desarrollado por <strong>Predacom</strong></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=51924097418&text=¡Hola! Deseo comunicarme con GAT" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        ¡Hola! escríbenos tu consulta tributaria aquí
+    </a>
+
+    <script>
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add loading animation
+            const animateElements = document.querySelectorAll('.service-card, .news-card, .info-card, .additional-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach((el, index) => {
+                el.classList.add('loading');
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+
+            // Mobile menu toggle
+            const navMenu = document.querySelector('.nav-menu');
+            const navContainer = document.querySelector('.nav-container');
+            
+            // Add hamburger menu for mobile
+            if (window.innerWidth <= 768) {
+                const hamburger = document.createElement('button');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburger.className = 'hamburger';
+                hamburger.style.cssText = `
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    cursor: pointer;
+                    display: none;
+                `;
+                
+                navContainer.insertBefore(hamburger, navMenu);
+                
+                if (window.innerWidth <= 768) {
+                    hamburger.style.display = 'block';
+                    navMenu.style.display = 'none';
+                    
+                    hamburger.addEventListener('click', function() {
+                        if (navMenu.style.display === 'none') {
+                            navMenu.style.display = 'flex';
+                            navMenu.style.flexDirection = 'column';
+                            navMenu.style.position = 'absolute';
+                            navMenu.style.top = '100%';
+                            navMenu.style.left = '0';
+                            navMenu.style.right = '0';
+                            navMenu.style.background = '#2a5298';
+                            navMenu.style.zIndex = '1000';
+                        } else {
+                            navMenu.style.display = 'none';
+                        }
+                    });
+                }
+            }
+
+            // Add click handlers for service cards
+            document.querySelectorAll('.service-card[onclick]').forEach(card => {
+                card.style.cursor = 'pointer';
+            });
+
+            // Smooth reveal animation for sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+
+        // Window resize handler
+        window.addEventListener('resize', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (window.innerWidth > 768) {
+                if (hamburger) hamburger.style.display = 'none';
+                if (navMenu) {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.position = 'static';
+                    navMenu.style.flexDirection = 'row';
+                    navMenu.style.background = 'transparent';
+                }
+            } else {
+                if (hamburger) hamburger.style.display = 'block';
+                if (navMenu) navMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> Edificación</div>
+                    <div class="service-description">Trámites de construcción y edificación</div>
+                </div>
+                <div class="service-card" onclick="window.open('https://munimarianomelgar.gob.pe/tramites/licencias-de-funcionamiento/', '_blank')">
+                    <div class="service-icon" style="background-image: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/diploma_hover.svg'); background-size: 40px; background-repeat: no-repeat; background-position: center; background-color: #2a5298;">
+                    </div>
+                    <div class="service-title">Licencias de

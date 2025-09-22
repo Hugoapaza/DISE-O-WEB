@@ -29,9 +29,11 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /*-------------------Header--------------------------*/
         .header-bar {
+            width: 100%;
             padding: 20px 0;
+            background: #000;
         }
 
         .header-content {
@@ -57,7 +59,7 @@
             padding: 10px 20px;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -72,9 +74,10 @@
             transform: translateY(-2px);
         }
 
-        /* Main Player Section */
+        /*-----------------Main Player Section-----------------*/
         .player-section {
-            padding: 40px 0 60px;
+            height: 40%;
+            padding: 40px 0 80px;
         }
 
         .player-container {
@@ -250,7 +253,7 @@
             transform: scale(1.1);
         }
 
-        /*Botones de Tienda de Apps*/
+        /*--------------------Botones de Tienda de Apps-----------------*/
 
         .app-downloads {
             display: flex;
@@ -269,11 +272,14 @@
             transform: scale(1.05);
         }
 
-        /* Programming Section */
+        /*---------------------Programming Section-----------------*/
         .programming-section {
             background: rgba(0, 0, 0, 0.2);
             padding: 40px 0;
             backdrop-filter: blur(10px);
+            position: relative;
+            height: 400px;
+            box-sizing: border-box;
         }
 
         .day-tabs {
@@ -285,6 +291,8 @@
             margin-bottom: 40px;
             backdrop-filter: blur(10px);
             overflow-x: auto;
+            position: absolute;
+            top: -70px;
         }
 
         .day-tab {
@@ -292,7 +300,6 @@
             border: none;
             color: white;
             padding: 12px 25px;
-
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
@@ -319,7 +326,6 @@
 
         .program-card {
             background: rgba(255, 255, 255, 0.1);
-
             overflow: hidden;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
@@ -359,7 +365,31 @@
             color: #cbd5e1;
         }
 
-        /* Videos Section */
+            .palabra {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+     /*transición CSS aplicada a un pseudoelemento (::after) 
+     que se activa con la pseudoclase :hover.*/
+    .palabra::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f7260b;
+      transition: width 0.4s ease;
+    }
+
+    .palabra:hover::after {
+      width: 100%;
+      height: 3px; /* ← Este valor controla el grosor */
+      border-radius: 5px;
+    }
+
+        /*---------------------Videos Section------------------*/
         .videos-section {
             padding: 60px 0;
             background: rgba(255, 255, 255, 0.02);
@@ -467,7 +497,7 @@
             background: #000;
         }
 
-        /* Events Section */
+        /*-------------------Events Section--------------------------------*/
         .events-section {
             padding: 60px 0;
         }
@@ -507,7 +537,7 @@
             color: #cbd5e1;
         }
 
-        /* Footer */
+        /*----------------------------Footer------------------------*/
         .footer {
             background: white;
             padding: 40px 0;
@@ -529,7 +559,7 @@
             height: 100px;
         }
 
-        /* Responsive Design */
+        /*------------------------Responsive Design-------------------*/
         @media (max-width: 1024px) {
             .player-container {
                 flex-direction: column;
@@ -706,7 +736,7 @@
                 <div class="program-card">
                     <div class="program-image" style="background-image: url('https://panel.miradioenvivo.com/panelradiotv/server/public/images/1751037584.jpg');">
                         <div class="program-overlay">
-                            <div class="program-title">Radio La Poderosa</div>
+                            <div class="program-title palabra">Radio La Poderosa</div>
                             <div class="program-time">00:00 - En Vivo</div>
                         </div>
                     </div>
@@ -714,7 +744,7 @@
                 <div class="program-card">
                     <div class="program-image" style="background-image: url('https://panel.miradioenvivo.com/panelradiotv/server/public/images/1751037617.jpg');">
                         <div class="program-overlay">
-                            <div class="program-title">Radio La Poderosa</div>
+                            <div class="program-title palabra">Radio La Poderosa</div>
                             <div class="program-time">10:00 - En Vivo</div>
                         </div>
                     </div>
@@ -722,7 +752,7 @@
                 <div class="program-card">
                     <div class="program-image" style="background-image: url('https://panel.miradioenvivo.com/panelradiotv/server/public/images/1751037660.jpg');">
                         <div class="program-overlay">
-                            <div class="program-title">Radio La Poderosa</div>
+                            <div class="program-title palabra">Radio La Poderosa</div>
                             <div class="program-time">15:00 - En Vivo</div>
                         </div>
                     </div>
@@ -730,7 +760,7 @@
                 <div class="program-card">
                     <div class="program-image" style="background-image: url('https://panel.miradioenvivo.com/panelradiotv/server/public/images/1751037640.jpg');">
                         <div class="program-overlay">
-                            <div class="program-title">Radio La Poderosa</div>
+                            <div class="program-title palabra">Radio La Poderosa</div>
                             <div class="program-time">20:00 - En Vivo</div>
                         </div>
                     </div>

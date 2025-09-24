@@ -1,0 +1,1042 @@
+:root {
+  --color-primario: #f7f8f8;
+  --color-secundario: #000;
+  --color-fondo: #10a4d1;
+  --color-texto: #2b2a2a;
+  --color-blanco: #fff;
+
+  --font-base: Arial, sans-serif;
+  --font-deco: "Shadows Into Light", cursive;
+
+  --fs-base: 14px;
+  --fs-sub: 12px;
+  --fs-titulo: 2em;
+
+  --spacing: 15px;
+  --radius: 10px;
+}
+/* ==================== RESET GENERAL ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  line-height: 1.6;
+  background: #97b9c7;
+  -ms-overflow-style: none;
+  background: linear-gradient(
+    90deg,
+    rgba(151, 185, 199, 1) 0%,
+    rgba(87, 171, 199, 1) 50%,
+    rgba(77, 174, 235, 1) 100%
+  );
+}
+/* ==================== HEADER-ARRIBA ==================== */
+.header-arriba {
+  background: #4055af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 150px;
+}
+
+nav img {
+  width: 200px;
+  height: 100px;
+}
+.head-img {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.gestion {
+  width: 100px;
+  height: 60px;
+}
+
+.serenazgo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon i {
+  font-size: 40px;
+}
+
+.text p {
+  font-size: 2em;
+  font-weight: 600;
+  color: #087933;
+}
+
+.text h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #fdfafa;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primario);
+  padding: 10px 20px;
+  background: var(--color-fondo);
+  flex-wrap: wrap;
+  gap: 150px;
+}
+
+/* ==================== NAVEGACIÓN ==================== */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: var(--color-primario);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+  background-color: var(--color-fondo);
+  color: var(--color-secundario);
+}
+
+.menu .inicio:hover {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+
+.iniciar-sesion {
+  gap: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.iniciar-sesion button {
+  background: #000;
+  color: #f7f8f8;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.menu .inicio {
+  color: #000;
+  font-weight: bold;
+}
+
+.iniciar-sesion button:hover {
+  background: #f30404;
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-blanco);
+  list-style: none;
+  min-width: 250px;
+  border-radius: 0 0 5px 5px;
+  z-index: 100;
+  padding: 5px 0;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px;
+  color: var(--color-texto);
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+
+/*------------------------ Hero Section -----------------------------*/
+/*--------------ESTILOS CSS DE VIDEO--------------------*/
+
+/* --- CONTENEDOR DEL SLIDER --- */
+.slider {
+  position: relative;
+  width: 90%; /* ocupa el 90% de la pantalla */
+  max-width: 1000px; /* no pasa de este tamaño */
+  height: 350px; /* altura fija */
+  overflow: hidden;
+  margin: auto;
+}
+
+/* --- CARRUSEL DE VIDEOS --- */
+.slides {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slides video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* --- BOTONES DE NAVEGACIÓN --- */
+.buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.buttons button {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buttons button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- INDICADORES (puntos abajo) --- */
+.indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicators span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicators .active {
+  background: #fff;
+}
+
+/*.hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/portada-muni.jpg') center/cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }*/
+
+/*==================Services Section========================== */
+.services-section {
+  padding: 50px 20px;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-divider {
+  height: 4px;
+  background: linear-gradient(90deg, #ffeb3b, #4caf50, #2196f3);
+  margin: 30px 0;
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.service-card {
+  padding: 25px 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.service-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f7f8fa;
+  margin-bottom: 8px;
+}
+
+.service-description {
+  font-size: 11px;
+  color: #111111;
+  line-height: 1.4;
+}
+
+.service-icon img {
+  width: 200px;
+  height: 100px;
+  margin-top: 120px;
+}
+
+.service-title:hover{
+    color: #087933;
+}
+
+/*==================News Section=================*/
+.news-section {
+  padding: 50px 20px;
+  background: white;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #9ccc00;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.main-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #2a5298, #4a90e2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-content {
+  padding: 20px;
+}
+
+.news-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2a5298;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.news-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.sidebar {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.sidebar-title {
+  color: #2a5298;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.facebook-widget {
+  width: 100%;
+  min-height: 400px;
+  background: #1877f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/*=====================PORTAL DE LA MUNICIPALIDAD=======================*/
+.portal-municipalidad {
+  background: #cecccc;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.portal-municipalidad h6 {
+  font-family: "Rubik", sans-serif;
+}
+
+.portal-municipalidad h3 {
+  color: #36b110;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+/*==================Additional Services===================*/
+.additional-services {
+  padding: 50px 20px;
+  background: #2a5298;
+  color: white;
+}
+
+.additional-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.additional-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.additional-card {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.additional-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.additional-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.additional-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.additional-description {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* ======================Info Cards Section =====================*/
+.info-cards-section {
+  padding: 50px 20px;
+  background: #f8f9fa;
+}
+
+.info-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+}
+
+.info-card-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+/*===============COVID Section====================*/
+.covid-section {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #9ccc00, #7cb300);
+  color: #2c3e50;
+}
+
+.covid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.covid-content h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.covid-content p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.covid-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.covid-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.covid-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.covid-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.covid-graphic {
+  width: 250px;
+  height: 250px;
+  background: url("https://munimarianomelgar.gob.pe/wp-content/uploads/2021/06/covid.png")
+    center/contain no-repeat;
+}
+
+/*====================Works Section OBRAS MUNICIPALES======================*/
+.obras-municipales {
+  max-height: 600px;
+  padding: 40px;
+  background: #ffffff;
+}
+
+.titulo-obras h2 {
+  text-align: center;
+  padding: 5px;
+  color: #108805;
+  font-weight: bold;
+  font-size: 2em;
+  background: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  background: #fffdfd;
+  padding-bottom: 60px;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px; /* Para evitar corte visual */
+}
+
+.swiper-slide {
+  background: rgb(238, 239, 243);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slide-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.slide-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slide-meta {
+  font-weight: bold;
+  color: #004080;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #004080;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.swiper-button-prev {
+  left: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.swiper-button-next {
+  right: 150px;
+  transform: translate(50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/*==================Partners Section Logos===============*/
+.slider-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background: #7b8eb6;
+}
+
+/* Contenedor principal del slider */
+.swiper {
+  width: 100%;
+  max-width: 900px; /* ancho máximo */
+  margin: auto;
+  padding: 15px 0;
+}
+
+/* Ajuste de las imágenes */
+.swiper-slide img {
+  width: 80%;
+  height: auto;
+  max-height: 100px; /* altura máxima */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.log {
+  background: #fff;
+}
+
+/* Efecto hover */
+.swiper-slide a:hover img {
+  transform: scale(1.05);
+}
+
+/*========================LIBRO DE RECLAMACIONES=========================*/
+.footer-container {
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #0a214d;
+}
+
+.informacion-section h3 {
+  font-size: 18px;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.informacion-section p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.1;
+  color: #fffefe;
+}
+
+.footer-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-logo-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-link-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-link-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-link-icon {
+  width: 30px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.img-logo {
+  width: 220px;
+  height: auto;
+  gap: 10px;
+}
+
+/*================Footer==================*/
+.footer {
+  background: #678ffd;
+  color: white;
+  padding: 20px 20px;
+}
+
+.footer-bottom {
+  font-size: 16px;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*================WhatsApp Float==================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  max-width: 350px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-arriba {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .header-services {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .covid-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .whatsapp-float {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 12px;
+    font-size: 11px;
+    max-width: 200px;
+  }
+
+  .additional-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.portal-municipalidad h3{
+    font-size: 25px;
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    padding: 40px 15px;
+    min-height: 300px;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+}
+
+/* Loading Animation */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== BOTÓN SCROLLTOP ====== */
+.btn-scrolltop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 17px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.btn-scrolltop-on {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.btn-scrolltop:hover {
+  background-color: #0056b3;
+}

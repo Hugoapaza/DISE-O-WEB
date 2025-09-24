@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contenedores con Animaciones al Hacer Scroll</title>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- https://michalsnik.github.io/aos/    LIBRERIA UTILIZADA -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .contenedor {
+      width: 80%;
+      margin: 100px auto;
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor 1 -->
+  <div class="contenedor" data-aos="fade-up">
+    <h2>Contenedor 1</h2>
+    <p>Contenido de ejemplo para el contenedor 1.</p>
+  </div>
+
+  <!-- Contenedor 2 -->
+  <div class="contenedor" data-aos="zoom-in">
+    <h2>Contenedor 2</h2>
+    <p>Contenido de ejemplo para el contenedor 2.</p>
+  </div>
+
+  <!-- Contenedor 3 -->
+  <div class="contenedor" data-aos="slide-up">
+    <h2>Contenedor 3</h2>
+    <p>Contenido de ejemplo para el contenedor 3.</p>
+  </div>
+
+  <!-- Contenedor 4 -->
+  <div class="contenedor" data-aos="flip-up">
+    <h2>Contenedor 4</h2>
+    <p>Contenido de ejemplo para el contenedor 4.</p>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // duración de la animación en ms
+      once: true,     // solo se anima una vez
+      mirror: true    // activa animación también al hacer scroll hacia arriba
+    });
+  </script>
+</body>
+</html>

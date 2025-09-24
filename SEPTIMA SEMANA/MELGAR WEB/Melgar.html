@@ -84,7 +84,7 @@
       </nav>
         <div class="iniciar-sesion">
           <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/portal.png" alt="">
-          <button>Iniciar Sesión</button>
+          <a href="Login.html"><button>Iniciar Sesión</button></a>
         </div>
     </header>
 
@@ -274,6 +274,12 @@
         </div>
     </section>
 
+    <!----=====================PORTAL DE LA MUNICIPALIDAD========================-->
+    <section class="portal-municipalidad" data-aos="flip-up">
+      <h6>ING. OSCAR ALFREDO AYALA ARENAS</h6>
+      <h3>Bienvenidos al portal de la Municipalidad de Mariano Melgar.</h3>
+    </section>
+
     <!--============== Additional Services Section=====================-->
     <section class="additional-services">
         <div class="additional-services-container">
@@ -342,7 +348,7 @@
         </div>
     </section>
 
-    <!--================== COVID Section================ -->
+    <!--================== COVID Section CORONAVIRUS================ -->
     <section class="covid-section">
         <div class="covid-container">
             <div class="covid-illustration">
@@ -490,8 +496,7 @@
                 <p><strong>Correo electrónico:</strong>info@munimarianomelgar.gob.pe</p>
                 <p><strong>Horario de atención al público:</strong>Lunes a viernes de 8:00 a 16:00 hrs</p>
             </div>
-            <div class="footer-section">
-                <h3>Enlaces Útiles</h3>
+            <div class="enlaces-section">
                 <div class="footer-links">
                     <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/libro_reclamaciones.png" class="img-logo" alt="libro_reclamaciones">
                     <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/webmail-1.png" class="img-logo" alt="webmail">
@@ -511,6 +516,11 @@
         <i class="fab fa-whatsapp"></i>
         ¡Hola! escríbenos tu consulta tributaria aquí
     </a>
+
+    <!-- BOTÓN SCROLLTOP -->
+<button class="btn-scrolltop" id="btn_scrolltop" title="Subir">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
 
     <script>
         // Smooth scrolling and animations
@@ -705,6 +715,36 @@
       }
     });
 
-    </script>
+
+
+</script>
+
+<script>
+   //==============BOTON SCROLL===================
+    const btnScrollTop = document.getElementById('btn_scrolltop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    btnScrollTop.classList.add('btn-scrolltop-on');
+  } else {
+    btnScrollTop.classList.remove('btn-scrolltop-on');
+  }
+});
+
+// Scroll suave al top
+btnScrollTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // duración de la animación en ms
+      once: true,     // solo se anima una vez
+      mirror: true    // activa animación también al hacer scroll hacia arriba
+    });
+  </script>
 </body>
 </html>

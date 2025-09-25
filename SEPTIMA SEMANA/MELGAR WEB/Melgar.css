@@ -137,7 +137,14 @@ header {
   align-items: center;
 }
 
-.iniciar-sesion button {
+.boton{
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.iniciar-sesion .boton {
+  text-decoration: none;
   background: #000;
   color: #f7f8f8;
   padding: 6px;
@@ -149,7 +156,7 @@ header {
   font-weight: bold;
 }
 
-.iniciar-sesion button:hover {
+.iniciar-sesion .boton:hover {
   background: #f30404;
 }
 
@@ -358,8 +365,138 @@ header {
     color: #087933;
 }
 
-/*==================News Section=================*/
+/*==================News Section NOTICIAS=================*/
 .news-section {
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #9ccc00;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.main-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Se parece a la web oficial */
+  display: block;
+}
+
+.news-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.news-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2a5298;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.news-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.noticia-principal {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Columna derecha */
+.noticias-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.noticias-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .noticias-container {
+    flex-direction: column;
+  }
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-title {
+    font-size: 14px;
+  }
+  
+  .news-description {
+    font-size: 13px;
+  }
+}
+
+
+/*.news-section {
   padding: 50px 20px;
   background: white;
 }
@@ -389,7 +526,7 @@ header {
   gap: 20px;
 }
 
-.news-card {
+/*.news-image {
   background: white;
   border-radius: 5px;
   overflow: hidden;
@@ -397,11 +534,11 @@ header {
   transition: transform 0.3s;
 }
 
-.news-card:hover {
+.news-image:hover {
   transform: translateY(-3px);
 }
 
-.news-image {
+/*.news-image {
   width: 100%;
   height: 200px;
   background: linear-gradient(45deg, #2a5298, #4a90e2);
@@ -457,6 +594,21 @@ header {
   color: white;
   margin-bottom: 20px;
 }
+
+
+.news-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd; 
+}
+
+.news-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;  
+  display: block;
+}*/
 
 /*=====================PORTAL DE LA MUNICIPALIDAD=======================*/
 .portal-municipalidad {
@@ -727,11 +879,12 @@ header {
   align-items: center;
   height: 150px;
   background: #7b8eb6;
+  padding: 20px;
 }
 
 /* Contenedor principal del slider */
 .swiper {
-  width: 100%;
+  width: 90%;
   max-width: 900px; /* ancho máximo */
   margin: auto;
   padding: 15px 0;
@@ -739,7 +892,7 @@ header {
 
 /* Ajuste de las imágenes */
 .swiper-slide img {
-  width: 80%;
+  width: 60%;
   height: auto;
   max-height: 100px; /* altura máxima */
   object-fit: contain;
@@ -901,7 +1054,51 @@ header {
   }
 }
 
+/* Loading Animation */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== BOTÓN SCROLLTOP ====== */
+.btn-scrolltop {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 17px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.btn-scrolltop-on {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.btn-scrolltop:hover {
+  background-color: #0056b3;
+}
+
 /* Responsive Design */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 768px) {
   .header-arriba {
     flex-direction: column;
@@ -928,12 +1125,16 @@ header {
     font-size: 12px;
   }
 
+  .hero {
+    padding: 50px 20px;
+  }
+
   .hero h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
   }
 
   .services-grid {
@@ -974,15 +1175,16 @@ header {
   .additional-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
+
+  .portal-municipalidad h3 {
+    font-size: 20px;
+  }
 }
 
-.portal-municipalidad h3{
-    font-size: 25px;
-}
-
+/* Móviles pequeños */
 @media (max-width: 480px) {
   .services-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr; /* Mejor una sola columna */
   }
 
   .hero {
@@ -991,52 +1193,18 @@ header {
   }
 
   .hero h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
+  }
+
+  .hero p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 22px;
   }
-}
 
-/* Loading Animation */
-.loading {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ====== BOTÓN SCROLLTOP ====== */
-.btn-scrolltop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 15px 17px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 2000;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px);
-}
-
-.btn-scrolltop-on {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.btn-scrolltop:hover {
-  background-color: #0056b3;
+  .portal-municipalidad h3 {
+    font-size: 18px;
+  }
 }

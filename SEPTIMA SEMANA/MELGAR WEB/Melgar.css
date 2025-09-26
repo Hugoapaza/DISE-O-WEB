@@ -35,6 +35,7 @@ body {
   );
 }
 /* ==================== HEADER-ARRIBA ==================== */
+/* ==================== HEADER-ARRIBA ==================== */
 .header-arriba {
   background: #4055af;
   display: flex;
@@ -48,11 +49,13 @@ nav img {
   width: 200px;
   height: 100px;
 }
+
 .head-img {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
 .gestion {
   width: 100px;
   height: 60px;
@@ -85,6 +88,39 @@ nav img {
   flex-direction: column;
   line-height: 1.1;
 }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .header-arriba {
+    flex-direction: column;   /* Todo en columna */
+    gap: 20px;                /* Espacio más pequeño */
+    text-align: center;       /* Centrado */
+  }
+
+  .head-img {
+    flex-direction: column;   /* Elementos en columna */
+    gap: 15px;
+  }
+
+  nav img {
+    width: 150px;   /* Reduce tamaño del logo */
+    height: auto;
+  }
+
+  .gestion {
+    width: 80px;    /* Ajusta logo adicional */
+    height: auto;
+  }
+
+  .icon i {
+    font-size: 30px; /* Ícono más pequeño en móvil */
+  }
+
+  .text p {
+    font-size: 1.2em; /* Ajustar tamaño texto */
+  }
+}
+
 
 /* ==================== HEADER ==================== */
 header {
@@ -137,7 +173,7 @@ header {
   align-items: center;
 }
 
-.boton{
+.boton {
   font-family: "Rubik", sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -182,6 +218,46 @@ header {
 
 .menu li:hover .submenu {
   display: block;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive con animación */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    background: #04649b;
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    /* Animación */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .menu.active {
+    max-height: 500px; /* Ajusta según cuántos elementos tengas */
+  }
+
+  .hamburger {
+    display: block;
+    color: #333;
+  }
+
+  .submenu {
+    position: static;
+  }
 }
 
 /*------------------------ Hero Section -----------------------------*/
@@ -361,8 +437,8 @@ header {
   margin-top: 120px;
 }
 
-.service-title:hover{
-    color: #087933;
+.service-title:hover {
+  color: #087933;
 }
 
 /*==================News Section NOTICIAS=================*/
@@ -386,67 +462,167 @@ header {
 
 .news-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 12fr;
   gap: 40px;
 }
 
-.main-news {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+/* Contenedor principal */
+.noticias {
+  padding: 20px;
 }
 
-.news-card {
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+.noticias-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Columna izquierda */
+.noticias-left {
+  flex: 2;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-}
-
-.news-card:hover {
-  transform: translateY(-3px);
-}
-
-.news-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.news-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Se parece a la web oficial */
-  display: block;
-}
-
-.news-content {
-  padding: 20px;
-  flex: 1;
-}
-
-.news-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #2a5298;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.news-description {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
+  gap: 20px;
 }
 
 .noticia-principal {
   width: 100%;
   height: auto;
   border-radius: 5px;
-  margin-bottom: 20px;
+}
+
+/* Grid de 2 filas x 3 columnas */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjetas */
+.noticia-card {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.noticia-card:hover {
+  transform: translateY(-5px);
+}
+
+.noticia-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.noticia-card .fecha {
+  background: #e63946;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+.fecha {
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  bottom: 170px;
+  right: 190px;
+}
+
+.fecha1 {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  bottom: 140px;
+  left: 0px;
+}
+
+.fecha2 {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  top: 70px;
+  left: 0px;
+}
+
+.fecha3 {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  top: 120px;
+  left: 0px;
+}
+
+.fecha4 {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  bottom: 130px;
+  left: 0px;
+}
+
+.fecha5 {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  position: absolute;
+  height: 60px;
+  width: 40px;
+  top: 180px;
+  left: 0px;
+}
+
+/* Hover para todas las clases que empiecen con "fecha" */
+[class^="fecha"]:hover {
+  background: #faf8f8;   /* cambia color de fondo */
+  color: #f50808;           /* texto blanco */
+  cursor: pointer;       /* cambia cursor */
+  transform: scale(1.1); /* agranda un poco */
+  transition: all .3s ease;
+}
+
+
+.noticia-card h2 {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.noticia-card h2 a {
+  text-decoration: none;
+  color: #222;
+}
+
+.noticia-card h2 a:hover {
+  color: #e63946;
 }
 
 /* Columna derecha */
@@ -464,6 +640,20 @@ header {
   border-radius: 5px;
 }
 
+.Cuadro-MN {
+  background: #046319;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .noticias-container {
+    flex-direction: column;
+  }
+
+  .noticias-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
 /* Responsivo */
 @media (max-width: 992px) {
   .noticias-container {
@@ -471,15 +661,12 @@ header {
   }
 }
 
-
-
-
 /* Responsive */
 @media (max-width: 992px) {
   .news-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .sidebar {
     margin-top: 30px;
   }
@@ -489,12 +676,11 @@ header {
   .news-title {
     font-size: 14px;
   }
-  
+
   .news-description {
     font-size: 13px;
   }
 }
-
 
 /*.news-section {
   padding: 50px 20px;

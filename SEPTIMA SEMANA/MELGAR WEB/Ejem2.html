@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias</title>
+  <style>
+    /* Contenedor principal */
+    .noticias {
+      padding: 20px;
+    }
+
+    .noticias-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Columna izquierda */
+    .noticias-left {
+      flex: 2;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .noticia-principal {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    /* Grid de 2 filas x 3 columnas */
+    .noticias-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Tarjetas */
+    .noticia-card {
+      background: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform .3s;
+    }
+
+    .noticia-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .noticia-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .noticia-card .fecha {
+      background: #e63946;
+      color: #fff;
+      font-size: 14px;
+      padding: 5px 10px;
+      display: inline-block;
+      margin: 10px;
+      border-radius: 3px;
+    }
+
+    .noticia-card h2 {
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    .noticia-card h2 a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .noticia-card h2 a:hover {
+      color: #e63946;
+    }
+
+    /* Columna derecha */
+    .noticias-right {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .noticias-right img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 992px) {
+      .noticias-container {
+        flex-direction: column;
+      }
+
+      .noticias-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="noticias">
+    <div class="noticias-container">
+      <!-- Columna izquierda -->
+      <div class="noticias-left">
+        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/WhatsApp-Image-2024-06-25-at-11.43.01-AM.jpeg" alt="Imagen principal" class="noticia-principal">
+        
+        <div class="noticias-grid">
+          <!-- Card 1 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/09/Voluntariado_2025.jpg" alt="VOLUNTARIADO 2025">
+            </a>
+            <div class="fecha">12 Sep</div>
+            <h2><a href="#">VOLUNTARIADO 2025 – MDMM</a></h2>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Subasta-02-2025-1024x1024.jpg" alt="SUBASTA PUBLICA">
+            </a>
+            <div class="fecha">13 Ago</div>
+            <h2><a href="#">SUBASTA PÚBLICA N° 002-2025</a></h2>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Voluntariado-1-1024x548.png" alt="PROGRAMA DE VOLUNTARIADO 2025">
+            </a>
+            <div class="fecha">11 Ago</div>
+            <h2><a href="#">PROGRAMA DE VOLUNTARIADO 2025</a></h2>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/1.-TODO-LO-QUE-DEBES-SABER-EG-2026_002.png" alt="ELECCIONES 2026">
+            </a>
+            <div class="fecha">01 Ago</div>
+            <h2><a href="#">ONPE – ELECCIONES GENERALES 2026</a></h2>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/AFICHE-CASTELLANO-735x1024.jpeg" alt="CENSOS 2025">
+            </a>
+            <div class="fecha">30 Jul</div>
+            <h2><a href="#">CENSOS NACIONALES 2025</a></h2>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/POST-DE-SUBASTA-PUBLICA-1024x1024.jpg" alt="SUBASTA">
+            </a>
+            <div class="fecha">07 May</div>
+            <h2><a href="#">SUBASTA PÚBLICA N° 001-2025-MDMM</a></h2>
+          </article>
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="noticias-right">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/MunicipalidadMarianoMelgar/&tabs=timeline&width=340&height=750&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false" 
+                width="340" height="750" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+
+        <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/Cuadro_MN.png" alt="Cuadro MN"></a>
+        <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/2da-audiencia-publica.jpg" alt="2da audiencia pública"></a>
+        <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/1ra_Audiencia_Publica_2025.jpg" alt="1ra audiencia pública"></a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

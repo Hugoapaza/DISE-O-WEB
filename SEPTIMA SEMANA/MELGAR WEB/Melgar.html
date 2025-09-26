@@ -10,7 +10,6 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </head>
 <body>
@@ -31,62 +30,77 @@
       <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/gestion.png" class="gestion" alt="">
     </div>
   </nav>
-    <header>
-        <nav>
-        <div class="navegacion">
-          <ul class="menu">
-            <li><a class="inicio" href="">INICIO</a></li>
-            <li>
-              <a href="#"><i class="fa-solid fa-landmark"></i> DISTRITO +</a>
-              <ul class="submenu">
-                <li><a href="#">Nuestra Empresa</a></li>
-                <li><a href="#">Plantel Ejecutivo</a></li>
-                <li><a href="#">Certificaciones</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-building"></i> MUNICIPALIDAD +</a>
-              <ul class="submenu">
-                <li><a href="">Cimentaciones Profundas</a></li>
-                <li><a href="#">Pantallas y Anclajes</a></li>
-                <li><a href="#">Mejoramiento de Suelos</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><i class="fa-regular fa-handshake"></i> NORMATIVIDAD +</a>
-              <ul class="submenu">
-                <li><a href="#">Cimentaciones Profundas</a></li>
-                <li><a href="#">Pantallas y Anclajes</a></li>
-                <li><a href="#">Mejoramiento de Suelos</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><i class="fa-regular fa-handshake"></i> SERVICIOS +</a>
-              <ul class="submenu">
-                <li><a href="#">Cimentaciones Profundas</a></li>
-                <li><a href="#">Pantallas y Anclajes</a></li>
-                <li><a href="#">Mejoramiento de Suelos</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><i class="fa-regular fa-handshake"></i> TRAMITES +</a>
-              <ul class="submenu">
-                <li><a href="#">Cimentaciones Profundas</a></li>
-                <li><a href="#">Pantallas y Anclajes</a></li>
-                <li><a href="#">Mejoramiento de Suelos</a></li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa-solid fa-chart-simple"></i> NOTICIAS</a></li>
-            <li><a href="#"><i class="fa-solid fa-chart-simple"></i> WEBMAIL</a></li>
+<header>
+  <nav>
+    <div class="navegacion">
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="menu" id="menu">
+        <li><a class="inicio" href=""><i class="fa-solid fa-house"></i>
+INICIO</a></li>
+        <li>
+          <a href="#"><i class="fa-solid fa-city"></i>
+DISTRITO +</a>
+          <ul class="submenu">
+            <li><a href="#">Nuestra Empresa</a></li>
+            <li><a href="#">Plantel Ejecutivo</a></li>
+            <li><a href="#">Certificaciones</a></li>
           </ul>
-        </div>
-      </div>
-      </nav>
-        <div class="iniciar-sesion">
-          <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/portal.png" alt="">
-          <a class="boton" href="Login.html">Iniciar Sesión</a>
-        </div>
-    </header>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-building-columns"></i>
+
+ MUNICIPALIDAD +</a>
+          <ul class="submenu">
+            <li><a href="">Cimentaciones Profundas</a></li>
+            <li><a href="#">Pantallas y Anclajes</a></li>
+            <li><a href="#">Mejoramiento de Suelos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-scale-balanced"></i>
+ NORMATIVIDAD +</a>
+          <ul class="submenu">
+            <li><a href="#">Cimentaciones Profundas</a></li>
+            <li><a href="#">Pantallas y Anclajes</a></li>
+            <li><a href="#">Mejoramiento de Suelos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-briefcase"></i>
+ SERVICIOS +</a>
+          <ul class="submenu">
+            <li><a href="#">Cimentaciones Profundas</a></li>
+            <li><a href="#">Pantallas y Anclajes</a></li>
+            <li><a href="#">Mejoramiento de Suelos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-file-signature"></i>
+ TRAMITES +</a>
+          <ul class="submenu">
+            <li><a href="#">Cimentaciones Profundas</a></li>
+            <li><a href="#">Pantallas y Anclajes</a></li>
+            <li><a href="#">Mejoramiento de Suelos</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="fa-regular fa-newspaper"></i>
+ NOTICIAS</a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i>
+ WEBMAIL</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="iniciar-sesion">
+    <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/portal.png" alt="">
+    <a class="boton" href="Login.html" target="_blank">Iniciar Sesión</a>
+  </div>
+</header>
+
 
     <!--------------------------- Hero Section --------------------------------->
         <!----INICIO VIDEO------>
@@ -165,80 +179,86 @@
     <div class="news-grid">
       
       <!-- Noticias principales -->
-      <div class="main-news">
+  <section class="noticias">
+    <div class="noticias-container">
+      <!-- Columna izquierda -->
+      <div class="noticias-left">
         <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/06/WhatsApp-Image-2024-06-25-at-11.43.01-AM.jpeg" alt="Imagen principal" class="noticia-principal">
         
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/09/Voluntariado_2025.jpg" alt="Voluntariado 2025 – MDMM">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">VOLUNTARIADO 2025 – MDMM</h3>
+        <div class="noticias-grid">
+          <!-- Card 1 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/09/Voluntariado_2025.jpg" alt="VOLUNTARIADO 2025">
+            </a>
+            <div class="fecha">12 Sep</div>
+            <h2><a href="#">VOLUNTARIADO 2025 – MDMM</a></h2>
             <p class="news-description">Únete a nuestro programa de voluntariado municipal y contribuye al desarrollo de tu distrito...</p>
-          </div>
-        </div>
+          </article>
 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Subasta-02-2025-1024x1024.jpg" alt="Subasta Pública N° 002-2025-MDMM">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">SUBASTA PÚBLICA N° 002-2025-MDMM</h3>
+          <!-- Card 2 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Subasta-02-2025-1024x1024.jpg" alt="SUBASTA PUBLICA">
+            </a>
+            <div class="fecha1">13 Ago</div>
+            <h2><a href="#">SUBASTA PÚBLICA N° 002-2025</a></h2>
             <p class="news-description">Subasta pública de bienes muebles programada para el mes de agosto. Consulta las bases...</p>
-          </div>
-        </div>
+          </article>
 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Voluntariado-1-1024x548.png" alt="Programa de Voluntariado 2025">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">PROGRAMA DE VOLUNTARIADO 2025</h3>
+          <!-- Card 3 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/Voluntariado-1-1024x548.png" alt="PROGRAMA DE VOLUNTARIADO 2025">
+            </a>
+            <div class="fecha2">11 Ago</div>
+            <h2><a href="#">PROGRAMA DE VOLUNTARIADO 2025</a></h2>
             <p class="news-description">Inscripciones abiertas hasta el 30 de septiembre. Participa en el desarrollo comunitario...</p>
-          </div>
-        </div>
+          </article>
 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/1.-TODO-LO-QUE-DEBES-SABER-EG-2026_002.png" alt="ONPE – Elecciones Generales 2026">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">ONPE – ELECCIONES GENERALES 2026</h3>
+          <!-- Card 4 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/08/1.-TODO-LO-QUE-DEBES-SABER-EG-2026_002.png" alt="ELECCIONES 2026">
+            </a>
+            <div class="fecha3">01 Ago</div>
+            <h2><a href="#">ONPE – ELECCIONES GENERALES 2026</a></h2>
             <p class="news-description">Información importante sobre las próximas elecciones generales del 2026...</p>
-          </div>
-        </div>
+          </article>
 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/AFICHE-CASTELLANO-735x1024.jpeg" alt="Censos Nacionales 2025">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">CENSOS NACIONALES 2025</h3>
+          <!-- Card 5 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/AFICHE-CASTELLANO-735x1024.jpeg" alt="CENSOS 2025">
+            </a>
+            <div class="fecha4">30 Jul</div>
+            <h2><a href="#">CENSOS NACIONALES 2025</a></h2>
             <p class="news-description">Participa en los censos nacionales 2025. Tu participación es fundamental para el país...</p>
-          </div>
-        </div>
+          </article>
 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/POST-DE-SUBASTA-PUBLICA-1024x1024.jpg" alt="Subasta Pública N° 001-2025-MDMM">
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">SUBASTA PÚBLICA N° 001-2025-MDMM DE BIENES MUEBLES</h3>
+          <!-- Card 6 -->
+          <article class="noticia-card">
+            <a href="#">
+              <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/POST-DE-SUBASTA-PUBLICA-1024x1024.jpg" alt="SUBASTA">
+            </a>
+            <div class="fecha5">07 May</div>
+            <h2><a href="#">SUBASTA PUBLICA N° 001-2025-MDMM DE BIENES MUEBLES</a></h2>
             <p class="news-description">Subasta de bienes muebles municipales. Revisa las bases y requisitos...</p>
-          </div>
+          </article>
         </div>
       </div>
 
-      <!--==Sidebar==-->
-    <!-- Columna derecha -->
-    <div class="noticias-right">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/MunicipalidadMarianoMelgar/&tabs=timeline&width=340&height=750&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false" 
-              width="340" height="750" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+      <!-- Columna derecha -->
+      <div class="noticias-right">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/MunicipalidadMarianoMelgar/&tabs=timeline&width=340&height=750&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false" 
+                width="340" height="750" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
 
-      <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/Cuadro_MN.png" alt="Cuadro MN"></a>
-      <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/2da-audiencia-publica.jpg" alt="2da audiencia pública"></a>
-      <a href="#"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/1ra_Audiencia_Publica_2025.jpg" alt="1ra audiencia pública"></a>
+        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/02/Anexo-N°-4-Cuadro-Multianual-de-Necesidades.pdf" target="_blank"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/07/Cuadro_MN.png" class="Cuadro-MN"  alt="Cuadro MN"></a>
+        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/SEGUNDA-AUDIENCIA-PUBLICA-2024.pdf" target="_blank"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2024/11/2da-audiencia-publica.jpg" alt="2da audiencia pública"></a>
+        <a href="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/PRIMERA-AUDIENCIA-PUBLICA-2025.pdf" target="_blank"><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2025/05/1ra_Audiencia_Publica_2025.jpg" alt="1ra audiencia pública"></a>
+      </div>
     </div>
+  </section>
     </div>
   </div>
 </section>
@@ -473,7 +493,7 @@
                 <div class="footer-logo-section">
                     <div class="footer-logo"></div>
                     <div class="footer-logo-text">
-                        <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/muni-marianomelgar.png" alt="">
+                        <a href=""><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2019/08/muni-marianomelgar.png" alt=""></a>
                     </div>
                 </div>
                 <div class="social-links">
@@ -497,8 +517,8 @@
             </div>
             <div class="enlaces-section">
                 <div class="footer-links">
-                    <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/libro_reclamaciones.png" class="img-logo" alt="libro_reclamaciones">
-                    <img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/webmail-1.png" class="img-logo" alt="webmail">
+                    <a href=""><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/libro_reclamaciones.png" class="img-logo" alt="libro_reclamaciones"></a target="_blank">
+                    <a href=""><img src="https://munimarianomelgar.gob.pe/wp-content/uploads/2020/09/webmail-1.png" class="img-logo" alt="webmail"></a target="_blank">
                 </div>
             </div>
         </div>
@@ -744,6 +764,15 @@ btnScrollTop.addEventListener('click', () => {
       once: true,     // solo se anima una vez
       mirror: true    // activa animación también al hacer scroll hacia arriba
     });
+  </script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+
   </script>
 </body>
 </html>

@@ -774,6 +774,22 @@ body {
     center/contain no-repeat;
 }
 
+.neon-text {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
+
 /* ==================== OBRAS (SWIPER) ==================== */
 .obras-municipales {
   max-height: 600px;
@@ -919,7 +935,7 @@ body {
   height: auto;
 }
 
-/* footer final */
+/* ================footer final========================= */
 .footer {
   background: #678ffd;
   color: #fff;
@@ -1184,6 +1200,12 @@ section,
   .covid-btn {
     padding: 12px;
     font-size: 12px;
+  }
+
+  .covid-icon{
+    width: 30px;
+    height: 30px;
+    background-size: 20px;
   }
 
   /* Swiper botones ocultos para pantallas pequeñas */

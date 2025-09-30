@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /* Pide al usuario su edad con prompt() y calcula cuántos 
+       años tendrá dentro de 5 años. */
+
+    let nombre = prompt("¿Cuál es tu nombre?");
+    let edad = prompt("¿Cuántos años tienes?");
+
+    // Convertimos edad a número y sumamos 5
+    let despues = parseInt(edad) + 5;
+
+    // Mostramos usando template literals (más limpio)
+    /*document.write(`Hola ${nombre}, tienes ${edad} años. 
+                   Después de 5 años tendrás: ${despues} años.`);*/
+
+    document.write('Mi nombre es: ', nombre);
+    document.write('<br>');
+    document.write('Tengo: ', edad , ' años.');
+    document.write('<br>');
+    document.write('Dentro de 5 años tendré: ', despues);
+
+    /* 
+      // Pedimos edad al usuario
+  let edad = prompt("¿Cuántos años tienes?");
+  let futuraEdad = parseInt(edad) + 5;
+
+  document.write("Ahora tienes ", edad, " años.");
+  document.write("<br>Dentro de 5 años tendrás ", futuraEdad, " años.");
+    */
+</script>
+
+</body>
+</html>

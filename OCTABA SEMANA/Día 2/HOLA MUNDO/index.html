@@ -1,12 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>10 Ejercicios de JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 10px; }
+    h2 { margin-top: 0; }
+    button { margin-top: 5px; }
+    p.resultado { font-weight: bold; color: darkblue; }
+  </style>
 </head>
 <body>
-    <h1></h1>
-    <script src="index.js"></script>
+  <h1>10 Ejercicios de JavaScript</h1>
+
+  <!-- ================= EJERCICIO 1 ================= -->
+  <section>
+    <h2>Ejercicio 1 - Variables y mostrar datos</h2>
+    <button onclick="ej1()">Mostrar datos</button>
+    <p id="res1" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 2 ================= -->
+  <section>
+    <h2>Ejercicio 2 - Saludo con nombre y edad</h2>
+    <label>Nombre: <input type="text" id="nombre2"></label><br>
+    <label>Edad: <input type="number" id="edad2"></label><br>
+    <button onclick="ej2()">Saludar</button>
+    <p id="res2" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 3 ================= -->
+  <section>
+    <h2>Ejercicio 3 - Operaciones básicas</h2>
+    <label>X: <input type="number" id="x3" value="10"></label>
+    <label>Y: <input type="number" id="y3" value="4"></label><br>
+    <button onclick="ej3()">Calcular</button>
+    <p id="res3" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 4 ================= -->
+  <section>
+    <h2>Ejercicio 4 - Potencia</h2>
+    <label>Base: <input type="number" id="base4" value="3"></label>
+    <label>Exponente: <input type="number" id="exp4" value="4"></label><br>
+    <button onclick="ej4()">Calcular</button>
+    <p id="res4" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 5 ================= -->
+  <section>
+    <h2>Ejercicio 5 - Edad en 5 años</h2>
+    <label>Edad actual: <input type="number" id="edad5"></label><br>
+    <button onclick="ej5()">Calcular</button>
+    <p id="res5" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 6 ================= -->
+  <section>
+    <h2>Ejercicio 6 - Área de un rectángulo</h2>
+    <label>Base: <input type="number" id="base6"></label>
+    <label>Altura: <input type="number" id="altura6"></label><br>
+    <button onclick="ej6()">Calcular</button>
+    <p id="res6" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 7 ================= -->
+  <section>
+    <h2>Ejercicio 7 - (a + b) * c</h2>
+    <label>a: <input type="number" id="a7" value="8"></label>
+    <label>b: <input type="number" id="b7" value="3"></label>
+    <label>c: <input type="number" id="c7" value="2"></label><br>
+    <button onclick="ej7()">Calcular</button>
+    <p id="res7" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 8 ================= -->
+  <section>
+    <h2>Ejercicio 8 - Nombre completo</h2>
+    <label>Nombre: <input type="text" id="nom8"></label>
+    <label>Apellido: <input type="text" id="ape8"></label><br>
+    <button onclick="ej8()">Mostrar</button>
+    <p id="res8" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 9 ================= -->
+  <section>
+    <h2>Ejercicio 9 - Número par o impar</h2>
+    <label>Número: <input type="number" id="num9"></label><br>
+    <button onclick="ej9()">Verificar</button>
+    <p id="res9" class="resultado"></p>
+  </section>
+
+  <!-- ================= EJERCICIO 10 ================= -->
+  <section>
+    <h2>Ejercicio 10 - Convertir grados Celsius a Fahrenheit</h2>
+    <label>Celsius: <input type="number" id="c10"></label><br>
+    <button onclick="ej10()">Convertir</button>
+    <p id="res10" class="resultado"></p>
+  </section>
+
+  <script>
+    // Ejercicio 1
+    function ej1() {
+      let nombre = "Victor";
+      let edad = 25;
+      let ciudad = "Lima";
+      document.getElementById("res1").innerText =
+        `Nombre: ${nombre}, Edad: ${edad}, Ciudad: ${ciudad}`;
+    }
+
+    // Ejercicio 2
+    function ej2() {
+      let nombre = document.getElementById("nombre2").value;
+      let edad = parseInt(document.getElementById("edad2").value);
+      if (!nombre || isNaN(edad)) {
+        document.getElementById("res2").innerText = "Completa ambos campos.";
+        return;
+      }
+      document.getElementById("res2").innerText = `Hola ${nombre}, tienes ${edad} años.`;
+    }
+
+    // Ejercicio 3
+    function ej3() {
+      let x = parseInt(document.getElementById("x3").value);
+      let y = parseInt(document.getElementById("y3").value);
+      let res = `Suma: ${x+y}, Resta: ${x-y}, Multiplicación: ${x*y}, División: ${(x/y).toFixed(2)}, Resto: ${x%y}`;
+      document.getElementById("res3").innerText = res;
+    }
+
+    // Ejercicio 4
+    function ej4() {
+      let base = parseInt(document.getElementById("base4").value);
+      let exp = parseInt(document.getElementById("exp4").value);
+      document.getElementById("res4").innerText = `${base} ^ ${exp} = ${base ** exp}`;
+    }
+
+    // Ejercicio 5
+    function ej5() {
+      let edad = parseInt(document.getElementById("edad5").value);
+      if (isNaN(edad)) {
+        document.getElementById("res5").innerText = "Ingresa una edad válida.";
+        return;
+      }
+      document.getElementById("res5").innerText =
+        `Ahora tienes ${edad} años. En 5 años tendrás ${edad+5}.`;
+    }
+
+    // Ejercicio 6
+    function ej6() {
+      let base = parseInt(document.getElementById("base6").value);
+      let altura = parseInt(document.getElementById("altura6").value);
+      if (isNaN(base) || isNaN(altura)) {
+        document.getElementById("res6").innerText = "Completa ambos valores.";
+        return;
+      }
+      document.getElementById("res6").innerText = `Área = ${base * altura}`;
+    }
+
+    // Ejercicio 7
+    function ej7() {
+      let a = parseInt(document.getElementById("a7").value);
+      let b = parseInt(document.getElementById("b7").value);
+      let c = parseInt(document.getElementById("c7").value);
+      document.getElementById("res7").innerText = `(${a} + ${b}) * ${c} = ${(a+b)*c}`;
+    }
+
+    // Ejercicio 8
+    function ej8() {
+      let nom = document.getElementById("nom8").value;
+      let ape = document.getElementById("ape8").value;
+      document.getElementById("res8").innerText = `Nombre completo: ${nom} ${ape}`;
+    }
+
+    // Ejercicio 9
+    function ej9() {
+      let num = parseInt(document.getElementById("num9").value);
+      if (isNaN(num)) {
+        document.getElementById("res9").innerText = "Ingresa un número válido.";
+        return;
+      }
+      document.getElementById("res9").innerText = num % 2 === 0 ? "Es par" : "Es impar";
+    }
+
+    // Ejercicio 10
+    function ej10() {
+      let celsius = parseFloat(document.getElementById("c10").value);
+      if (isNaN(celsius)) {
+        document.getElementById("res10").innerText = "Ingresa un valor válido.";
+        return;
+      }
+      let fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById("res10").innerText =
+        `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+    }
+  </script>
 </body>
 </html>

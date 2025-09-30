@@ -1,29 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let a = 5;
+      /*let a = 5;
         let b = 10;
         let suma = a + b;
 
-        let = (parseInt(prompt("Ingrese el primer número: ", suma)));
-        let = (parseInt(prompt("Ingrese el segundo número: ", suma)));
+        document.write("La Suma es: ", suma);*/
 
-        document.write("La Suma es: ", suma);
+      //let resta = a - b;
+      //let multiplicacion = a * b;
+      //let division = a / b;
 
-        //let resta = a - b;
-        //let multiplicacion = a * b;
-        //let division = a / b;
+      //document.write("Suma: ", suma);
+      //document.write("<br>Resta: ", resta);
+      //document.write("<br>Multiplicación: ", multiplicacion);
+      //document.write("<br>División: ", division);
 
-        //document.write("Suma: ", suma);
-        //document.write("<br>Resta: ", resta);
-        //document.write("<br>Multiplicación: ", multiplicacion);
-        //document.write("<br>División: ", division);
+      /* Declara dos variables x = 10 y y = 4.
+    Muestra en pantalla la suma, resta, 
+    multiplicación, división y el resto. */
+      /*let x = 10;
+      let y = 4;
+
+      document.write(x, " + ", y, " = ", x + y);
+      document.write("<br>");
+      document.write(x, " - ", y, " = ", x - y);
+      document.write("<br>");
+      document.write(x, " * ", y, " = ", x * y);
+      document.write("<br>");
+      document.write(x, " / ", y, " = ", x / y);
+      document.write("<br>");
+      document.write(x, " % ", y, " = ", x % y);*/
+
+
+      
+/* capturamos los datos del usuario en num1 y num2. */      
+    // Pedimos al usuario los números
+      let num1 = parseInt(prompt("Ingrese el primer número:"));
+      let num2 = parseInt(prompt("Ingrese el segundo número:"));
+
+      // Calculamos la suma
+      let suma = num1 + num2;
+
+      // Mostramos el resultado
+      document.write("La suma es: ", suma);
+
+      // Otras operaciones (opcional)
+      let resta = num1 - num2;
+      let multiplicacion = num1 * num2;
+      let division = num1 / num2;
+
+      document.write("<br>Resta: ", resta);
+      document.write("<br>Multiplicación: ", multiplicacion);
+      document.write("<br>División: ", division);
     </script>
-</body>
+  </body>
 </html>

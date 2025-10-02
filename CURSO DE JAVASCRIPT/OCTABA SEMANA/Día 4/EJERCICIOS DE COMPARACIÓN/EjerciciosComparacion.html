@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Ejercicios propuestos:
+        Compara si 10 es igual a 10.
+        Compara si 15 es mayor que 20.
+        Verifica si 8 es diferente de 5.
+        Verifica si 12 es menor o igual a 12.
+        Usa dos números ingresados por el usuario y compáralos. */
+
+        /* Ejercicio 1: Compara si 10 es igual a 10. */
+        let x = 10, 
+        y = 10;
+
+        document.write("¿10 es igual a 10? ", x == y, "<br>");
+
+        /* Ejercicio 2: Compara si 15 es mayor que 20. */
+        let a = 15, 
+        b = 20;
+        document.write("¿15 es mayor que 20? ", 15 > 20, "<br>");
+
+        /* Ejercicio 3: Verifica si 8 es diferente de 5. */
+        let c = 8, 
+        d = 5;
+        document.write("¿8 es diferente de 5? ", 8 != 5, "<br>");
+
+        /* Ejercicio 4: Verifica si 12 es menor o igual a 12. */
+        let e = 12, 
+        f = 12;
+        document.write("¿12 es menor o igual a 12? ", 12 <= 12, "<br>");
+
+        /* Ejercicio 5: Usa dos números ingresados por el usuario y compáralos. */
+        let numero1 = parseInt(prompt("Ingresa el primer número:"));
+        let numero2 = parseInt(prompt("Ingresa el segundo número:"));   
+        document.write("¿", numero1, " es mayor o igual a ", numero2, "? ", (numero1 >= numero2));
+    </script>
+</body>
+</html>

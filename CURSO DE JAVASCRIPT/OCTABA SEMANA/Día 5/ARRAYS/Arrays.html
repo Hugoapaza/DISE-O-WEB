@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 1. Crea un array con 5 nombres de tus amigos y muéstralos. */
+        let amigos = ["Juan ", "María ", "Pedro ", "Ana ", "Luis "];
+        document.write("Mis 5 amigos son: ", amigos ,"<br>");
+
+        /* 2. Declara un array de 4 números y muestra el tercero. */
+        let numeros = [10, 20, 30, 40];
+        document.write("Tercer número: " , numeros[2] , "<br>");
+
+        /* 3. Cambia un valor de un array y muéstralo de nuevo. */
+        amigos[1] = "Lucía ";
+        document.write("Amigos (después del cambio): ");
+        document.write(amigos , "<br>");
+
+        /* 4. Usa .length para mostrar cuántos elementos tiene un array. */
+        document.write("Número de amigos: " , amigos.length , "<br>");
+
+        /* 5. Crea un array con tus comidas favoritas y muestra la última. */
+        let comidas = ["Pizza", "Sushi", "Tacos", "Ceviche"];
+        document.write("Mi última comida favorita es: ", comidas[3]);
+
+        //document.write("Última comida favorita: " , comidas[comidas.length - 1] , "<br>");
+    </script>
+</body>
+</html>

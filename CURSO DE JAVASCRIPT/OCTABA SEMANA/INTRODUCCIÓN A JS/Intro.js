@@ -160,7 +160,7 @@ let nombres = 'Ana';               // También con comillas simples
 let saludo = `Hola ${nombres}`;    // Template string con backticks
 
 // 2. Number → números (enteros y decimales)
-let edad = 25;       // número entero
+let edadd = 25;       // número entero
 let pi = 3.1416;     // número decimal
 let infinito = Infinity;  // número especial
 let noEsNumero = NaN;     // resultado inválido de una operación
@@ -173,7 +173,7 @@ let encendido = true;
 let apagado = false;
 
 // 5. Undefined → variable declarada pero sin valor asignado
-let sinValor;    // undefined automáticamente
+let sinvalor;    // undefined automáticamente
 
 // 6. Null → ausencia intencionada de valor
 let vacio = null;
@@ -186,7 +186,7 @@ let otroId = Symbol("id"); // siempre será diferente a "id"
 ===============================================================*/
 
 // 1. Object → colección de pares clave:valor
-let persona = {
+let person = {
   nombre: "Carlos",
   edad: 30,
   activo: true
@@ -216,13 +216,13 @@ let conjunto = new Set([1, 2, 2, 3]); // guarda solo {1, 2, 3}
 
 // 8. WeakMap → similar a Map pero con claves de tipo objeto y recolección de memoria
 let weakMapa = new WeakMap();
-let obj = {};
+let objet = {};
 weakMapa.set(obj, "valor");
 
 // 9. WeakSet → similar a Set pero solo acepta objetos y permite recolección de memoria
 let weakConjunto = new WeakSet();
-let objeto = {};
-weakConjunto.add(objeto);
+let Objeto = {};
+weakConjunto.add(Objeto);
 
 
 //=============================================================
@@ -618,4 +618,68 @@ Hacer peticiones a una API (fetch) y mostrar resultados (usar async/await).
 Juego simple: adivina el número (bucles, condiciones, eventos).
 ===========================================================
 */
+
+
+/* 
+🔹 Paso 4: Comparadores útiles
+-------------------------------------
+| Comparador | Significado          |
+| ---------- | -------------------- |
+| `==`       | Igual (valor)        |
+| `===`      | Igual (valor y tipo) |
+| `!=`       | Distinto             |
+| `>`        | Mayor que            |
+| `<`        | Menor que            |
+| `>=`       | Mayor o igual        |
+| `<=`       | Menor o igual        |
+-------------------------------------
+*/
+
+/* 🔹 Paso 5: Operadores lógicos
+
+&& (AND): ambas condiciones deben ser verdaderas
+
+|| (OR): al menos una condición debe ser verdadera
+
+"!" (NOT): niega la condición */
+
+//Ejemplo con &&: 
+let edades = 25;
+let tieneLicencia = true;
+
+if (edades >= 18 && tieneLicencia) {
+  console.log("Puedes conducir");
+}
+
+
+/* ✅ ¿Qué es una condicional?
+
+Una condicional permite ejecutar cierto código solo si se cumple una condición. Es decir, 
+toma decisiones dependiendo de si algo es verdadero o falso. */
+
+/* 🔹 Paso 1: Usar if
+
+La estructura básica es: */
+
+if (condición) {
+  // Código que se ejecuta si la condición es verdadera
+}
+
+/* 🔹 Paso 2: Agregar else
+
+Si la condición no se cumple, puedes usar else para hacer otra cosa: */
+if (condición) {
+  // Si se cumple
+} else {
+  // Si NO se cumple
+}
+
+/* ====================================================== */
+let años = 16;
+
+if (años >= 18) {
+  console.log("Eres mayor de edad");
+} else {
+  console.log("Eres menor de edad");
+}
 

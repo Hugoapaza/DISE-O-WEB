@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/* Ejercicios propuestos:
+
+1. Calcula la raíz cuadrada de un número dado.
+2. Calcula 5 elevado al cubo.
+3. Genera un número aleatorio y muéstralo.
+4. Redondea un número decimal ingresado por el usuario.
+5. Calcula el valor absoluto de un número negativo. */
+
+/* Ejercicio 1: Calcula la raíz cuadrada de un número dado. */
+let numero = 16;
+document.write("La raíz cuadrada de ", numero, " es: ", Math.sqrt(numero), "<br>");
+
+/* Ejercicio 2: Calcula 5 elevado al cubo. */
+let base = 5;
+document.write("5 elevado al cubo es: ", Math.pow(base, 3), "<br>");
+
+/* Ejercicio 3: Genera un número aleatorio y muéstralo. */
+let numeroAleatorio = Math.random();
+document.write("Número aleatorio generado: ", numeroAleatorio, "<br>");
+
+/* Ejercicio 4: Redondea un número decimal ingresado por el usuario. */
+let numeroDecimal = parseFloat(prompt("Ingresa un número decimal:"));   
+document.write("Número redondeado: ", Math.round(numeroDecimal), "<br>");
+
+/* Ejercicio 5: Calcula el valor absoluto de un número negativo. */
+let numeroNegativo = -10;
+document.write("El valor absoluto de ", numeroNegativo, " es: ", Math.abs(numeroNegativo), "<br>");
+
+    </script>
+</body>
+</html>

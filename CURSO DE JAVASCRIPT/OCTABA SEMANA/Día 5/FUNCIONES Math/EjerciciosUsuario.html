@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Calcula la raíz cuadrada de un número dado
+      let numeroParaRaiz = parseFloat(
+        prompt("Ingresa un número para calcular su raíz cuadrada:")
+      );
+      let raizCuadrada = Math.sqrt(numeroParaRaiz);
+      document.write(
+        "Raíz cuadrada de " + numeroParaRaiz + ": " + raizCuadrada + "<br>"
+      );
+
+      // 2. Calcula 5 elevado al cubo
+      let cincoAlCubo = Math.pow(5, 3);
+      document.write("5 elevado al cubo: " + cincoAlCubo + "<br>");
+
+      // 3. Genera un número aleatorio y muéstralo
+      let numeroAleatorio = Math.random(); // entre 0 y 1
+      document.write("Número aleatorio generado: " + numeroAleatorio + "<br>");
+
+      // 4. Redondea un número decimal ingresado por el usuario
+      let numeroDecimal = parseFloat(
+        prompt("Ingresa un número decimal para redondear:")
+      );
+      let numeroRedondeado = Math.round(numeroDecimal);
+      document.write("Número redondeado: " + numeroRedondeado + "<br>");
+
+      // 5. Calcula el valor absoluto de un número negativo
+      let numeroNegativo = parseFloat(prompt("Ingresa un número negativo:"));
+      let valorAbsoluto = Math.abs(numeroNegativo);
+      document.write(
+        "Valor absoluto de " + numeroNegativo + ": " + valorAbsoluto + "<br>"
+      );
+    </script>
+  </body>
+</html>

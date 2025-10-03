@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 1. Pide al usuario un texto y muestra cuántos caracteres tiene. */
+        let texto = prompt("Introduce un texto:");
+        document.write("Número de caracteres: " , texto.length , "<br>");
+
+        /* 2. Convierte tu nombre a mayúsculas. */
+        let nombre = "Juan";
+        document.write("Nombre en mayúsculas: " , nombre.toUpperCase() , "<br>");
+
+        /* 3. Convierte tu apellido a minúsculas. */
+        let apellido = "PÉREZ";
+        document.write("Apellido en minúsculas: " , apellido.toLowerCase() , "<br>");
+
+        /* 4. Extrae los 5 primeros caracteres de una frase. */
+        let frase = "¿how are you?";
+        document.write("Primeros 5 caracteres: " , frase.slice(0, 5) , "<br>");
+
+        /* 5. Une dos cadenas usando concat. */
+        let cadena1 = "Hola, ";
+        let cadena2 = "¿Cómo estás?";
+        document.write("Unión de cadenas: " , cadena1.concat(cadena2) , "<br>");
+    </script>
+</body>
+</html>
